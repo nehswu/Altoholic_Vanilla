@@ -13,7 +13,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Shaman"] = "Schamane",
 	["Paladin"] = "Paladin",
 	["Priest"] = "Priester",
-	
+
 	-- Stats
 	["Sta:-s |rInt:-s |rSpi:-s\n|rCrit:-s |rHit:-s |rDmg:-s"] = "Sta:-s |rInt:-s |rSpi:-s\n|rCrit:-s |rHit:-s |rDmg:-s",
 	["Sta:-s |rInt:-s |rSpi:-s\n|rCrit:-s |rMP5:-s |rHeal:-s"] = "Sta:-s |rInt:-s |rSpi:-s\n|rCrit:-s |rMP5:-s |rHeal:-s",
@@ -27,7 +27,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Sta:-s |rStr:-s |rInt:-s\n|rCrit:-s |rHit:-s |rAP:-s"] = "Sta:-s |rStr:-s |rInt:-s\n|rCrit:-s |rHit:-s |rAP:-s",
 	["Sta:-s |rAgi:-s |rInt:-s\n|rCrit:-s |rHit:-s |rAP:-s"] = "Sta:-s |rAgi:-s |rInt:-s\n|rCrit:-s |rHit:-s |rAP:-s",
 	["Sta:-s |rAgi:-s\n|rCrit:-s |rHit:-s |rAP:-s"] = "Sta:-s |rAgi:-s\n|rCrit:-s |rHit:-s |rAP:-s",
-	
+
 	-- note: these string are the ones found in item tooltips, make sure to respect the case when translating, and to distinguish them (like crit vs spell crit)
 	["Increases healing done by up to %d+"] = "Increases healing done by up to %d+",
 	["Increases damage and healing done by magical spells and effects by up to %d+"] = "Increases damage and healing done by magical spells and effects by up to %d+",
@@ -42,10 +42,10 @@ L:RegisterTranslations("deDE", function() return {
 	["Classes: Warlock"] = "Classes: Warlock",
 	["Classes: Priest"] = "Classes: Priest",
 	["Resistance"] = "Resistance",
-	
+
 	-- equipment slots
 	["Ranged"] = "Fernkampf",
-	
+
 	--skills
 	["Professions"] = "Berufe",
 	["Secondary Skills"] = "Sekundäre Fertigkeiten",
@@ -57,7 +57,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Lockpicking"] = "Schlossknacken",
 	["Poisons"] = "Gifte",
 	["Beast Training"] = "Begleiter Training",
-	
+
 	--factions not in LibFactions or LibZone
 	["Exodar"] = "Die Exodar",
 	["Gnomeregan Exiles"] = "Gnomeregangnome",
@@ -70,7 +70,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Ravenholdt"] = "Rabenholdt",
 	["Shen'dralar"] = "Shen'dralar",
 	["Syndicate"] = "Syndikat",
-	
+
 	-- menu
 	["Account Summary"] = "Account Übersicht",
 	["Characters"] = "Charaktere",
@@ -157,7 +157,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Recipes"] = "Rezepte",
 	["Equipment"] = "Ausrüstung",
 	["Options"] = "Optionen",
-	
+
 	--Altoholic.lua
 	["Loots"] = "Loots",				-- translation needed
 	["Unknown"] = "Unknown",				-- translation needed
@@ -168,31 +168,31 @@ L:RegisterTranslations("deDE", function() return {
 	["(has mail)"] = "(has mail)",				-- translation needed
 	["(has auctions)"] = "(has auctions)",
 	["(has bids)"] = "(has bids)",
-	
+
 	["No rest XP"] = "No rest XP",
 	["% rested"] = "% rested",
 	["Transmute"] = "Transmute",
-	
+
 	["Bags"] = "Bags",				-- translation needed
 	["Bank"] = "Bank",
 	["Equipped"] = "Equipped",				-- translation needed
 	["Mail"] = "Mail",				-- translation needed
 	[", "] = ", ",						-- required for znCH
 	["(Guild bank: "] = "(Guild bank: ",				-- translation needed
-	
+
 	["Level"] = "Level",				-- translation needed
 	["Zone"] = "Zone",				-- translation needed
 	["Rest XP"] = "Rest XP",				-- translation needed
-	
+
 	["Source"] = "Source",				-- translation needed
 	["Total owned"] = "Total owned",				-- translation needed
 	["Already known by "] = "Already known by ",				-- translation needed
 	["Will be learnable by "] = "Will be learnable by ",				-- translation needed
 	["Could be learned by "] = "Could be learned by ",				-- translation needed
-	
+
 	["At least one recipe could not be read"] = "At least one recipe could not be read",				-- translation needed
 	["Please open this window again"] = "Please open this window again",				-- translation needed
-	
+
 	--Core.lua
 	['search'] = 'search',
 	["Search in bags"] = "Search in bags",				-- translation needed
@@ -202,11 +202,11 @@ L:RegisterTranslations("deDE", function() return {
 	["Hides the UI"] = "Hides the UI",				-- translation needed
 	['toggle'] = 'toggle',
 	["Toggles the UI"] = "Toggles the UI",				-- translation needed
-	
+
 	--AltoholicFu.lua
 	["Left-click to"] = "Left-click to",				-- translation needed
 	["open/close"] = "open/close",				-- translation needed
-	
+
 	--AccountSummary.lua
 	["View bags"] = "View bags",				-- translation needed
 	["View mailbox"] = "View mailbox",				-- translation needed
@@ -220,7 +220,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Suggested leveling zone: "] = "Suggested leveling zone: ",				-- translation needed
 	["Arena points: "] = "Arena points: ",				-- translation needed
 	["Honor points: "] = "Honor points: ",				-- translation needed
-	
+
 	-- AuctionHouse.lua
 	[" has no auctions"] = " has no auctions",
 	[" has no bids"] = " has no bids",
@@ -229,19 +229,19 @@ L:RegisterTranslations("deDE", function() return {
 	["Clear your faction's entries"] = "Clear your faction's entries",
 	["Clear goblin AH entries"] = "Clear goblin AH entries",
 	["Clear all entries"] = "Clear all entries",
-	
-	
+
+
 	--BagUsage.lua
 	["Totals"] = "Totals",				-- translation needed
 	["slots"] = "slots",				-- translation needed
 	["free"] = "free",				-- translation needed
-	
+
 	--Containers.lua
 	["32 Keys Max"] = "32 Keys Max",				-- translation needed
 	["28 Slot"] = "28 Slot",				-- translation needed
 	["Bank bag"] = "Bank bag",				-- translation needed
 	["Unknown link, please relog this character"] = "Unknown link, please relog this character",				-- translation needed
-	
+
 	--Equipment.lua
 	["Find Upgrade"] = "Find Upgrade",				-- translation needed
 	["(based on iLvl)"] = "(based on iLvl)",				-- translation needed
@@ -251,11 +251,11 @@ L:RegisterTranslations("deDE", function() return {
 	["Balance"] = "Balance",
 	["Elemental Shaman"] = "Elemental Shaman",		-- shaman spec !
 	["Heal"] = "Heal",
-	
+
 	--GuildBank.lua
 	["Last visited "] = "Last visited ",				-- translation needed
 	[" days ago by "] = " days ago by ",				-- translation needed
-	
+
 	--Mails.lua
 	[" has not visited his/her mailbox yet"] = " has not visited his/her mailbox yet",				-- translation needed
 	[" has no mail, last check "] = " has no mail, last check ",				-- translation needed
@@ -263,28 +263,28 @@ L:RegisterTranslations("deDE", function() return {
 	["Mailbox"] = "Mailbox",				-- translation needed
 	["Mail was last checked "] = "Mail was last checked ",				-- translation needed
 	[" days"] = " days",				-- translation needed
-	
+
 	--Quests.lua
 	["No quest found for "] = "No quest found for ",				-- translation needed
 	["QuestID"] = "QuestID",				-- translation needed
 	["Are also on this quest:"] = "Are also on this quest:",				-- translation needed
-	
+
 	--Recipes.lua
 	["No data: "] = "No data: ",				-- translation needed
 	[" scan failed for "] = " scan failed for ",				-- translation needed
-	
+
 	--Reputations.lua
 	["Shift-Click to link this info"] = "Shift-Click to link this info",				-- translation needed
 	[" is "] = " is ",				-- translation needed
 	[" with "] = " with ",				-- translation needed
-	
+
 	--Search.lua
 	["Item Level"] = "Item Level",				-- translation needed
 	[" results found (Showing "] = " results found (Showing ",				-- translation needed
 	["No match found!"] = "No match found!",				-- translation needed
 	[" not found!"] = " not found!",				-- translation needed
 	["Socket"] = "Socket",
-	
+
 	--skills.lua
 	["Rogue Proficiencies"] = "Rogue Proficiencies",				-- translation needed
 	["up to"] = "up to",				-- translation needed
@@ -293,7 +293,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Suggestion"] = "Suggestion",				-- translation needed
 	["Prof. 1"] = "Prof. 1",
 	["Prof. 2"] = "Prof. 2",
-	
+
 	--loots.lua
 	--Instinct drop
 	["Trash Mobs"] = "Trash Mobs",				-- translation needed
@@ -356,7 +356,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Opera (Shared Drops)"] = "Opera (Shared Drops)",				-- translation needed
 	["Timed Chest"] = "Timed Chest",				-- translation needed
 	["Patterns"] = "Muster",
-	
+
 	--Rep
 	["Token Hand-Ins"] = "Token Hand-Ins",				-- translation needed
 	["Items"] = "Items",				-- translation needed
@@ -370,7 +370,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Lunacy Deck"] = "Lunacy Deck",				-- translation needed
 	["Quest rewards"] = "Quest rewards",				-- translation needed
 	--["Shattrath"] = true,
-	
+
 	--World drop
 	["Outdoor Bosses"] = "Outdoor Bosses",				-- translation needed
 	["Highlord Kruul"] = "Hochlord Kruul",
@@ -453,7 +453,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Gordok Brewery"] = "Gordok Brewery",				-- translation needed
 	["Drohn's Distillery"] = "Drohn's Distillery",				-- translation needed
 	["T'chali's Voodoo Brewery"] = "T'chali's Voodoo Brewery",				-- translation needed
-	
+
 	--craft
 	["Crafted Weapons"] = "Crafted Weapons",				-- translation needed
 	["Master Swordsmith"] = "Master Swordsmith",				-- translation needed
@@ -475,7 +475,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Burning Rage"] = "Brennernder Zorn",
 	["Blacksmithing Mail Sets"] = "Blacksmithing Mail Sets",				-- translation needed
 	["Bloodsoul Embrace"] = "Umarmung der Blutseele",
-	["Fel Iron Chain"] = "Teufelseisenkettenrüstung",	
+	["Fel Iron Chain"] = "Teufelseisenkettenrüstung",
 	["Tailoring Sets"] = "Tailoring Sets",				-- translation needed
 	["Bloodvine Garb"] = "Blutrebengewand",
 	["Netherweave Vestments"] = "Netherstoffgewänder",
@@ -511,7 +511,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Felstalker Armor"] = "Rüstung des Teufelspirschers",
 	["Fury of the Nether"] = "Netherzorn",
 	["Netherscale Armor"] = "Netherschuppenrüstung",
-	["Netherstrike Armor"] = "Rüstung des Netherstoßes",	
+	["Netherstrike Armor"] = "Rüstung des Netherstoßes",
 	["Armorsmith"] = "Armorsmith",				-- translation needed
 	["Weaponsmith"] = "Weaponsmith",				-- translation needed
 	["Dragonscale"] = "Dragonscale",				-- translation needed
@@ -527,7 +527,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Expert"] = "Expert",				-- translation needed
 	["Artisan"] = "Artisan",				-- translation needed
 	["Master"] = "Master",				-- translation needed
-	
+
 	--Set & PVP
 	["Superior Rewards"] = "Seltene Items",
 	["Epic Rewards"] = "Epische Items",
@@ -536,7 +536,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Lv 30-39 Rewards"] = "Belohnungen (Level 30-39)",
 	["Lv 40-49 Rewards"] = "Belohnungen (Level 40-49)",
 	["Lv 50-59 Rewards"] = "Belohnungen (Level 50-59)",
-	["Lv 60 Rewards"] = "Belohnungen (Level 60)",	
+	["Lv 60 Rewards"] = "Belohnungen (Level 60)",
 	["PVP Cloth Set"] = "PVP Cloth Set",				-- translation needed
 	["PVP Leather Sets"] = "PVP Leather Sets",				-- translation needed
 	["PVP Mail Sets"] = "PVP Mail Sets",				-- translation needed
@@ -583,8 +583,8 @@ L:RegisterTranslations("deDE", function() return {
 	["Level 40-49"] = "Level 40-49",
 	["Level 50-60"] = "Level 50-60",
 	["Level 70"] = "Level 70",
-	
-	-- Altoholic.Gathering : Mining 
+
+	-- Altoholic.Gathering : Mining
 	["Copper Vein"] = "Kupfervorkommen",
 	["Tin Vein"] = "Zinnvorkommen",
 	["Iron Deposit"] = "Eisenvorkommen",
@@ -612,7 +612,7 @@ L:RegisterTranslations("deDE", function() return {
 	["Large Obsidian Chunk"] = "Großer Obsidianbrocken",
 	["Small Obsidian Chunk"] = "Kleiner Obsidianbrocken",
 	["Nethercite Deposit"] = "Netheritablagerung",
-	
+
 	-- Altoholic.Gathering : Herbalism
 	["Peacebloom"] = "Friedensblume",
 	["Silverleaf"] = "Silberblatt",
@@ -656,10 +656,10 @@ L:RegisterTranslations("deDE", function() return {
 	["Ragveil"] = "Zottelkappe",
 	["Flame Cap"] = "Flammenkappe",
 	["Fel Lotus"] = "Teufelslotus",
-	["Netherdust Bush"] = "Netherstaubbusch",  	
+	["Netherdust Bush"] = "Netherstaubbusch",
 	-- ["Glowcap"] = true,
 	-- ["Sanguine Hibiscus"] = true,
-	
+
 } end)
 
 if GetLocale() == "deDE" then

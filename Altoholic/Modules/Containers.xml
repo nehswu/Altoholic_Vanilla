@@ -22,7 +22,7 @@
 			<Button name="$parentItem14" inherits="BagItemTemplate" />
 		</Frames>
 	</Button>
-	
+
 	<Frame name="AltoContainers" parent="AltoholicFrame" hidden="true">
 		<Size>
 			<AbsDimension x="615" y="306"/>
@@ -72,7 +72,7 @@
 				</Layers>
 				<Scripts>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(41, function(this) 
+						FauxScrollFrame_OnVerticalScroll(41, function(this)
 							Altoholic:Containers_Update();
 						end)
 					</OnVerticalScroll>
@@ -88,5 +88,5 @@
 			</OnShow>
 		</Scripts>
 	</Frame>
-	
+
 </Ui>

@@ -28,7 +28,7 @@
 		<NormalFont inherits="GameFontNormalSmall" justifyH="LEFT"/>
 		<HighlightFont inherits="GameFontHighlightSmall" justifyH="LEFT"/>
 	</Button>
-	
+
 	<Button name="SkillsTemplate" virtual="true">
 		<Size>
 			<AbsDimension x="615" y="22"/>
@@ -80,7 +80,7 @@
 				<NormalTexture name="$parentIcon" file="Interface\Buttons\UI-MinusButton-UP" />
 				<HighlightTexture file="Interface\Buttons\UI-PlusButton-Hilight" alphaMode="ADD" />
 			</Button>
-			
+
 			<Button name="$parentLevel" inherits="SkillButtonTemplate" id="7">
 				<Anchors>
 					<Anchor point="BOTTOMLEFT" relativeTo="$parentName" relativePoint="BOTTOMRIGHT">
@@ -196,7 +196,7 @@
 				</Layers>
 				<Scripts>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(18, function(this) 
+						FauxScrollFrame_OnVerticalScroll(18, function(this)
 							Altoholic:Skills_Update();
 						end)
 					</OnVerticalScroll>
@@ -212,5 +212,5 @@
 			</OnShow>
 		</Scripts>
 	</Frame>
-	
+
 </Ui>

@@ -1,5 +1,5 @@
 ﻿Altoholic = AceLibrary("AceAddon-2.0"):new("AceConsole-2.0", "AceEvent-2.0", "AceDB-2.0", "AceHook-2.1")
-Altoholic:RegisterChatCommand({"/Altoholic", "/Alto"}, options)	
+Altoholic:RegisterChatCommand({"/Altoholic", "/Alto"}, options)
 Altoholic:RegisterDB("AltoholicDB")
 Altoholic.SearchResults = {}
 Altoholic.CharacterInfo = {}
@@ -14,7 +14,7 @@ local BF = LibStub("LibBabble-Faction-3.0"):GetLookupTable()
 local BZ = LibStub("LibBabble-Zone-3.0"):GetLookupTable()
 
 
-local options = { 
+local options = {
 	type='group',
 	args = {
 		search = {
@@ -44,11 +44,11 @@ local options = {
 			desc = L["Toggles the UI"],
 			func = function() Altoholic:ToggleUI() end
 		},
-    }
+	}
 }
 
 Altoholic.Categories = {
-	"AltoSummary", 
+	"AltoSummary",
 	"AltoBags",
 	"AltoContainers",
 	"AltoMail",
@@ -63,36 +63,36 @@ Altoholic.Categories = {
 }
 
 Altoholic.RecipesBooks = {
-    --Craft Recipes:
-    "Pattern:",
-    "Plans:",
-    "Formula:",
-    "Schematic:",
-    "Recipe:",
-    --Class Books:
-    "Book of",
-    "Book:",
-    "Codex of",
-    "Codex:",
-    "Grimoire of",
-    "Grimoire:",
-    "Guide:",
-    "Handbook of",
-    "Libram:",
-    "Manual of",
-    "Tablet of",
-    "Tome of"
+	--Craft Recipes:
+	"Pattern:",
+	"Plans:",
+	"Formula:",
+	"Schematic:",
+	"Recipe:",
+	--Class Books:
+	"Book of",
+	"Book:",
+	"Codex of",
+	"Codex:",
+	"Grimoire of",
+	"Grimoire:",
+	"Guide:",
+	"Handbook of",
+	"Libram:",
+	"Manual of",
+	"Tablet of",
+	"Tome of"
 }
 
-Altoholic.XPToNext	= { 
+Altoholic.XPToNext	= {
 -- From: http://www.wowwiki.com/Formulas:XP_To_Level, retrieved Feb 6, 2008
 -- read: at XPToNext[1], you need 400 xp to get to 2
-    400,900,1400,2100,2800,3600,4500,5400,6500,7600,8800,10100,
-    11400,12900,14400,16000,17700,19400,21300,23200,25200,27300,
-    29400,31700,34000,36400,38900,41400,44300,47400,50800,54500,
-    58600,62800,67100,71600,76100,80800,85700,90700,95800,101000,
-    106300,111800,117500,123200,129100,135100,141200,147500,153900,
-    160400,167100,173900,180800,187900,195000,202300,209800
+	400,900,1400,2100,2800,3600,4500,5400,6500,7600,8800,10100,
+	11400,12900,14400,16000,17700,19400,21300,23200,25200,27300,
+	29400,31700,34000,36400,38900,41400,44300,47400,50800,54500,
+	58600,62800,67100,71600,76100,80800,85700,90700,95800,101000,
+	106300,111800,117500,123200,129100,135100,141200,147500,153900,
+	160400,167100,173900,180800,187900,195000,202300,209800
 }
 
 -- Allow ESC to close the main frame
@@ -101,10 +101,10 @@ tinsert(UISpecialFrames, "AltoholicFrame");
 --[[	*** Note on reputation ***
 the "reputation" table is kept out of the "char" table for practical reasons, as the table will be populated with so many different entries for each alt,
 it was much easier to organize things this way to ensure a more efficient parsing when data will be displayed, this also prevents from creating
-a large temporary table that would have to be garbage collected later on. Character names will be duplicated in each sub-table, 
+a large temporary table that would have to be garbage collected later on. Character names will be duplicated in each sub-table,
 but this is a little trade-off I accept.
 --]]
- 
+
 Altoholic:RegisterDefaults('account', {
 	options = {
 		MinimapIconAngle = 268,
@@ -117,7 +117,7 @@ Altoholic:RegisterDefaults('account', {
 		TooltipCount = 1,
 		TooltipTotal = 1,
 		TooltipAlreadyKnown = 0,
-        TooltipLearnableBy = 1,
+		TooltipLearnableBy = 1,
 		ShowMinimap = 1,
 		SearchAutoQuery = 0,
 		TotalLoots = 0,					-- make at least one search in the loot tables to initialize these values
@@ -157,9 +157,9 @@ Altoholic:RegisterDefaults('account', {
 						bags = "",
 						bankslots = "",
 						zone = "",				-- in which zone the player went offline
-						subzone = "",			-- in which subzone .. 
+						subzone = "",			-- in which subzone ..
 						xp = 0,					-- current level xp
-						xpmax = 0,				-- max xp at current level 
+						xpmax = 0,				-- max xp at current level
 						restxp = 0,
 						isResting = true,		-- most players will logout at an inn, so default to true
 						money = 0,
@@ -177,10 +177,10 @@ Altoholic:RegisterDefaults('account', {
 							}
 						},
 						spells = {
-                            ['*'] = {
-                                name = nil,
-                                rank = nil
-                            }
+							['*'] = {
+								name = nil,
+								rank = nil
+							}
 						},
 						inventory = {},		-- 19 inventory slots, a simple table containing item id's
 						SavedInstance = {},	-- raid timers
@@ -376,195 +376,195 @@ local CLASS_PRIEST	= 9
 
 -- When processing item stats, exclude an item if one of these strings is encountered, then discard the item
 Altoholic.ExcludeStats = {
-	[CLASS_MAGE.."DPS"] = { 
+	[CLASS_MAGE.."DPS"] = {
 		STAT_RESIST,
-        SPELL_STAT0_NAME,
-		SPELL_STAT1_NAME, 
+		SPELL_STAT0_NAME,
+		SPELL_STAT1_NAME,
 		STAT_HEALING,
 		STAT_AP,
 		ITEM_MOD_DEFENSE_SKILL_RATING,
 		ITEM_MOD_DODGE_RATING,
-		ITEM_MOD_BLOCK_RATING, 
+		ITEM_MOD_BLOCK_RATING,
 		STAT_PRIEST_ONLY,
 		STAT_WARLOCK_ONLY
 	},
-	[CLASS_WARRIOR.."Tank"]	= { 
+	[CLASS_WARRIOR.."Tank"]	= {
 		STAT_RESIST,
-        SPELL_STAT3_NAME,
-		SPELL_STAT4_NAME, 
-		STAT_MP5, 
-		STAT_HEALING, 
-		STAT_AP, 
-		STAT_SPELLDMG, 
+		SPELL_STAT3_NAME,
+		SPELL_STAT4_NAME,
+		STAT_MP5,
+		STAT_HEALING,
+		STAT_AP,
+		STAT_SPELLDMG,
 		STAT_PALADIN_ONLY
 	},
-	[CLASS_WARRIOR.."DPS"] = { 
+	[CLASS_WARRIOR.."DPS"] = {
 		STAT_RESIST,
-        SPELL_STAT3_NAME,
-		SPELL_STAT4_NAME, 
-		STAT_MP5, 
-		STAT_HEALING, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		STAT_SPELLDMG, 
+		SPELL_STAT3_NAME,
+		SPELL_STAT4_NAME,
+		STAT_MP5,
+		STAT_HEALING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		STAT_SPELLDMG,
 		STAT_PALADIN_ONLY
 	},
-	[CLASS_HUNTER.."DPS"] = { 
-		STAT_RESIST, 
-		SPELL_STAT0_NAME, 
-		STAT_HEALING, 
-		ITEM_MOD_DODGE_RATING, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		STAT_SPELLDMG, 
-		ITEM_MOD_BLOCK_RATING, 
+	[CLASS_HUNTER.."DPS"] = {
+		STAT_RESIST,
+		SPELL_STAT0_NAME,
+		STAT_HEALING,
+		ITEM_MOD_DODGE_RATING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		STAT_SPELLDMG,
+		ITEM_MOD_BLOCK_RATING,
 		STAT_SHAMAN_ONLY
 	},
-	[CLASS_ROGUE.."DPS"] = { 
-		STAT_RESIST, 
-        SPELL_STAT3_NAME,
+	[CLASS_ROGUE.."DPS"] = {
+		STAT_RESIST,
+		SPELL_STAT3_NAME,
 		SPELL_STAT4_NAME,
-		STAT_MP5, 
-		STAT_HEALING, 
-		STAT_SPELLDMG, 
-		ITEM_MOD_BLOCK_RATING, 
+		STAT_MP5,
+		STAT_HEALING,
+		STAT_SPELLDMG,
+		ITEM_MOD_BLOCK_RATING,
 		ITEM_MOD_DEFENSE_SKILL_RATING
 	},
-	[CLASS_WARLOCK.."DPS"] = { 
-		STAT_RESIST, 
-        SPELL_STAT0_NAME,
-		SPELL_STAT1_NAME, 
-		STAT_HEALING, 
-		STAT_AP, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		ITEM_MOD_DODGE_RATING, 
-		ITEM_MOD_BLOCK_RATING, 
-		STAT_MAGE_ONLY, 
+	[CLASS_WARLOCK.."DPS"] = {
+		STAT_RESIST,
+		SPELL_STAT0_NAME,
+		SPELL_STAT1_NAME,
+		STAT_HEALING,
+		STAT_AP,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		ITEM_MOD_DODGE_RATING,
+		ITEM_MOD_BLOCK_RATING,
+		STAT_MAGE_ONLY,
 		STAT_PRIEST_ONLY
 	},
-	[CLASS_DRUID.."Tank"] = { 
-		STAT_RESIST, 
-		STAT_HEALING, 
+	[CLASS_DRUID.."Tank"] = {
+		STAT_RESIST,
+		STAT_HEALING,
 		STAT_SPELLDMG,
 		STAT_AP,
-        ITEM_MOD_BLOCK_RATING,
-        ITEM_MOD_CRIT_SPELL_RATING,
-        ITEM_MOD_HIT_SPELL_RATING,
-        STAT_MP5,
+		ITEM_MOD_BLOCK_RATING,
+		ITEM_MOD_CRIT_SPELL_RATING,
+		ITEM_MOD_HIT_SPELL_RATING,
+		STAT_MP5,
 		STAT_ROGUE_ONLY
 	},
 
-	[CLASS_DRUID.."Heal"] = { 
-		STAT_RESIST, 
-        SPELL_STAT0_NAME,
+	[CLASS_DRUID.."Heal"] = {
+		STAT_RESIST,
+		SPELL_STAT0_NAME,
 		SPELL_STAT1_NAME,
-		STAT_SPELLDMG, 
+		STAT_SPELLDMG,
 		STAT_AP,
-        ITEM_MOD_HIT_SPELL_RATING,  
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
+		ITEM_MOD_HIT_SPELL_RATING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
 		ITEM_MOD_DODGE_RATING,
 		ITEM_MOD_BLOCK_RATING
 	},
-	[CLASS_DRUID.."DPS"] = { 
-		STAT_RESIST, 
-        SPELL_STAT3_NAME,
-		SPELL_STAT4_NAME, 
-		STAT_HEALING, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		ITEM_MOD_BLOCK_RATING, 
-		STAT_SPELLDMG, 
+	[CLASS_DRUID.."DPS"] = {
+		STAT_RESIST,
+		SPELL_STAT3_NAME,
+		SPELL_STAT4_NAME,
+		STAT_HEALING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		ITEM_MOD_BLOCK_RATING,
+		STAT_SPELLDMG,
 		STAT_ROGUE_ONLY
 	},
-	[CLASS_DRUID.."Balance"] = { 
-		STAT_RESIST, 
-        SPELL_STAT0_NAME,
+	[CLASS_DRUID.."Balance"] = {
+		STAT_RESIST,
+		SPELL_STAT0_NAME,
 		SPELL_STAT1_NAME,
-		ITEM_MOD_DODGE_RATING, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		STAT_HEALING, 
-		ITEM_MOD_BLOCK_RATING, 
+		ITEM_MOD_DODGE_RATING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		STAT_HEALING,
+		ITEM_MOD_BLOCK_RATING,
 		STAT_AP
 	},
-	[CLASS_SHAMAN.."Heal"] = { 
-		STAT_RESIST, 
-		ITEM_MOD_CRIT_RATING, 
-        SPELL_STAT0_NAME,
+	[CLASS_SHAMAN.."Heal"] = {
+		STAT_RESIST,
+		ITEM_MOD_CRIT_RATING,
+		SPELL_STAT0_NAME,
 		SPELL_STAT1_NAME,
-		ITEM_MOD_DODGE_RATING, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		ITEM_MOD_BLOCK_RATING, 
+		ITEM_MOD_DODGE_RATING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		ITEM_MOD_BLOCK_RATING,
 		STAT_SPELLDMG,
 		STAT_AP
 	},
-	[CLASS_SHAMAN.."DPS"] = { 
-		STAT_RESIST, 
-		STAT_HEALING, 
-		STAT_SPELLDMG, 
-		ITEM_MOD_CRIT_SPELL_RATING, 
-		ITEM_MOD_DODGE_RATING, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		ITEM_MOD_BLOCK_RATING, 
+	[CLASS_SHAMAN.."DPS"] = {
+		STAT_RESIST,
+		STAT_HEALING,
+		STAT_SPELLDMG,
+		ITEM_MOD_CRIT_SPELL_RATING,
+		ITEM_MOD_DODGE_RATING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		ITEM_MOD_BLOCK_RATING,
 		STAT_HUNTER_ONLY
 	},
-	[CLASS_SHAMAN.."Elemental"] = { 
-		STAT_RESIST, 
-        SPELL_STAT0_NAME,
+	[CLASS_SHAMAN.."Elemental"] = {
+		STAT_RESIST,
+		SPELL_STAT0_NAME,
 		SPELL_STAT1_NAME,
-		STAT_HEALING, 
-		ITEM_MOD_HIT_RATING, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		ITEM_MOD_DODGE_RATING, 
-		ITEM_MOD_BLOCK_RATING, 
-		STAT_AP, 
+		STAT_HEALING,
+		ITEM_MOD_HIT_RATING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		ITEM_MOD_DODGE_RATING,
+		ITEM_MOD_BLOCK_RATING,
+		STAT_AP,
 		ITEM_MOD_CRIT_RATING
 	},
-	[CLASS_PALADIN.."Tank"]	= { 
-		STAT_RESIST, 
-		SPELL_STAT1_NAME, 
-		STAT_AP, 
-		STAT_HEALING, 
-		ITEM_MOD_CRIT_RATING, 
+	[CLASS_PALADIN.."Tank"]	= {
+		STAT_RESIST,
+		SPELL_STAT1_NAME,
+		STAT_AP,
+		STAT_HEALING,
+		ITEM_MOD_CRIT_RATING,
 		STAT_WARRIOR_ONLY
 	},
-	[CLASS_PALADIN.."Heal"]	= { 
-		STAT_RESIST, 
-        SPELL_STAT0_NAME,
-		SPELL_STAT1_NAME, 
-		ITEM_MOD_CRIT_RATING, 
-		STAT_AP, 
-		ITEM_MOD_DODGE_RATING, 
-		ITEM_MOD_BLOCK_RATING, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
+	[CLASS_PALADIN.."Heal"]	= {
+		STAT_RESIST,
+		SPELL_STAT0_NAME,
+		SPELL_STAT1_NAME,
+		ITEM_MOD_CRIT_RATING,
+		STAT_AP,
+		ITEM_MOD_DODGE_RATING,
+		ITEM_MOD_BLOCK_RATING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
 		ITEM_MOD_HIT_RATING
 	},
-	[CLASS_PALADIN.."DPS"] = { 
-		STAT_RESIST, 
-		STAT_HEALING, 
-		STAT_SPELLDMG, 
-		ITEM_MOD_DODGE_RATING, 
-		ITEM_MOD_BLOCK_RATING, 
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
+	[CLASS_PALADIN.."DPS"] = {
+		STAT_RESIST,
+		STAT_HEALING,
+		STAT_SPELLDMG,
+		ITEM_MOD_DODGE_RATING,
+		ITEM_MOD_BLOCK_RATING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
 		STAT_WARRIOR_ONLY },
 
-	[CLASS_PRIEST.."Heal"] = { 
-		STAT_RESIST, 
-        SPELL_STAT0_NAME,
+	[CLASS_PRIEST.."Heal"] = {
+		STAT_RESIST,
+		SPELL_STAT0_NAME,
 		SPELL_STAT1_NAME,
-		STAT_SPELLDMG, 
+		STAT_SPELLDMG,
 		STAT_AP,
-        ITEM_MOD_HIT_SPELL_RATING,    
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		ITEM_MOD_DODGE_RATING, 
+		ITEM_MOD_HIT_SPELL_RATING,
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		ITEM_MOD_DODGE_RATING,
 		ITEM_MOD_BLOCK_RATING
 	},
-	[CLASS_PRIEST.."DPS"] = { 
+	[CLASS_PRIEST.."DPS"] = {
 		STAT_RESIST,
-		SPELL_STAT0_NAME, 
+		SPELL_STAT0_NAME,
 		SPELL_STAT1_NAME,
-		STAT_HEALING, 
+		STAT_HEALING,
 		STAT_AP,
-		ITEM_MOD_DEFENSE_SKILL_RATING, 
-		ITEM_MOD_DODGE_RATING, 
-		ITEM_MOD_BLOCK_RATING, 
-		STAT_MAGE_ONLY, 
+		ITEM_MOD_DEFENSE_SKILL_RATING,
+		ITEM_MOD_DODGE_RATING,
+		ITEM_MOD_BLOCK_RATING,
+		STAT_MAGE_ONLY,
 		STAT_WARLOCK_ONLY
 	}
 }

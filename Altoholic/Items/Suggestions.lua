@@ -16,7 +16,7 @@ Altoholic.Suggestions = {
 		{ 75, "Apprentice riding skill (Lv 40): |cFFFFFFFF90g\n|cFFFFD700Standard mount in/near a capital city: |cFFFFFFFF10g" },
 		{ 150, "Journeyman riding skill (Lv 60): |cFFFFFFFF600g\n|cFFFFD700Epic mount in/near a capital city: |cFFFFFFFF100g" }
 	},
-	
+
 	-- source : http://forums.worldofwarcraft.com/thread.html?topicId=102789457&sid=1
 	-- ** Primary professions **
 	[BI["Tailoring"]] = {
@@ -114,7 +114,7 @@ Altoholic.Suggestions = {
 		{ 291, "Craft one Runed Arcanite Rod" },
 		{ 300, "Up to 300: Enchant Cloak - Superior Defense" }
 	},
-	[BI["Blacksmithing"]] = {	
+	[BI["Blacksmithing"]] = {
 		{ 25, "Up to 25: Rough Sharpening Stones" },
 		{ 45, "Up to 45: Rough Grinding Stones" },
 		{ 75, "Up to 75: Copper Chain Belt" },
@@ -136,7 +136,7 @@ Altoholic.Suggestions = {
 		{ 295, "Up to 295: Imperial Plate Bracers" },
 		{ 300, "Up to 300: Imperial Plate Boots" }
 	},
-	[BI["Alchemy"]] = {	
+	[BI["Alchemy"]] = {
 		{ 60, "Up to 60: Minor Healing Potion" },
 		{ 110, "Up to 110: Lesser Healing Potion" },
 		{ 140, "Up to 140: Healing Potion" },
@@ -185,7 +185,7 @@ Altoholic.Suggestions = {
 		{ 275, "Up to 275: Slag Pit (Searing Gorge)" },
 		{ 300, "Up to 300: Lost Rigger Cove (Tanaris)\nBay of Storms (Azshara)" }
 	},
-	
+
 	-- ** Secondary professions **
 	[BI["First Aid"]] = {
 		{ 40, "Up to 40: Linen Bandages" },
@@ -210,7 +210,7 @@ Altoholic.Suggestions = {
 		{ 275, "Up to 275: Monster Omelet\nor Tender Wolf Steaks" },
 		{ 285, "Up to 285: Runn Tum Tuber Surprise\nDire Maul (Pusillin)" },
 		{ 300, "Up to 300: Smoked Desert Dumplings\nQuest in Silithus" }
-	},	
+	},
 	-- source: http://www.wowguideonline.com/fishing.html
 	[BI["Fishing"]] = {
 		{ 50, "Up to 50: Any starting zone" },
@@ -221,30 +221,30 @@ Altoholic.Suggestions = {
 		{ 260, "Up to 260: Felwood" },
 		{ 300, "Up to 300: Azshara" }
 	},
-	
+
 	-- suggested leveling zones, compiled by Thaoky, based on too many sources to list + my own leveling experience on Alliance side
 	["Leveling"] = {
 		{ 10, "Up to 10: Any starting zone" },
-		{ 20, "Up to 20: "  .. BZ["Loch Modan"] .. "\n" .. BZ["Westfall"] .. "\n" .. BZ["Darkshore"] 
+		{ 20, "Up to 20: "  .. BZ["Loch Modan"] .. "\n" .. BZ["Westfall"] .. "\n" .. BZ["Darkshore"]
 						.. "\n" .. BZ["Silverpine Forest"] .. "\n" .. BZ["The Barrens"]},
-		{ 25, "Up to 25: " .. BZ["Wetlands"] .. "\n" .. BZ["Redridge Mountains"] .. "\n" .. BZ["Ashenvale"] 
+		{ 25, "Up to 25: " .. BZ["Wetlands"] .. "\n" .. BZ["Redridge Mountains"] .. "\n" .. BZ["Ashenvale"]
 						.. "\n" .. BZ["The Barrens"] .. "\n" .. BZ["Stonetalon Mountains"] .. "\n" .. BZ["Hillsbrad Foothills"] },
-		{ 28, "Up to 28: " .. BZ["Duskwood"] .. "\n" .. BZ["Wetlands"] .. "\n" .. BZ["Ashenvale"] 
+		{ 28, "Up to 28: " .. BZ["Duskwood"] .. "\n" .. BZ["Wetlands"] .. "\n" .. BZ["Ashenvale"]
 						.. "\n" .. BZ["Stonetalon Mountains"] .. "\n" .. BZ["Thousand Needles"] },
 		{ 31, "Up to 31: " .. BZ["Duskwood"] .. "\n" .. BZ["Thousand Needles"] .. "\n" .. BZ["Ashenvale"] },
-		{ 35, "Up to 35: " .. BZ["Thousand Needles"] .. "\n" .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Alterac Mountains"] 
+		{ 35, "Up to 35: " .. BZ["Thousand Needles"] .. "\n" .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Alterac Mountains"]
 						.. "\n" .. BZ["Arathi Highlands"] .. "\n" .. BZ["Desolace"] },
 		{ 40, "Up to 40: " .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Desolace"] .. "\n" .. BZ["Badlands"]
 						.. "\n" .. BZ["Dustwallow Marsh"] .. "\n" .. BZ["Swamp of Sorrows"] },
-		{ 43, "Up to 43: " .. BZ["Tanaris"] .. "\n" .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Badlands"] 
+		{ 43, "Up to 43: " .. BZ["Tanaris"] .. "\n" .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Badlands"]
 						.. "\n" .. BZ["Dustwallow Marsh"] .. "\n" .. BZ["Swamp of Sorrows"] },
 		{ 45, "Up to 45: " .. BZ["Tanaris"] .. "\n" .. BZ["Feralas"] .. "\n" .. BZ["The Hinterlands"] },
 		{ 48, "Up to 48: " .. BZ["Tanaris"] .. "\n" .. BZ["Feralas"] .. "\n" .. BZ["The Hinterlands"] .. "\n" .. BZ["Searing Gorge"] },
-		{ 51, "Up to 51: " .. BZ["Tanaris"] .. "\n" .. BZ["Azshara"] .. "\n" .. BZ["Blasted Lands"] 
+		{ 51, "Up to 51: " .. BZ["Tanaris"] .. "\n" .. BZ["Azshara"] .. "\n" .. BZ["Blasted Lands"]
 						.. "\n" .. BZ["Searing Gorge"] .. "\n" .. BZ["Un'Goro Crater"] .. "\n" .. BZ["Felwood"] },
 		{ 55, "Up to 55: " .. BZ["Un'Goro Crater"] .. "\n" .. BZ["Felwood"] .. "\n" .. BZ["Burning Steppes"]
 						.. "\n" .. BZ["Blasted Lands"] .. "\n" .. BZ["Western Plaguelands"] },
-		{ 58, "Up to 58: " .. BZ["Winterspring"] .. "\n" .. BZ["Burning Steppes"] .. "\n" .. BZ["Western Plaguelands"] 
+		{ 58, "Up to 58: " .. BZ["Winterspring"] .. "\n" .. BZ["Burning Steppes"] .. "\n" .. BZ["Western Plaguelands"]
 						.. "\n" .. BZ["Eastern Plaguelands"] .. "\n" .. BZ["Silithus"] },
 		{ 60, "Up to 60: " .. BZ["Winterspring"] .. "\n" .. BZ["Eastern Plaguelands"] .. "\n" .. BZ["Silithus"] },
 	}

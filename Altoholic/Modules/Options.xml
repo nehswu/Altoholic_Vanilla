@@ -57,9 +57,9 @@
 					<OnLoad>
 						local name = this:GetName()
 						local s = getglobal(name)
-						s.tooltipText = XML_TEXT_10; 
+						s.tooltipText = XML_TEXT_10;
 						getglobal(name .. "Low"):SetText("1");
-						getglobal(name .. "High"):SetText("360"); 
+						getglobal(name .. "High"):SetText("360");
 						getglobal(name .. "Text"):SetText(XML_TEXT_11 .. s:GetValue() ..")");
 					</OnLoad>
 					<OnValueChanged>
@@ -82,9 +82,9 @@
 					<OnLoad>
 						local name = this:GetName()
 						local s = getglobal(name)
-						s.tooltipText = XML_TEXT_12; 
+						s.tooltipText = XML_TEXT_12;
 						getglobal(name .. "Low"):SetText("1");
-						getglobal(name .. "High"):SetText("200"); 
+						getglobal(name .. "High"):SetText("200");
 						getglobal(name .. "Text"):SetText(XML_TEXT_13 .. s:GetValue() ..")");
 					</OnLoad>
 					<OnValueChanged>
@@ -107,9 +107,9 @@
 					<OnLoad>
 						local name = this:GetName()
 						local s = getglobal(name)
-						s.tooltipText = XML_TEXT_14; 
+						s.tooltipText = XML_TEXT_14;
 						getglobal(name .. "Low"):SetText("1");
-						getglobal(name .. "High"):SetText("15"); 
+						getglobal(name .. "High"):SetText("15");
 						getglobal(name .. "Text"):SetText(XML_TEXT_15 .. s:GetValue() ..")");
 					</OnLoad>
 					<OnValueChanged>
@@ -126,20 +126,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent_SliderMailExpiry" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-20"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_16);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.ShowMinimap = 1
 								AltoholicMinimapButton:Show()
 							else
@@ -154,20 +154,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent_ShowMinimap" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-10"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_17);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.SortDescending = 1
 							else
 								Altoholic.db.account.options.SortDescending = 0
@@ -180,20 +180,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent_SortDescending" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-10"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_18);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.RestXPMode = 1
 							else
 								Altoholic.db.account.options.RestXPMode = 0
@@ -206,20 +206,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent_RestXPMode" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-10"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_19);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.ScanMailBody = 1
 							else
 								Altoholic.db.account.options.ScanMailBody = 0
@@ -232,20 +232,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parentTooltipInfo" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-10"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_20);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.TooltipSource = 1
 							else
 								Altoholic.db.account.options.TooltipSource = 0
@@ -258,20 +258,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent_TooltipSource" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-10"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_21);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.TooltipCount = 1
 							else
 								Altoholic.db.account.options.TooltipCount = 0
@@ -284,20 +284,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent_TooltipCount" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-10"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_22);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.TooltipTotal = 1
 							else
 								Altoholic.db.account.options.TooltipTotal = 0
@@ -310,20 +310,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent_TooltipTotal" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-10"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_24);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.TooltipAlreadyKnown = 1
 							else
 								Altoholic.db.account.options.TooltipAlreadyKnown = 0
@@ -336,20 +336,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parent_TooltipAlreadyKnown" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-10"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_27);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.TooltipLearnableBy = 1
 							else
 								Altoholic.db.account.options.TooltipLearnableBy = 0
@@ -362,20 +362,20 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parentSearchInfo" relativePoint="BOTTOMLEFT">
 						<Offset>
 							<AbsDimension  x="0" y="-10"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_25);
 					</OnLoad>
 					<OnClick>
 						if Altoholic.db.account ~= nil then
-							if this:GetChecked() then 
+							if this:GetChecked() then
 								Altoholic.db.account.options.SearchAutoQuery = 1
 							else
 								Altoholic.db.account.options.SearchAutoQuery = 0

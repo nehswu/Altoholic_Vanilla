@@ -70,7 +70,7 @@
 					<OnEnter>
 						local v = Altoholic.vars
 						local s = Altoholic.db.account.data[v.CurrentFaction][v.CurrentRealm].char[v.CurrentAlt][v.AuctionType][this:GetID()]
-						
+
 						if s.id ~= nil then
 							local _, link = GetItemInfo(s.id)
 							GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
@@ -185,7 +185,7 @@
 				</Layers>
 				<Scripts>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(41, function(this) 
+						FauxScrollFrame_OnVerticalScroll(41, function(this)
 							Altoholic:Auctions_Update();
 						end)
 					</OnVerticalScroll>
@@ -201,5 +201,5 @@
 			</OnShow>
 		</Scripts>
 	</Frame>
-	
+
 </Ui>

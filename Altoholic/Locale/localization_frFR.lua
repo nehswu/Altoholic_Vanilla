@@ -13,8 +13,8 @@ L:RegisterTranslations("frFR", function() return {
 	["Druid"] = "Druide",
 	["Shaman"] = "Chaman",
 	["Paladin"] = "Paladin",
-	["Priest"] = "Prêtre", 
-	
+	["Priest"] = "Prêtre",
+
 	-- Stats
 	["Sta:-s |rInt:-s |rSpi:-s\n|rCrit:-s |rHit:-s |rDmg:-s"] = "End:-s |rInt:-s |rEsp:-s\n|rCrit:-s |rTouch:-s |rDég:-s",
 	["Sta:-s |rInt:-s |rSpi:-s\n|rCrit:-s |rMP5:-s |rHeal:-s"] = "End:-s |rInt:-s |rEsp:-s\n|rCrit:-s |rMP5:-s |rSoin:-s",
@@ -28,7 +28,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Sta:-s |rStr:-s |rInt:-s\n|rCrit:-s |rHit:-s |rAP:-s"] = "End:-s |rFor:-s |rInt:-s\n|rCrit:-s |rTouch:-s |rPA:-s",
 	["Sta:-s |rAgi:-s |rInt:-s\n|rCrit:-s |rHit:-s |rAP:-s"] = "End:-s |rAgi:-s |rInt:-s\n|rCrit:-s |rTouch:-s |rPA:-s",
 	["Sta:-s |rAgi:-s\n|rCrit:-s |rHit:-s |rAP:-s"] = "End:-s |rAgi:-s\n|rCrit:-s |rTouch:-s |rPA:-s",
-	
+
 	-- note: these string are the ones found in item tooltips, make sure to respect the case when translating, and to distinguish them (like crit vs spell crit)
 	["Increases healing done by up to %d+"] = "Augmente les soins prodigués d'un maximum de %d+",
 	["Increases damage and healing done by magical spells and effects by up to %d+"] = "Augmente les dégâts et les soins produits par les sorts et effets magiques de %d+",
@@ -43,10 +43,10 @@ L:RegisterTranslations("frFR", function() return {
 	["Classes: Warlock"] = "Classes: Démoniste",
 	["Classes: Priest"] = "Classes: Prêtre",
 	["Resistance"] = "Resistance",
-	
+
 	-- equipment slots
 	["Ranged"] = "Distance",
-	
+
 	--skills
 	["Professions"] = "Métiers",
 	["Secondary Skills"] = "Compétences secondaires",
@@ -58,7 +58,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Lockpicking"] = "Crochetage",
 	["Poisons"] = "Poisons",
 	["Beast Training"] = "Dressage des bêtes",
-	
+
 	--factions not in LibFactions or LibZone
 	["Exodar"] = "Exodar",
 	["Gnomeregan Exiles"] = "Exilés de Gnomeregan",
@@ -169,31 +169,31 @@ L:RegisterTranslations("frFR", function() return {
 	["(has mail)"] = "(a du courrier)",
 	["(has auctions)"] = "(a des enchères)",
 	["(has bids)"] = "(has bids)",
-	
+
 	["No rest XP"] = "Pas d'XP de repos",
 	["% rested"] = "% reposé",
 	["Transmute"] = "Transmute",
-	
+
 	["Bags"] = "Sacs",
 	["Bank"] = "Banque",
 	["Equipped"] = "Equipé",
 	["Mail"] = "Courrier",
 	[", "] = ", ",						-- required for znCH
 	["(Guild bank: "] = "(Banque de guilde: ",
-	
+
 	["Level"] = "Niveau",
 	["Zone"] = "Zone",
 	["Rest XP"] = "XP de repos",
-	
+
 	["Source"] = "Source",
 	["Total owned"] = "Total possédé",
 	["Already known by "] = "Déjà connu par ",
 	["Will be learnable by "] = "Pourra être appris par ",
 	["Could be learned by "] = "Pourrait être appris par ",
-	
+
 	["At least one recipe could not be read"] = "Au moins une recette n'a pas pu être lue",
 	["Please open this window again"] = "Veuillez ouvrir cette fenêtre à nouveau",
-	
+
 	--Core.lua
 	['search'] = 'search',
 	["Search in bags"] = "Recherche dans les sacs",
@@ -203,11 +203,11 @@ L:RegisterTranslations("frFR", function() return {
 	["Hides the UI"] = "Cache l'interface",
 	['toggle'] = 'toggle',
 	["Toggles the UI"] = "Inverse l'état de l'interface",
-	
+
 	--AltoholicFu.lua
 	["Left-click to"] = "Clic-gauche pour",
 	["open/close"] = "ouvrir/fermer",
-	
+
 	--AccountSummary.lua
 	["View bags"] = "Voir les sacs",
 	["View mailbox"] = "Voir le courrier",
@@ -221,7 +221,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Suggested leveling zone: "] = "Zone suggérée: ",
 	["Arena points: "] = "Points d'arène: ",
 	["Honor points: "] = "Points d'honneur: ",
-	
+
 	-- AuctionHouse.lua
 	[" has no auctions"] = " n'a pas d'enchères",
 	[" has no bids"] = " n'a pas d'offres",
@@ -230,18 +230,18 @@ L:RegisterTranslations("frFR", function() return {
 	["Clear your faction's entries"] = "Effacer les entrées de votre faction",
 	["Clear goblin AH entries"] = "Effacer les entrées de l'HV gobelin",
 	["Clear all entries"] = "Effacer toutes les entrées",
-	
+
 	--BagUsage.lua
 	["Totals"] = "Totaux",
 	["slots"] = "emplacements",
 	["free"] = "libre",
-	
+
 	--Containers.lua
 	["32 Keys Max"] = "32 Clés Max",
 	["28 Slot"] = "28 emplacements",
 	["Bank bag"] = "Sac en banque",
 	["Unknown link, please relog this character"] = "Lien inconnu, veuillez reconnecter ce personnage",
-	
+
 	--Equipment.lua
 	["Find Upgrade"] = "Trouver mieux",
 	["(based on iLvl)"] = "(sur base de l'item level)",
@@ -251,11 +251,11 @@ L:RegisterTranslations("frFR", function() return {
 	["Balance"] = "Equilibre",
 	["Elemental Shaman"] = "Chaman Elémentaire",		-- shaman spec !
 	["Heal"] = "Soin",
-	
+
 	--GuildBank.lua
 	["Last visited "] = "Dernière visite il y a ",
 	[" days ago by "] = " jours par ",
-	
+
 	--Mails.lua
 	[" has not visited his/her mailbox yet"] = " n'a pas encore visité son/sa boîte aux lettres",
 	[" has no mail, last check "] = " n'a pas de courrier, dernière visite il y a ",
@@ -263,28 +263,28 @@ L:RegisterTranslations("frFR", function() return {
 	["Mailbox"] = "Boîte aux lettres",
 	["Mail was last checked "] = "Courrier relevé il y a ",
 	[" days"] = " jours",
-	
+
 	--Quests.lua
 	["No quest found for "] = "Pas de quête trouvée pour ",
 	["QuestID"] = "ID Quête",
 	["Are also on this quest:"] = "Sont également sur cette quête:",
-	
+
 	--Recipes.lua
 	["No data: "] = "Aucune données: ",
 	[" scan failed for "] = " ",
-	
+
 	--Reputations.lua
 	["Shift-Click to link this info"] = "Shift-Clic pour linker cette info",
 	[" is "] = " est ",
 	[" with "] = " chez ",		-- I know "with" translates to "avec" in French, but in the very specific sentence where this is used, "chez" is more appropriate
-		
+
 	--Search.lua
 	["Item Level"] = "Niveau de l'objet",
 	[" results found (Showing "] = " résultats trouvés (Affichés ",
 	["No match found!"] = "Aucun résultat trouvé!",
 	[" not found!"] = " non trouvé!",
 	["Socket"] = "Châsse",
-	
+
 	--skills.lua
 	["Rogue Proficiencies"] = "Aptitudes du voleur",
 	["up to"] = "jusqu'à",
@@ -293,7 +293,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Suggestion"] = "Suggestion",
 	["Prof. 1"] = "Prof. 1",
 	["Prof. 2"] = "Prof. 2",
-	
+
 	--loots.lua
 	--Instinct drop
 	["Trash Mobs"] = "Trash Mobs",
@@ -356,7 +356,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Opera (Shared Drops)"] = "Opéra (Loots partagés)",
 	["Timed Chest"] = "Course au coffre",
 	["Patterns"] = "Patrons",
-	
+
 	--Rep
 	["Token Hand-Ins"] = "Insignes de l'Aube / Croisade",
 	["Items"] = "Objets",
@@ -370,7 +370,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Lunacy Deck"] = "Suite de Déraison",
 	["Quest rewards"] = "Récompenses de quête",
 	--["Shattrath"] = true,
-	
+
 	--World drop
 	["Outdoor Bosses"] = "Boss Extérieurs",
 	["Highlord Kruul"] = "Généralissime Kruul",
@@ -403,7 +403,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Elemental Invasion"] = "Invasions élémentaires",
 	["Gurubashi Arena"] = "Arène de Gurubashi",
 	["Booty Run"] = "Le coffre pirate",
-	["Fishing Extravaganza"] = "Concours de pêche", 
+	["Fishing Extravaganza"] = "Concours de pêche",
 	["First Prize"] = "1er prix",
 	["Rare Fish"] = "Poissons rares",
 	["Rare Fish Rewards"] = "Récompenses des poissons rares",
@@ -453,7 +453,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Gordok Brewery"] = "Apprenti de la bière gordok",
 	["Drohn's Distillery"] = "Apprenti de la distillerie Drohn",
 	["T'chali's Voodoo Brewery"] = "Apprenti de la brasserie vaudou de T'chali",
-	
+
 	--craft
 	["Crafted Weapons"] = "Armes fabriquées",
 	["Master Swordsmith"] = "Maître fabricant d'épées",
@@ -475,7 +475,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Burning Rage"] = "Rage ardente",
 	["Blacksmithing Mail Sets"] = "Sets forge, en maille",
 	["Bloodsoul Embrace"] = "Etreinte d'âmesang",
-	["Fel Iron Chain"] = "Anneaux de gangrefer",	
+	["Fel Iron Chain"] = "Anneaux de gangrefer",
 	["Tailoring Sets"] = "Sets couture",
 	["Bloodvine Garb"] = "Atours de vignesang",
 	["Netherweave Vestments"] = "Habit en tisse-néant",
@@ -511,7 +511,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Felstalker Armor"] = "Armure de traqueur gangrené",
 	["Fury of the Nether"] = "Furie du Néant",
 	["Netherscale Armor"] = "Armure en écailles du Néant",
-	["Netherstrike Armor"] = "Armure Coup-de-Néant",	
+	["Netherstrike Armor"] = "Armure Coup-de-Néant",
 	["Armorsmith"] = "Fabricant d'armures",
 	["Weaponsmith"] = "Fabricant d'armes",
 	["Dragonscale"] = "Ecailles de dragon",
@@ -527,7 +527,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Expert"] = "Expert",
 	["Artisan"] = "Artisan",
 	["Master"] = "Maître",
-	
+
 	--Set & PVP
 	["Superior Rewards"] = "Récompenses Supérieures",
 	["Epic Rewards"] = "Récompenses Epiques",
@@ -583,7 +583,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Level 50-60"] = "Niveau 50-60",
 	["Level 70"] = "Niveau 70",
 
-	-- Altoholic.Gathering : Mining 
+	-- Altoholic.Gathering : Mining
 	["Copper Vein"] = "Filon de cuivre",
 	["Tin Vein"] = "Filon d'étain",
 	["Iron Deposit"] = "Gisement de fer",
@@ -611,7 +611,7 @@ L:RegisterTranslations("frFR", function() return {
 	["Large Obsidian Chunk"] = "Grand morceau d'obsidienne",
 	["Small Obsidian Chunk"] = "Petit morceau d'obsidienne",
 	["Nethercite Deposit"] = "Gisement de néanticite",
-	
+
 	-- Altoholic.Gathering : Herbalism
 	["Peacebloom"] = "Pacifique",
 	["Silverleaf"] = "Feuillargent",
@@ -656,9 +656,9 @@ L:RegisterTranslations("frFR", function() return {
 	["Flame Cap"] = "Chapeflamme",
 	["Fel Lotus"] = "Gangrelotus",
 	["Netherdust Bush"] = "Buisson de pruinéante",
-	-- ["Glowcap"] = true, 
+	-- ["Glowcap"] = true,
 	-- ["Sanguine Hibiscus"] = true,
-	
+
 } end)
 
 if GetLocale() == "frFR" then

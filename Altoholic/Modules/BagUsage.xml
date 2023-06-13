@@ -131,8 +131,8 @@
 				<NormalFont inherits="GameFontNormalSmall" justifyH="LEFT"/>
 			</Button>
 		</Frames>
-	</Button>	
-	
+	</Button>
+
 	<Frame name="AltoBags" parent="AltoholicFrame" hidden="true">
 		<Size>
 			<AbsDimension x="615" y="306"/>
@@ -182,7 +182,7 @@
 				</Layers>
 				<Scripts>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(18, function(this) 
+						FauxScrollFrame_OnVerticalScroll(18, function(this)
 							Altoholic:BagUsage_Update();
 						end)
 					</OnVerticalScroll>
@@ -198,5 +198,5 @@
 			</OnShow>
 		</Scripts>
 	</Frame>
-	
+
 </Ui>

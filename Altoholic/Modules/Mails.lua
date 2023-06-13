@@ -14,7 +14,7 @@ function Altoholic:Mail_Update()
 			getglobal("AltoholicFrame_Status"):SetText("|cFFFFD700" .. V.CurrentAlt .. " of ".. V.CurrentRealm .. " |cFFFFFFFF" .. L[" has no mail, last check "] .. self:GetDelayInDays(c.lastmailcheck).. L[" days ago"])
 		end
 		getglobal("AltoholicFrame_Status"):Show()
-		
+
 		self:ClearScrollFrame(getglobal(frame.."ScrollFrame"), entry, VisibleLines, 41)
 		return
 	else
@@ -87,64 +87,64 @@ end
 function Altoholic:UpdatePlayerMail()
 	local c = self.db.account.data[V.faction][V.realm].char[V.player]
 	local numItems = GetInboxNumItems();
-    c.mail = {}
+	c.mail = {}
 	if numItems == 0 then
 		return
 	end
 	for i = 1, numItems do
-        local packageIcon , stationeryIcon, mailSender, mailSubject, mailMoney, _, daysLeft = GetInboxHeaderInfo(i);
-    	local name, mailIcon, itemCount, quality, canUse = GetInboxItem(i)
+		local packageIcon , stationeryIcon, mailSender, mailSubject, mailMoney, _, daysLeft = GetInboxHeaderInfo(i);
+		local name, mailIcon, itemCount, quality, canUse = GetInboxItem(i)
 		if name ~= nil then
 			table.insert(c.mail, {
-                icon = packageIcon,
-                count = itemCount,
-                subject = name,
-                sender = mailSender,
-                quality = quality,
-                lastcheck = time(),
-                daysleft = daysLeft
+				icon = packageIcon,
+				count = itemCount,
+				subject = name,
+				sender = mailSender,
+				quality = quality,
+				lastcheck = time(),
+				daysleft = daysLeft
 			} )
 		end
-        if AltoOptions_ScanMailBody:GetChecked() then
-            local inboxText = GetInboxText(i)
-            if inboxText then
-                if IsAddOnLoaded("GMail") and string.find(inboxText, GMAIL_ITEMNUM) then
-                    inboxText = false
-                else
-                    inboxText = inboxText
-                end
-            end
-        end
-        local gold, silver, copper, mSent
+		if AltoOptions_ScanMailBody:GetChecked() then
+			local inboxText = GetInboxText(i)
+			if inboxText then
+				if IsAddOnLoaded("GMail") and string.find(inboxText, GMAIL_ITEMNUM) then
+					inboxText = false
+				else
+					inboxText = inboxText
+				end
+			end
+		end
+		local gold, silver, copper, mSent
 		if (mailMoney > 0) or inboxText then
 			if mailMoney > 0 then
-                copper = tostring(mailMoney)
-                silver = tostring(mailMoney / 100)
-                gold = tostring((mailMoney - mod(mailMoney, COPPER_PER_SILVER)) / 10000)
-                if mailMoney < 100 then
-                    mailIcon = "Interface\\Icons\\INV_Misc_Coin_05"
-                    mSent = copper .. " Copper"
-                elseif mailMoney < 10000 then
-                    mailIcon = "Interface\\Icons\\INV_Misc_Coin_03"
-                    mSent = silver .. " Silver"
-                elseif mailMoney >= 10000 then
-                    mailIcon = "Interface\\Icons\\INV_Misc_Coin_01"
-                    mSent = gold .. " Gold"
-                else
-                    mailIcon = "Interface\\Icons\\INV_Misc_Note_01"
-                end
-                table.insert(c.mail, {
-                    icon = mailIcon,
-                    money = mailMoney,
-                    text = inboxText,
-                    subject = mSent,
-                    sender = mailSender,
-                    lastcheck = time(),
-                    daysleft = daysLeft
-                } )
-            end
-        end
-    end
+				copper = tostring(mailMoney)
+				silver = tostring(mailMoney / 100)
+				gold = tostring((mailMoney - mod(mailMoney, COPPER_PER_SILVER)) / 10000)
+				if mailMoney < 100 then
+					mailIcon = "Interface\\Icons\\INV_Misc_Coin_05"
+					mSent = copper .. " Copper"
+				elseif mailMoney < 10000 then
+					mailIcon = "Interface\\Icons\\INV_Misc_Coin_03"
+					mSent = silver .. " Silver"
+				elseif mailMoney >= 10000 then
+					mailIcon = "Interface\\Icons\\INV_Misc_Coin_01"
+					mSent = gold .. " Gold"
+				else
+					mailIcon = "Interface\\Icons\\INV_Misc_Note_01"
+				end
+				table.insert(c.mail, {
+					icon = mailIcon,
+					money = mailMoney,
+					text = inboxText,
+					subject = mSent,
+					sender = mailSender,
+					lastcheck = time(),
+					daysleft = daysLeft
+				} )
+			end
+		end
+	end
 	table.sort(c.mail, function(a, b)
 		return a.daysleft < b.daysleft
 	end)
@@ -153,58 +153,58 @@ end
 -- *** Hooks ***
 local Orig_SendMail = SendMail
 function SendMail(recipient, subject, body)
-    for CharacterName, c in pairs(Altoholic.db.account.data[V.faction][V.realm].char) do
-        if CharacterName == recipient then
-            for k, v in pairs(V.Attachments) do
-                table.insert(c.mail, {
-                    icon = v.icon,
-                    subject = v.subject,
-                    count = v.count,
-                    sender = V.player,
-                    lastcheck = time(),
-                    daysleft = 30,
-                    realm = V.realm
-                } )
-            end
-            local moneySent = GetSendMailMoney()
-            local gold, silver, copper, mSent, altText, mailIcon
-            if (moneySent > 0) then
-                copper = tostring(moneySent)
-                silver = tostring(moneySent / 100)
-                gold = tostring((moneySent - mod(moneySent, COPPER_PER_SILVER)) / 10000)
-                if moneySent < 100 then
-                    mailIcon = "Interface\\Icons\\INV_Misc_Coin_05"
-                    mSent = copper .. " Copper"
-                elseif moneySent < 10000 then
-                    mailIcon = "Interface\\Icons\\INV_Misc_Coin_03"
-                    mSent = silver .. " Silver"
-                elseif moneySent >= 10000 then
-                    mailIcon = "Interface\\Icons\\INV_Misc_Coin_01"
-                    mSent = gold .. " Gold"
-                else
-                    mailIcon = "Interface\\Icons\\INV_Misc_Note_01"
-                end
-                table.insert(c.mail, {
-                    money = moneySent,
-                    icon = mailIcon,
-                    subject = mSent,
-                    sender = V.player,
-                    lastcheck = time(),
-                    daysleft = 30,
-                    realm = V.realm
-                } )
-            end
-            if (c.lastmailcheck == nil) or (c.lastmailcheck == 0) then
-                c.lastmailcheck = time()
-            end
-            table.sort(c.mail, function(a, b)
-                return a.daysleft < b.daysleft
-            end)
-            break
-        end
-    end
-    V.Attachments = {}
-    Orig_SendMail(recipient, subject, body)
+	for CharacterName, c in pairs(Altoholic.db.account.data[V.faction][V.realm].char) do
+		if CharacterName == recipient then
+			for k, v in pairs(V.Attachments) do
+				table.insert(c.mail, {
+					icon = v.icon,
+					subject = v.subject,
+					count = v.count,
+					sender = V.player,
+					lastcheck = time(),
+					daysleft = 30,
+					realm = V.realm
+				} )
+			end
+			local moneySent = GetSendMailMoney()
+			local gold, silver, copper, mSent, altText, mailIcon
+			if (moneySent > 0) then
+				copper = tostring(moneySent)
+				silver = tostring(moneySent / 100)
+				gold = tostring((moneySent - mod(moneySent, COPPER_PER_SILVER)) / 10000)
+				if moneySent < 100 then
+					mailIcon = "Interface\\Icons\\INV_Misc_Coin_05"
+					mSent = copper .. " Copper"
+				elseif moneySent < 10000 then
+					mailIcon = "Interface\\Icons\\INV_Misc_Coin_03"
+					mSent = silver .. " Silver"
+				elseif moneySent >= 10000 then
+					mailIcon = "Interface\\Icons\\INV_Misc_Coin_01"
+					mSent = gold .. " Gold"
+				else
+					mailIcon = "Interface\\Icons\\INV_Misc_Note_01"
+				end
+				table.insert(c.mail, {
+					money = moneySent,
+					icon = mailIcon,
+					subject = mSent,
+					sender = V.player,
+					lastcheck = time(),
+					daysleft = 30,
+					realm = V.realm
+				} )
+			end
+			if (c.lastmailcheck == nil) or (c.lastmailcheck == 0) then
+				c.lastmailcheck = time()
+			end
+			table.sort(c.mail, function(a, b)
+				return a.daysleft < b.daysleft
+			end)
+			break
+		end
+	end
+	V.Attachments = {}
+	Orig_SendMail(recipient, subject, body)
 end
 
 -- *** EVENT HANDLERS ***
@@ -215,7 +215,7 @@ function Altoholic:MAIL_SHOW()
 	V.Attachments = {}
 	V.AllowMailUpdate = true
 	V.isMailBoxOpen = true
-    self:UpdatePlayerMail()
+	self:UpdatePlayerMail()
 end
 
 function Altoholic:MAIL_CLOSED()
@@ -242,13 +242,13 @@ function Altoholic:MAIL_INBOX_UPDATE()
 end
 
 function Altoholic:MAIL_SEND_INFO_UPDATE()
-    V.Attachments = {}
+	V.Attachments = {}
 	local itemName, itemIcon, itemCount = GetSendMailItem()
 	if itemName then
 		table.insert(V.Attachments, {
-            subject = itemName,
+			subject = itemName,
 			icon = itemIcon,
 			count = itemCount
-        } )
+		} )
 	end
 end

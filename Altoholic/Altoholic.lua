@@ -40,17 +40,17 @@ Altoholic.Menu = {
 			{ name = L["Reputations"], OnClick = function() Altoholic:ActivateMenuItem("AltoReputations") end }
 		},
 		OnClick = function() Altoholic:Menu_Update(MENU_SUMMARY) end
-    },
+	},
 	{	name = L["Containers"], isCollapsed = true,
 		subMenu = {},
 		OnClick = function() Altoholic:Menu_Update(MENU_CONTAINERS) end
-    },
+	},
 	{	name = L["E-Mail"], isCollapsed = true,
-        subMenu = {},
+		subMenu = {},
 		OnClick = function() Altoholic:Menu_Update(MENU_MAIL) end
-    },
+	},
 	{	name = L["Search"], isCollapsed = true,
-        subMenu = {
+		subMenu = {
 			{ name = BI["Weapon"], isCollapsed = true,
 				subMenu = {
 					{ name = L["Any"], OnClick = function() Altoholic:SearchItem(BI["Weapon"]) end },
@@ -73,7 +73,7 @@ Altoholic.Menu = {
 					{ name = L["Fishing Poles"], OnClick = function() Altoholic:SearchItem(BI["Weapon"], L["Fishing Poles"]) end }
 				},
 				OnClick = function() Altoholic:Menu_Update(MENU_SEARCH, 1 )	end
-            },
+			},
 			{ name = BI["Armor"], isCollapsed = true,
 				subMenu = {
 					{ name = L["Any"], OnClick = function() Altoholic:SearchItem(BI["Armor"]) end },
@@ -88,7 +88,7 @@ Altoholic.Menu = {
 					{ name = BI["Totems"], OnClick = function() Altoholic:SearchItem(BI["Armor"], BI["Totems"]) end }
 				},
 				OnClick = function() Altoholic:Menu_Update(MENU_SEARCH, 2 )	end
-            },
+			},
 			{ name = BI["Consumable"],	isCollapsed = true,
 				subMenu = {},
 				OnClick = function() Altoholic:SearchItem(BI["Consumable"])	end
@@ -286,8 +286,8 @@ function Altoholic:OnEnable()
 	self:RegisterEvent("AceEvent_FullyInitialized")
 	getglobal("AltoholicFrameName"):SetText("Altoholic |cFFFFFFFF"..V.version)
 	V.faction = UnitFactionGroup("player")
-    V.realm = GetRealmName()
-  	V.player = UnitName("player")
+	V.realm = GetRealmName()
+	V.player = UnitName("player")
 	V.alt = V.player
 	if self.db.account.data[V.faction][V.realm].char[V.player].playtime == nil then
 		RequestTimePlayed()
@@ -310,7 +310,7 @@ function Altoholic:OnEnable()
 	self:CreateScrollLines("AltoSummary", "CharacterSummaryTemplate", 14);
 	self:CreateScrollLines("AltoBags", "BagUsageTemplate", 14);
 	self:CreateScrollLines("AltoContainers", "ContainerTemplate", 7, 14);
-    self:CreateScrollLines("AltoMail", "MailEntryTemplate", 7);
+	self:CreateScrollLines("AltoMail", "MailEntryTemplate", 7);
 	self:CreateScrollLines("AltoSearch", "SearchEntryTemplate", 7);
 	self:CreateScrollLines("AltoEquipment", "EquipmentEntryTemplate", 7, 10);
 	-- Manually fill the reputation frame
@@ -351,7 +351,7 @@ function Altoholic:OnEnable()
 	getglobal("AltoOptions_TooltipCount"):SetChecked(O.TooltipCount)
 	getglobal("AltoOptions_TooltipTotal"):SetChecked(O.TooltipTotal)
 	getglobal("AltoOptions_TooltipAlreadyKnown"):SetChecked(O.TooltipAlreadyKnown)
-    getglobal("AltoOptions_TooltipLearnableBy"):SetChecked(O.TooltipLearnableBy)
+	getglobal("AltoOptions_TooltipLearnableBy"):SetChecked(O.TooltipLearnableBy)
 	getglobal("AltoOptions_ShowMinimap"):SetChecked(O.ShowMinimap)
 	getglobal("AltoOptions_SortDescending"):SetChecked(O.SortDescending)
 	getglobal("AltoOptions_RestXPMode"):SetChecked(O.RestXPMode)
@@ -367,15 +367,15 @@ function Altoholic:OnEnable()
 end
 
 function Altoholic:OnDisable()
-    -- Refresh DB on exit
+	-- Refresh DB on exit
 	-- self:UpdatePlayerStats()
 	-- self:UpdatePlayerBags()
 end
 
 function Altoholic_MiniMapButton_OnClick(button)
-    if button == "LeftButton" then
-        Altoholic:ToggleUI()
-    end
+	if button == "LeftButton" then
+		Altoholic:ToggleUI()
+	end
 end
 
 function Altoholic:ToggleUI()
@@ -388,7 +388,7 @@ end
 
 function Altoholic:ActivateMenuItem(frame)
 	for k, v in pairs(self.Categories) do
-       	getglobal(v):Hide()
+		getglobal(v):Hide()
 	end
 	getglobal(frame):Show()
 end
@@ -419,7 +419,7 @@ function Altoholic:BuildCharacterInfoTable()
 	local levels = 0
 	V.SkillsCache = {}
 	V.Skills = {}
-    self.CharacterInfo = {}
+	self.CharacterInfo = {}
 	for FactionName, f in pairs(self.db.account.data) do
 		for RealmName, r in pairs(f) do
 			local realmmoney = 0
@@ -481,8 +481,8 @@ function Altoholic:BuildCharacterInfoTable()
 	getglobal("AltoholicFrameTotalLv"):SetText(WHITE .. levels .. " |rLv")
 	getglobal("AltoholicFrameTotalGold"):SetText(floor( money / 10000 ) .. "|cFFFFD700g")
 	getglobal("AltoholicFrameTotalPlayed"):SetText(floor(played / 86400) .. "|cFFFFD700d")
-    SkillsCache = {}
-    V.Skills = {}
+	SkillsCache = {}
+	V.Skills = {}
 end
 
 function Altoholic:DropDownRarity_Initialize()
@@ -552,8 +552,8 @@ function Altoholic:UpdatePlayerStats()
 	local c = r.char[V.player]
 	self:PLAYER_XP_UPDATE()
 	self:UpdatePlayerSkills()
-    self:UpdatePlayerSpells()
-    self:UpdatePlayerInventory()
+	self:UpdatePlayerSpells()
+	self:UpdatePlayerInventory()
 	self:UpdateEquipment()
 	self:PLAYER_MONEY()
 	-- *** Factions ***
@@ -576,7 +576,7 @@ end
 
 function Altoholic:UpdatePlayerSkills()
 	local c = self.db.account.data[V.faction][V.realm].char[UnitName("player")]
-    -- *** Skills inventory ***
+	-- *** Skills inventory ***
 	for i = GetNumSkillLines(), 1, -1 do
 		local _, isHeader = GetSkillLineInfo(i)
 		if isHeader then
@@ -596,29 +596,29 @@ end
 
 function Altoholic:UpdatePlayerSpells()
 	local c = self.db.account.data[V.faction][V.realm].char[UnitName("player")]
-    -- *** Spells inventory ***
-    local i = 1
-    while true do
-        local spellName, spellRank = GetSpellName(i, BOOKTYPE_SPELL)
-        if not spellName then
-          do break end
-        end
-        if string.find(spellRank, ".*Rank.*") then
-            SpellName = spellName.." ("..spellRank..")"
-        else
-            SpellName = spellName
-        end
-        c.spells[i] = SpellName
-        i = i + 1
-    end
-    local i = nil
-    local SpellName = nil
+	-- *** Spells inventory ***
+	local i = 1
+	while true do
+		local spellName, spellRank = GetSpellName(i, BOOKTYPE_SPELL)
+		if not spellName then
+		  do break end
+		end
+		if string.find(spellRank, ".*Rank.*") then
+			SpellName = spellName.." ("..spellRank..")"
+		else
+			SpellName = spellName
+		end
+		c.spells[i] = SpellName
+		i = i + 1
+	end
+	local i = nil
+	local SpellName = nil
 end
 
 function Altoholic:UpdatePVPStats()
 	local c = self.db.account.data[V.faction][V.realm].char[UnitName("player")]
 	c.pvp_hk, c.pvp_dk = GetPVPLifetimeStats()
-    local _, _, contribution, _ = GetPVPLastWeekStats()
+	local _, _, contribution, _ = GetPVPLastWeekStats()
 	c.pvp_HonorPoints = contribution
 end
 
@@ -659,50 +659,50 @@ function Altoholic:UpdatePlayerBags()
 end
 
 function Altoholic:CheckPlayerInventory(bagID)
-    local totalSlots, usedSlosts, availableSlots;
-    local totalSlots = 0;
-    local usedSlots = 0;
-    if bagID == nil then
-        for bag = 0, 4 do
-            local size = GetContainerNumSlots(bag);
-            if (size and size > 0) then
-                totalSlots = totalSlots + size;
-                for slot = 1, size do
-                    if (GetContainerItemInfo(bag, slot)) then
-                        usedSlots = usedSlots + 1;
-                    end
-                end
-            end
-        end
-        availableSlots = totalSlots - usedSlots;
-        return availableSlots
-    else
-        local size = GetContainerNumSlots(bagID);
-        if (size and size > 0) then
-            totalSlots = totalSlots + size;
-            for slot = 1, size do
-                if (GetContainerItemInfo(bagID, slot)) then
-                    usedSlots = usedSlots + 1;
-                end
-            end
-        end
-        availableSlots = totalSlots - usedSlots;
-        return availableSlots
-    end
+	local totalSlots, usedSlosts, availableSlots;
+	local totalSlots = 0;
+	local usedSlots = 0;
+	if bagID == nil then
+		for bag = 0, 4 do
+			local size = GetContainerNumSlots(bag);
+			if (size and size > 0) then
+				totalSlots = totalSlots + size;
+				for slot = 1, size do
+					if (GetContainerItemInfo(bag, slot)) then
+						usedSlots = usedSlots + 1;
+					end
+				end
+			end
+		end
+		availableSlots = totalSlots - usedSlots;
+		return availableSlots
+	else
+		local size = GetContainerNumSlots(bagID);
+		if (size and size > 0) then
+			totalSlots = totalSlots + size;
+			for slot = 1, size do
+				if (GetContainerItemInfo(bagID, slot)) then
+					usedSlots = usedSlots + 1;
+				end
+			end
+		end
+		availableSlots = totalSlots - usedSlots;
+		return availableSlots
+	end
 end
 
 function Altoholic:UpdatePlayerBag(bagID)
 	if bagID < 0 then return end
-    local c = self.db.account.data[V.faction][V.realm].char
+	local c = self.db.account.data[V.faction][V.realm].char
 	local b = c[V.player].bag["Bag" .. bagID]
-    if c[0] then
-        c[0] = {}
-        c[0] = nil
-    end
-    if b[0] then
-        b[0] = {}
-        b[0] = nil
-    end
+	if c[0] then
+		c[0] = {}
+		c[0] = nil
+	end
+	if b[0] then
+		b[0] = {}
+		b[0] = nil
+	end
 	if bagID == 0 then	-- Bag 0
 		b.icon = "Interface\\Buttons\\Button-Backpack-Up";
 		b.link = nil;
@@ -812,7 +812,7 @@ end
 
 function Altoholic:UpdateRaidTimers()
 	local c = self.db.account.data[V.faction][V.realm].char[V.player]
-    c.SavedInstance = {}
+	c.SavedInstance = {}
 	for i=1, GetNumSavedInstances() do
 		local instanceName, instanceID, instanceReset = GetSavedInstanceInfo(i)
 		c.SavedInstance[instanceName] = instanceID .. "|" .. instanceReset .. "|" .. time()
@@ -829,7 +829,7 @@ function Altoholic:Menu_Update(MenuLevel1, MenuLevel2, MenuLevel3)
 				m = self.Menu[MenuLevel1].subMenu[MenuLevel2].subMenu[MenuLevel3]
 			else
 				m = self.Menu[MenuLevel1].subMenu[MenuLevel2]
-            end
+			end
 		else
 			m = self.Menu[MenuLevel1]
 		end
@@ -839,7 +839,7 @@ function Altoholic:Menu_Update(MenuLevel1, MenuLevel2, MenuLevel3)
 			m.isCollapsed = true
 		end
 	end
-    self.MenuCache = {}
+	self.MenuCache = {}
 	for _, L0 in pairs (self.Menu) do
 		table.insert(self.MenuCache, { linetype=1, name=L0.name, OnClick=L0.OnClick } )
 		if L0.isCollapsed == false then
@@ -864,22 +864,22 @@ function Altoholic:Menu_Update(MenuLevel1, MenuLevel2, MenuLevel3)
 		if line > table.getn(self.MenuCache) then
 			getglobal("CategoryButton"..i):Hide()
 		else
-            local p = self.MenuCache[line]
-            if p.linetype == 1 then
-                getglobal("CategoryButton"..i.."NormalText"):SetText(WHITE .. p.name)
-            elseif p.linetype == 2 then
-                getglobal("CategoryButton"..i.."NormalText"):SetText("|cFFBBFFBB   " .. p.name)
-            elseif p.linetype == 3 then
-                getglobal("CategoryButton"..i.."NormalText"):SetText("|cFFBBBBFF      " .. p.name)
-            else
-                getglobal("CategoryButton"..i.."NormalText"):SetText("|cFFFFFFBB         " .. p.name)
-            end
-            if p.id ~= nil then
-                getglobal("CategoryButton"..i):SetID(p.id)
-            end
-            getglobal("CategoryButton"..i):SetScript("OnClick", p.OnClick)
-            getglobal("CategoryButton"..i):Show()
-        end
+			local p = self.MenuCache[line]
+			if p.linetype == 1 then
+				getglobal("CategoryButton"..i.."NormalText"):SetText(WHITE .. p.name)
+			elseif p.linetype == 2 then
+				getglobal("CategoryButton"..i.."NormalText"):SetText("|cFFBBFFBB   " .. p.name)
+			elseif p.linetype == 3 then
+				getglobal("CategoryButton"..i.."NormalText"):SetText("|cFFBBBBFF      " .. p.name)
+			else
+				getglobal("CategoryButton"..i.."NormalText"):SetText("|cFFFFFFBB         " .. p.name)
+			end
+			if p.id ~= nil then
+				getglobal("CategoryButton"..i):SetID(p.id)
+			end
+			getglobal("CategoryButton"..i):SetScript("OnClick", p.OnClick)
+			getglobal("CategoryButton"..i):Show()
+		end
 	end
 	FauxScrollFrame_Update(getglobal("AltoholicMenuScrollFrame"), table.getn(self.MenuCache), VisibleLines, 20);
 end
@@ -907,22 +907,22 @@ function Altoholic:SelectAlt(id)
 end
 
 function Altoholic:BuildContainersSubMenu()
-    self.Menu[MENU_CONTAINERS].subMenu = {}
+	self.Menu[MENU_CONTAINERS].subMenu = {}
 	local n = 1
 	for FactionName, f in pairs(self.db.account.data) do
 		for RealmName, r in pairs(f) do
-            local realmsID = n
+			local realmsID = n
 			table.insert(self.Menu[MENU_CONTAINERS].subMenu, {
 				name = self:GetRealmString(FactionName, RealmName),
 				isCollapsed = true,
 				id = n,
 				subMenu = {},
 				OnClick = function(self)
-                    Altoholic:Menu_Update(MENU_CONTAINERS, realmsID) end
+					Altoholic:Menu_Update(MENU_CONTAINERS, realmsID) end
 			} )
 			local i = 1
 			for CharacterName, c in pairs(r.char) do
-                local altID = (n*100)+i
+				local altID = (n*100)+i
 				table.insert(self.Menu[MENU_CONTAINERS].subMenu[n].subMenu, {
 					name = CharacterName,
 					id = (n*100)+i,
@@ -941,11 +941,11 @@ function Altoholic:BuildContainersSubMenu()
 end
 
 function Altoholic:BuildMailSubMenu()
-    self.Menu[MENU_MAIL].subMenu = {}
+	self.Menu[MENU_MAIL].subMenu = {}
 	local n = 1
 	for FactionName, f in pairs(self.db.account.data) do
 		for RealmName, r in pairs(f) do
-            local realmsID = n
+			local realmsID = n
 			table.insert(self.Menu[MENU_MAIL].subMenu, {
 				name = self:GetRealmString(FactionName, RealmName),
 				isCollapsed = true,
@@ -953,15 +953,15 @@ function Altoholic:BuildMailSubMenu()
 				subMenu = {},
 				OnClick = function(self) Altoholic:Menu_Update(MENU_MAIL, realmsID)	end
 			} )
-    		local i = 1
+			local i = 1
 			for CharacterName, c in pairs(r.char) do
 				if table.getn(c.mail) >= 1 then
 					CharacterNameM = CharacterName .. " " .. GREEN .. L["(has mail)"]
 				end
-                local altID = (n*100)+i
+				local altID = (n*100)+i
 				table.insert(self.Menu[MENU_MAIL].subMenu[n].subMenu, {
 					name = CharacterName,
-                    hasmail = CharacterNameM,
+					hasmail = CharacterNameM,
 					id = (n*100)+i,
 					OnClick = function(self)
 						Altoholic:SelectAlt(altID)
@@ -976,11 +976,11 @@ function Altoholic:BuildMailSubMenu()
 end
 
 function Altoholic:BuildEquipmentSubMenu()
-    self.Menu[MENU_EQUIPMENT].subMenu = {}
+	self.Menu[MENU_EQUIPMENT].subMenu = {}
 	local n = 1
 	for FactionName, f in pairs(self.db.account.data) do
 		for RealmName, r in pairs(f) do
-            local altID = (n*100)+1
+			local altID = (n*100)+1
 			table.insert(self.Menu[MENU_EQUIPMENT].subMenu, {
 				name = self:GetRealmString(FactionName, RealmName),
 				isCollapsed = true,
@@ -997,11 +997,11 @@ function Altoholic:BuildEquipmentSubMenu()
 end
 
 function Altoholic:BuildQuestsSubMenu()
-    self.Menu[MENU_QUESTS].subMenu = {}
+	self.Menu[MENU_QUESTS].subMenu = {}
 	local n = 1
 	for FactionName, f in pairs(self.db.account.data) do
 		for RealmName, r in pairs(f) do
-            local realmsID = n
+			local realmsID = n
 			table.insert(self.Menu[MENU_QUESTS].subMenu, {
 				name = self:GetRealmString(FactionName, RealmName),
 				isCollapsed = true,
@@ -1011,7 +1011,7 @@ function Altoholic:BuildQuestsSubMenu()
 			} )
 			local i = 1
 			for CharacterName, c in pairs(r.char) do
-                local altID = (n*100)+i
+				local altID = (n*100)+i
 				table.insert(self.Menu[MENU_QUESTS].subMenu[n].subMenu, {
 					name = CharacterName,
 					id = (n*100)+i,
@@ -1028,13 +1028,13 @@ function Altoholic:BuildQuestsSubMenu()
 end
 
 function Altoholic:BuildRecipesSubMenu()
-    self.Menu[MENU_RECIPES].subMenu = nil
-    self.Menu[MENU_RECIPES].subMenu = {}
+	self.Menu[MENU_RECIPES].subMenu = nil
+	self.Menu[MENU_RECIPES].subMenu = {}
 	self.Menu[MENU_RECIPES].isCollapsed = true
 	local n = 1
 	for FactionName, f in pairs(self.db.account.data) do
 		for RealmName, r in pairs(f) do
-            local realmsID = n
+			local realmsID = n
 			table.insert(self.Menu[MENU_RECIPES].subMenu, {
 				name = self:GetRealmString(FactionName, RealmName),
 				isCollapsed = true,
@@ -1044,7 +1044,7 @@ function Altoholic:BuildRecipesSubMenu()
 			} )
 			local i = 1
 			for CharacterName, c in pairs(r.char) do
-                local altID = (n * 100) + i
+				local altID = (n * 100) + i
 				table.insert(self.Menu[MENU_RECIPES].subMenu[n].subMenu, {
 					name = CharacterName,
 					isCollapsed = true,
@@ -1085,11 +1085,11 @@ function Altoholic:BuildRecipesSubMenu()
 end
 
 function Altoholic:BuildAuctionsSubMenu()
-    self.Menu[MENU_AUCTIONS].subMenu = {}
-    local n = 1
+	self.Menu[MENU_AUCTIONS].subMenu = {}
+	local n = 1
 	for FactionName, f in pairs(self.db.account.data) do
-        for RealmName, r in pairs(f) do
-            local realmsID = n
+		for RealmName, r in pairs(f) do
+			local realmsID = n
 			table.insert(self.Menu[MENU_AUCTIONS].subMenu, {
 				name = self:GetRealmString(FactionName, RealmName),
 				isCollapsed = true,
@@ -1099,11 +1099,11 @@ function Altoholic:BuildAuctionsSubMenu()
 			} )
 			local i = 1
 			for CharacterName, c in pairs(r.char) do
-                local CharacterName = CharacterName
-                if table.getn(c.auctions) >= 1 then
-                    CharacterName = CharacterName .. " " .. GREEN .. L["(has auctions)"]
-                end
-                local altID = (n*100)+i
+				local CharacterName = CharacterName
+				if table.getn(c.auctions) >= 1 then
+					CharacterName = CharacterName .. " " .. GREEN .. L["(has auctions)"]
+				end
+				local altID = (n*100)+i
 				table.insert(self.Menu[MENU_AUCTIONS].subMenu[n].subMenu, {
 					name = CharacterName,
 					id = (n*100)+i,
@@ -1116,17 +1116,17 @@ function Altoholic:BuildAuctionsSubMenu()
 				} )
 				i = i + 1
 			end
-            n = n + 1
+			n = n + 1
 		end
 	end
 end
 
 function Altoholic:BuildBidsSubMenu()
-    self.Menu[MENU_BIDS].subMenu = {}
+	self.Menu[MENU_BIDS].subMenu = {}
 	local n = 1
 	for FactionName, f in pairs(self.db.account.data) do
 		for RealmName, r in pairs(f) do
-            local realmsID = n
+			local realmsID = n
 			table.insert(self.Menu[MENU_BIDS].subMenu, {
 				name = self:GetRealmString(FactionName, RealmName),
 				isCollapsed = true,
@@ -1136,11 +1136,11 @@ function Altoholic:BuildBidsSubMenu()
 			} )
 			local i = 1
 			for CharacterName, c in pairs(r.char) do
-                local CharacterName = CharacterName
+				local CharacterName = CharacterName
 				if table.getn(c.bids) > 0 then
 					CharacterName = CharacterName .. " " .. GREEN .. L["(has bids)"]
 				end
-                local altID = (n*100)+i
+				local altID = (n*100)+i
 				table.insert(self.Menu[MENU_BIDS].subMenu[n].subMenu, {
 					name = CharacterName,
 					id = (n*100)+i,
@@ -1161,7 +1161,7 @@ end
 function Altoholic:BuildFactionsTable()
 	local repDB = self.db.account.data[V.faction][V.realm].reputation
 	if V.Factions then
-        Altoholic.vars.Factions = {}
+		Altoholic.vars.Factions = {}
 	else
 		V.Factions = {}
 	end
@@ -1189,23 +1189,23 @@ function Altoholic:BuildFactionsTable()
 end
 
 function Altoholic:GetProfessionID(skill)
-    local Profs = {
-    [1] = BI["Tailoring"],
-    [2] = BI["Leatherworking"],
-    [3] = BI["Engineering"],
-    [4] = BI["Enchanting"],
-    [5] = BI["Blacksmithing"],
-    [6] = BI["Alchemy"],
-    [7] = L["Mining"],
-    [8] = BI["First Aid"],
-    [9] = BI["Cooking"],
-    [10] = BI["Fishing"],
-    [11] = L["Riding"],
-    [12] = L["Poisons"],
-    [13] = L["Lockpicking"],
+	local Profs = {
+	[1] = BI["Tailoring"],
+	[2] = BI["Leatherworking"],
+	[3] = BI["Engineering"],
+	[4] = BI["Enchanting"],
+	[5] = BI["Blacksmithing"],
+	[6] = BI["Alchemy"],
+	[7] = L["Mining"],
+	[8] = BI["First Aid"],
+	[9] = BI["Cooking"],
+	[10] = BI["Fishing"],
+	[11] = L["Riding"],
+	[12] = L["Poisons"],
+	[13] = L["Lockpicking"],
 	[14] = "Disguise",
 	[15] = "Survival"
-    }
+	}
 	for i,v in (Profs) do
 		if skill == v then
 			return i
@@ -1215,41 +1215,41 @@ function Altoholic:GetProfessionID(skill)
 end
 
 function Altoholic:SelectProfession(id)
-    local Profs = {
-    [1] = BI["Tailoring"],
-    [2] = BI["Leatherworking"],
-    [3] = BI["Engineering"],
-    [4] = BI["Enchanting"],
-    [5] = BI["Blacksmithing"],
-    [6] = BI["Alchemy"],
-    [7] = L["Mining"],
-    [8] = BI["First Aid"],
-    [9] = BI["Cooking"],
-    [10] = BI["Fishing"],
-    [11] = L["Riding"],
-    [12] = L["Poisons"],
-    [13] = L["Lockpicking"],
+	local Profs = {
+	[1] = BI["Tailoring"],
+	[2] = BI["Leatherworking"],
+	[3] = BI["Engineering"],
+	[4] = BI["Enchanting"],
+	[5] = BI["Blacksmithing"],
+	[6] = BI["Alchemy"],
+	[7] = L["Mining"],
+	[8] = BI["First Aid"],
+	[9] = BI["Cooking"],
+	[10] = BI["Fishing"],
+	[11] = L["Riding"],
+	[12] = L["Poisons"],
+	[13] = L["Lockpicking"],
 	[14] = "Disguise",
 	[15] = "Survival"
-    }
-    for i,v in (Profs) do
-        if id == i then
-            local ProfessionLevel
-            V.CurrentProfession = v
-            if id < 8 then
-                ProfessionLevel = Altoholic.db.account.data[V.CurrentFaction][V.CurrentRealm].char[V.CurrentAlt].skill[L["Professions"]][V.CurrentProfession]
-            elseif id == 8 or id == 9 or id == 10 or id == 11 then
-                ProfessionLevel = Altoholic.db.account.data[V.CurrentFaction][V.CurrentRealm].char[V.CurrentAlt].skill[L["Secondary Skills"]][V.CurrentProfession]
-            elseif id == 12 or id == 13 then
-                if c.class ~= L["Rogue"] then
-			        return
-		        end
-                ProfessionLevel = Altoholic.db.account.data[V.CurrentFaction][V.CurrentRealm].char[V.CurrentAlt].skill[L["Rogue Proficiencies"]][V.CurrentProfession]
-            end
-            local rank, maxRank = Altoholic:strsplit("|", ProfessionLevel)
-            V.CurrentProfessionLevel = Altoholic:GetSkillColor(tonumber(rank)) .. rank .. "/" .. maxRank
-        end
-    end
+	}
+	for i,v in (Profs) do
+		if id == i then
+			local ProfessionLevel
+			V.CurrentProfession = v
+			if id < 8 then
+				ProfessionLevel = Altoholic.db.account.data[V.CurrentFaction][V.CurrentRealm].char[V.CurrentAlt].skill[L["Professions"]][V.CurrentProfession]
+			elseif id == 8 or id == 9 or id == 10 or id == 11 then
+				ProfessionLevel = Altoholic.db.account.data[V.CurrentFaction][V.CurrentRealm].char[V.CurrentAlt].skill[L["Secondary Skills"]][V.CurrentProfession]
+			elseif id == 12 or id == 13 then
+				if c.class ~= L["Rogue"] then
+					return
+				end
+				ProfessionLevel = Altoholic.db.account.data[V.CurrentFaction][V.CurrentRealm].char[V.CurrentAlt].skill[L["Rogue Proficiencies"]][V.CurrentProfession]
+			end
+			local rank, maxRank = Altoholic:strsplit("|", ProfessionLevel)
+			V.CurrentProfessionLevel = Altoholic:GetSkillColor(tonumber(rank)) .. rank .. "/" .. maxRank
+		end
+	end
 end
 
 function Altoholic:ClearScrollFrame(name, entry, lines, height)
@@ -1276,23 +1276,23 @@ function Altoholic:CreateScrollLines(parentFrame, inheritsFrom, numLines, numIte
 end
 
 function Altoholic_GetItemLink(itemID)
-    if not itemID then return end
-    local itemName, itemString, itemQuality = GetItemInfo(itemID)
-    local _, _, _, itemColor = GetItemQualityColor(itemQuality)
-    local itemLink = itemColor .. "|H" .. itemString .. "|h[" .. itemName .. "]|h|r"
-    return itemLink
+	if not itemID then return end
+	local itemName, itemString, itemQuality = GetItemInfo(itemID)
+	local _, _, _, itemColor = GetItemQualityColor(itemQuality)
+	local itemLink = itemColor .. "|H" .. itemString .. "|h[" .. itemName .. "]|h|r"
+	return itemLink
 end
 
 function Altoholic:GetIDFromLink(link)
-    if not link then return end
-    local _, _, itemId = string.find(link, ".*item:(%d+).*")
-    return tonumber(itemId)
+	if not link then return end
+	local _, _, itemId = string.find(link, ".*item:(%d+).*")
+	return tonumber(itemId)
 end
 
 function Altoholic:GetEnchantIDFromLink(link)
-    if not link then return end
-    local _, _, itemId = string.find(link, ".*(enchant:%d+).*")
-    return tostring(itemId)
+	if not link then return end
+	local _, _, itemId = string.find(link, ".*(enchant:%d+).*")
+	return tostring(itemId)
 end
 
 function Altoholic:GetEnchantInfo(link)
@@ -1537,7 +1537,7 @@ function Altoholic:IsGatheringNode(name)
 	return nil
 end
 
-function Altoholic:IsKnownQuest(quest)    
+function Altoholic:IsKnownQuest(quest)
 	if not quest then return nil end
 	local bOtherCharsOnQuest
 	for CharacterName, c in pairs(self.db.account.data[V.faction][V.realm].char) do
@@ -1551,7 +1551,7 @@ function Altoholic:IsKnownQuest(quest)
 						bOtherCharsOnQuest = true
 					end
 					ItemRefTooltip:AddLine(Altoholic:GetClassColor(c.class) .. CharacterName,1,1,1);
-                    ItemRefTooltip:Show();
+					ItemRefTooltip:Show();
 				end
 			end
 		end
@@ -1636,209 +1636,209 @@ end
 
 -- ** GameTooltip Hooks **
 function Altoholic:HookTooltip()
-    self:SecureHook(GameTooltip, "SetBagItem", function(this, bag, slot)
-        Altoholic:ProcessTooltip(GameTooltip, "Game", link, bag, slot)
-    end)
-    self:SecureHook(GameTooltip, "SetInventoryItem", function(this, bag, slot)
-        Altoholic:ProcessTooltip(GameTooltip, "Game", link, bag, slot)
-    end)
-    self:SecureHook(GameTooltip, "SetInboxItem", function(index)
-        Altoholic:ProcessTooltip(index, "Game")
-    end)
-    self:SecureHook(GameTooltip, "SetAuctionItem", function(this, type, index)
-        local link = GetAuctionItemLink(type, index)
-        Altoholic:ProcessTooltip(GameTooltip, "Game", link)
-    end)
-    self:SecureHook("SetItemRef", function(link, name, button)
-        Altoholic:ProcessTooltip(ItemRefTooltip, "ItemRef", link)
-        Altoholic:IsKnownQuest(name)
-    end)
-    self:SecureHook(GameTooltip, "Show", function(tooltip)
-        local itemID = Altoholic:IsGatheringNode(getglobal("GameTooltipTextLeft1"):GetText() )
+	self:SecureHook(GameTooltip, "SetBagItem", function(this, bag, slot)
+		Altoholic:ProcessTooltip(GameTooltip, "Game", link, bag, slot)
+	end)
+	self:SecureHook(GameTooltip, "SetInventoryItem", function(this, bag, slot)
+		Altoholic:ProcessTooltip(GameTooltip, "Game", link, bag, slot)
+	end)
+	self:SecureHook(GameTooltip, "SetInboxItem", function(index)
+		Altoholic:ProcessTooltip(index, "Game")
+	end)
+	self:SecureHook(GameTooltip, "SetAuctionItem", function(this, type, index)
+		local link = GetAuctionItemLink(type, index)
+		Altoholic:ProcessTooltip(GameTooltip, "Game", link)
+	end)
+	self:SecureHook("SetItemRef", function(link, name, button)
+		Altoholic:ProcessTooltip(ItemRefTooltip, "ItemRef", link)
+		Altoholic:IsKnownQuest(name)
+	end)
+	self:SecureHook(GameTooltip, "Show", function(tooltip)
+		local itemID = Altoholic:IsGatheringNode(getglobal("GameTooltipTextLeft1"):GetText() )
 		itemID = nil
-        if itemID then
-            if AltoOptions_TooltipCount:GetChecked() or AltoOptions_TooltipTotal:GetChecked() then
-                V.ToolTipCachedCount = Altoholic:GetItemCount(itemID)
-                if V.ToolTipCachedCount > 0 then
-                    V.ToolTipCachedTotal = GOLD .. L["Total owned"] .. ": |cff00ff9a" .. V.ToolTipCachedCount
-                else
-                    V.ToolTipCachedTotal = nil
-                end
-            end
-            if (AltoOptions_TooltipCount:GetChecked()) and (V.ToolTipCachedCount > 0) then
-                GameTooltip:AddLine(" ",1,1,1);
-                for CharacterName, c in pairs (V.ItemCount) do
-                    GameTooltip:AddDoubleLine(CharacterName .. ":",  TEAL .. c);
-                end
-            end
-            if (AltoOptions_TooltipTotal:GetChecked()) and (V.ToolTipCachedTotal) then
-                GameTooltip:AddLine(V.ToolTipCachedTotal,1,1,1);
-            end
-        end
-    end)
+		if itemID then
+			if AltoOptions_TooltipCount:GetChecked() or AltoOptions_TooltipTotal:GetChecked() then
+				V.ToolTipCachedCount = Altoholic:GetItemCount(itemID)
+				if V.ToolTipCachedCount > 0 then
+					V.ToolTipCachedTotal = GOLD .. L["Total owned"] .. ": |cff00ff9a" .. V.ToolTipCachedCount
+				else
+					V.ToolTipCachedTotal = nil
+				end
+			end
+			if (AltoOptions_TooltipCount:GetChecked()) and (V.ToolTipCachedCount > 0) then
+				GameTooltip:AddLine(" ",1,1,1);
+				for CharacterName, c in pairs (V.ItemCount) do
+					GameTooltip:AddDoubleLine(CharacterName .. ":",  TEAL .. c);
+				end
+			end
+			if (AltoOptions_TooltipTotal:GetChecked()) and (V.ToolTipCachedTotal) then
+				GameTooltip:AddLine(V.ToolTipCachedTotal,1,1,1);
+			end
+		end
+	end)
 end
 
 function Altoholic:RecipeOrBook(ttname)
-    local isRecipe, isBook
-    if ttname then
-        local isMatch = nil
-        local rb = Altoholic.RecipesBooks
-        for r = 1, 5 do
-            if string.find(ttname, rb[r]) then
-                isMatch = "isRecipe"
-            end
-        end
-        for b = 6, 17 do
-            if string.find(ttname, rb[b]) then
-                isMatch = "isBook"
-            end
-        end
-        if isMatch then
-            return isMatch
-        end
-    else
-        return nil
-    end
+	local isRecipe, isBook
+	if ttname then
+		local isMatch = nil
+		local rb = Altoholic.RecipesBooks
+		for r = 1, 5 do
+			if string.find(ttname, rb[r]) then
+				isMatch = "isRecipe"
+			end
+		end
+		for b = 6, 17 do
+			if string.find(ttname, rb[b]) then
+				isMatch = "isBook"
+			end
+		end
+		if isMatch then
+			return isMatch
+		end
+	else
+		return nil
+	end
 end
 
 function Altoholic:AltHasTradeSkill(c, prof)
-    local r = self.db.account.data[V.faction][V.realm].char[c]
-    if c then
-        local minSkillp, _ = Altoholic:GetSkillInfo(r.skill[L["Professions"]][prof])
-        if minSkillp > 0 then
-            return true
-        end      
-        local minSkills, _ = Altoholic:GetSkillInfo(r.skill[L["Secondary Skills"]][prof])
-        if minSkills > 0 then
-            return true
-        end
-    else
-        return false
-    end
+	local r = self.db.account.data[V.faction][V.realm].char[c]
+	if c then
+		local minSkillp, _ = Altoholic:GetSkillInfo(r.skill[L["Professions"]][prof])
+		if minSkillp > 0 then
+			return true
+		end
+		local minSkills, _ = Altoholic:GetSkillInfo(r.skill[L["Secondary Skills"]][prof])
+		if minSkills > 0 then
+			return true
+		end
+	else
+		return false
+	end
 end
 
 function Altoholic:WhoKnowsRecipe(tooltip, ttype)
-    if (AltoOptions_TooltipAlreadyKnown:GetChecked() or AltoOptions_TooltipLearnableBy:GetChecked()) == nil then return end
-    if tooltip == nil then return end
-    if ttype == "Game" then
-        local ttype = "Game"
-        self = GameTooltip
-    elseif ttype == "ItemRef" then
-        local ttype = "ItemRef"
-        self = ItemRefTooltip
-    end
-    local ttname = getglobal(ttype..'TooltipTextLeft1'):GetText()
-    if ttname == nil then return end
-    if Altoholic:RecipeOrBook(ttname) == "isBook" then
-        local ttuse = getglobal(ttype..'TooltipTextLeft4'):GetText()
-        local spellName, reqClass, reqLevel
-        if string.find(ttuse, "%sTeaches") and not string.find(getglobal(ttype..'TooltipTextLeft4'):GetText(), USED) then
-            _, _, spellName = string.find(ttuse, ".*Teaches%s(.+%s%(.+%))")
-            _, _, reqClass = string.find(getglobal(ttype..'TooltipTextLeft2'):GetText(), string.gsub(ITEM_CLASSES_ALLOWED,"%%s","(.+)"))
-            _, _, reqLevel = string.find(getglobal(ttype..'TooltipTextLeft3'):GetText(), string.gsub(ITEM_MIN_LEVEL,"%%d","(.+)"))
-            local book
-            for CharacterName, c in pairs(Altoholic.db.account.data[V.faction][V.realm].char) do
-                local isNotKnownByChar = false
-                for _, SpellName in pairs(c.spells) do
-                    if SpellName ~= spellName then
-                        isNotKnownByChar = true
-                        break
-                    end
-                end
-                local ttlines
-                if isNotKnownByChar and reqClass == c.class then
-                    if AltoOptions_TooltipLearnableBy:GetChecked() then
-                        if c.level < tonumber(reqLevel) then
-                            ttlines = RED .. L["Will be learnable by "] .. WHITE .. CharacterName .. YELLOW .. " ("..c.level..")" .. "\n"
-                        else
-                            ttlines = YELLOW .. L["Could be learned by "] .. WHITE .. CharacterName .. "\n"
-                        end
-                    else
-                        ttlines = ""
-                    end
-                elseif reqClass == c.class then
-                    if AltoOptions_TooltipAlreadyKnown:GetChecked() then 
-                        ttlines = TEAL .. L["Already known by "] .. WHITE .. CharacterName .. "\n"
-                    else
-                        ttlines = ""
-                    end
-                end
-                if book == nil then
-                    book = ttlines
-                elseif ttlines then
-                    book = book .. ttlines
-                end
-            end
-            if book then
-                self:AddLine(" ",1,1,1)
-                self:AddLine(book,1,1,1)
-            end
-        end
-    elseif Altoholic:RecipeOrBook(ttname) == "isRecipe" then        
-        local recipeName, ttProfession, profName, profLevel, recipeTT, msg
-        _, _, recipeName = string.find(ttname, ".*:%s(.+)")
-        ttProfession = getglobal(ttype..'TooltipTextLeft2'):GetText()
-        _, _, profName, profLevel = string.find(ttProfession, ".*%s(.+)%s%((.+)%)")
-        profLevel = tonumber(profLevel)
-        for CharacterName, c in pairs(Altoholic.db.account.data[V.faction][V.realm].char) do
-            if Altoholic:AltHasTradeSkill(CharacterName, profName) and c.recipes[profName].ScanFailed then
-                self:AddLine(" ",1,1,1)
-                self:AddLine("------------------------------------------------",1,1,1)
-                self:AddLine("Recipe database is empty for " .. CharacterName .. ".",1,0,0)
-                self:AddLine("Please open your " .. profName .. " tradeskill.",1,0,0)
-                self:AddLine("------------------------------------------------",1,1,1)
-            end
-            for ProfessionName, p in pairs(c.recipes) do
-                if ProfessionName == profName then
-                    local isKnownByChar = false
-                    for _, TradeSkillInfo in pairs (p.list) do
-                        if TradeSkillInfo.name ~= nil then
-                            local skillName = TradeSkillInfo.name
-                            if skillName == recipeName then
-                                isKnownByChar = true
-                                break
-                            end
-                        end
-                    end
+	if (AltoOptions_TooltipAlreadyKnown:GetChecked() or AltoOptions_TooltipLearnableBy:GetChecked()) == nil then return end
+	if tooltip == nil then return end
+	if ttype == "Game" then
+		local ttype = "Game"
+		self = GameTooltip
+	elseif ttype == "ItemRef" then
+		local ttype = "ItemRef"
+		self = ItemRefTooltip
+	end
+	local ttname = getglobal(ttype..'TooltipTextLeft1'):GetText()
+	if ttname == nil then return end
+	if Altoholic:RecipeOrBook(ttname) == "isBook" then
+		local ttuse = getglobal(ttype..'TooltipTextLeft4'):GetText()
+		local spellName, reqClass, reqLevel
+		if string.find(ttuse, "%sTeaches") and not string.find(getglobal(ttype..'TooltipTextLeft4'):GetText(), USED) then
+			_, _, spellName = string.find(ttuse, ".*Teaches%s(.+%s%(.+%))")
+			_, _, reqClass = string.find(getglobal(ttype..'TooltipTextLeft2'):GetText(), string.gsub(ITEM_CLASSES_ALLOWED,"%%s","(.+)"))
+			_, _, reqLevel = string.find(getglobal(ttype..'TooltipTextLeft3'):GetText(), string.gsub(ITEM_MIN_LEVEL,"%%d","(.+)"))
+			local book
+			for CharacterName, c in pairs(Altoholic.db.account.data[V.faction][V.realm].char) do
+				local isNotKnownByChar = false
+				for _, SpellName in pairs(c.spells) do
+					if SpellName ~= spellName then
+						isNotKnownByChar = true
+						break
+					end
+				end
+				local ttlines
+				if isNotKnownByChar and reqClass == c.class then
+					if AltoOptions_TooltipLearnableBy:GetChecked() then
+						if c.level < tonumber(reqLevel) then
+							ttlines = RED .. L["Will be learnable by "] .. WHITE .. CharacterName .. YELLOW .. " ("..c.level..")" .. "\n"
+						else
+							ttlines = YELLOW .. L["Could be learned by "] .. WHITE .. CharacterName .. "\n"
+						end
+					else
+						ttlines = ""
+					end
+				elseif reqClass == c.class then
+					if AltoOptions_TooltipAlreadyKnown:GetChecked() then
+						ttlines = TEAL .. L["Already known by "] .. WHITE .. CharacterName .. "\n"
+					else
+						ttlines = ""
+					end
+				end
+				if book == nil then
+					book = ttlines
+				elseif ttlines then
+					book = book .. ttlines
+				end
+			end
+			if book then
+				self:AddLine(" ",1,1,1)
+				self:AddLine(book,1,1,1)
+			end
+		end
+	elseif Altoholic:RecipeOrBook(ttname) == "isRecipe" then
+		local recipeName, ttProfession, profName, profLevel, recipeTT, msg
+		_, _, recipeName = string.find(ttname, ".*:%s(.+)")
+		ttProfession = getglobal(ttype..'TooltipTextLeft2'):GetText()
+		_, _, profName, profLevel = string.find(ttProfession, ".*%s(.+)%s%((.+)%)")
+		profLevel = tonumber(profLevel)
+		for CharacterName, c in pairs(Altoholic.db.account.data[V.faction][V.realm].char) do
+			if Altoholic:AltHasTradeSkill(CharacterName, profName) and c.recipes[profName].ScanFailed then
+				self:AddLine(" ",1,1,1)
+				self:AddLine("------------------------------------------------",1,1,1)
+				self:AddLine("Recipe database is empty for " .. CharacterName .. ".",1,0,0)
+				self:AddLine("Please open your " .. profName .. " tradeskill.",1,0,0)
+				self:AddLine("------------------------------------------------",1,1,1)
+			end
+			for ProfessionName, p in pairs(c.recipes) do
+				if ProfessionName == profName then
+					local isKnownByChar = false
+					for _, TradeSkillInfo in pairs (p.list) do
+						if TradeSkillInfo.name ~= nil then
+							local skillName = TradeSkillInfo.name
+							if skillName == recipeName then
+								isKnownByChar = true
+								break
+							end
+						end
+					end
 					local ttlines = ""
-                    if isKnownByChar then
-                        if AltoOptions_TooltipAlreadyKnown:GetChecked() then 
-                            ttlines = TEAL .. L["Already known by "] .. WHITE .. CharacterName .. "\n"
-                        else
-                            ttlines = ""
-                        end
-                    else
-                        if AltoOptions_TooltipLearnableBy:GetChecked() then 
-                            local curRank
-                            if (ProfessionName == BI["Cooking"]) or
-                                (ProfessionName == BI["First Aid"]) or
-                                (ProfessionName == BI["Fishing"]) then
-                                curRank = Altoholic:GetSkillInfo( c.skill[L["Secondary Skills"]][ProfessionName] )
-                            else
-                                curRank = Altoholic:GetSkillInfo( c.skill[L["Professions"]][ProfessionName] )
-                            end
-                            if curRank < profLevel and curRank > 0 then
-                                ttlines = RED .. L["Will be learnable by "] .. WHITE .. CharacterName .. YELLOW .. " ("..curRank..")" .. "\n"
-                            elseif curRank > profLevel then
-                                ttlines = YELLOW .. L["Could be learned by "] .. WHITE .. CharacterName .. "\n"
-                            end
-                        else
-                            ttlines = ""
-                        end
-                    end
-                    if recipeTT == nil then
-                        recipeTT = ttlines
-                    else
-                        recipeTT = recipeTT .. ttlines
-                    end
-                end                
-            end
-        end
-        if recipeTT ~= nil and recipeTT ~= "" then
-            self:AddLine(" ",1,1,1)
-            self:AddLine(recipeTT,1,1,1)
-        end
-    end
+					if isKnownByChar then
+						if AltoOptions_TooltipAlreadyKnown:GetChecked() then
+							ttlines = TEAL .. L["Already known by "] .. WHITE .. CharacterName .. "\n"
+						else
+							ttlines = ""
+						end
+					else
+						if AltoOptions_TooltipLearnableBy:GetChecked() then
+							local curRank
+							if (ProfessionName == BI["Cooking"]) or
+								(ProfessionName == BI["First Aid"]) or
+								(ProfessionName == BI["Fishing"]) then
+								curRank = Altoholic:GetSkillInfo( c.skill[L["Secondary Skills"]][ProfessionName] )
+							else
+								curRank = Altoholic:GetSkillInfo( c.skill[L["Professions"]][ProfessionName] )
+							end
+							if curRank < profLevel and curRank > 0 then
+								ttlines = RED .. L["Will be learnable by "] .. WHITE .. CharacterName .. YELLOW .. " ("..curRank..")" .. "\n"
+							elseif curRank > profLevel then
+								ttlines = YELLOW .. L["Could be learned by "] .. WHITE .. CharacterName .. "\n"
+							end
+						else
+							ttlines = ""
+						end
+					end
+					if recipeTT == nil then
+						recipeTT = ttlines
+					else
+						recipeTT = recipeTT .. ttlines
+					end
+				end
+			end
+		end
+		if recipeTT ~= nil and recipeTT ~= "" then
+			self:AddLine(" ",1,1,1)
+			self:AddLine(recipeTT,1,1,1)
+		end
+	end
 end
 
 function Altoholic:GetCraftFromRecipe(link)
@@ -1848,7 +1848,7 @@ function Altoholic:GetCraftFromRecipe(link)
 	if pos then
 		return string.sub(recipeName, pos, -2)
 	else
-        _, _, _, craftName = Altoholic:strsplit(":", recipeName)
+		_, _, _, craftName = Altoholic:strsplit(":", recipeName)
 	end
 	if craftName == nil then
 		return string.sub(recipeName, 3, -2)
@@ -1857,21 +1857,21 @@ function Altoholic:GetCraftFromRecipe(link)
 end
 
 function Altoholic:ProcessTooltip(tooltip, ttype, link, bagID, slotID)
-    local itemID
-    if bagID == "player" then        
-        bagID = 100
-        slotID = slotID - 39
-    end
-    if link then
-        itemID = self:GetIDFromLink(link)
-    elseif bagID and slotID then
-        itemID = self.db.account.data[V.faction][V.realm].char[V.alt].bag["Bag" .. bagID].ids[slotID]
-        if itemID == nil then return end
-    end
-	if (not V.ToolTipCachedItemID) or 
+	local itemID
+	if bagID == "player" then
+		bagID = 100
+		slotID = slotID - 39
+	end
+	if link then
+		itemID = self:GetIDFromLink(link)
+	elseif bagID and slotID then
+		itemID = self.db.account.data[V.faction][V.realm].char[V.alt].bag["Bag" .. bagID].ids[slotID]
+		if itemID == nil then return end
+	end
+	if (not V.ToolTipCachedItemID) or
 		(V.ToolTipCachedItemID and (itemID ~= V.ToolTipCachedItemID)) then
 		V.TooltipRecipeCache = nil
-        V.ItemCount = nil
+		V.ItemCount = nil
 		if AltoOptions_TooltipSource:GetChecked() then
 			local Instance, Boss = self:GetItemDropLocation(itemID)
 			V.ToolTipCachedItemID = itemID
@@ -1913,9 +1913,9 @@ function Altoholic:ProcessTooltip(tooltip, ttype, link, bagID, slotID)
 		-- tooltip:AddLine(TEAL .. select(10, GetItemInfo(itemID)));
 	-- end
 	if not V.TooltipRecipeCache then
-        self:WhoKnowsRecipe(tooltip, ttype)
+		self:WhoKnowsRecipe(tooltip, ttype)
 	end
-    tooltip:Show()
+	tooltip:Show()
 end
 
 -- *** EVENT HANDLERS ***
@@ -1943,9 +1943,9 @@ function Altoholic:AceEvent_FullyInitialized()
 	c.class = UnitClass("player")
 	self:UpdatePlayerStats()
 	self:UpdateTalents()
-    self:UpdatePlayerBags()
+	self:UpdatePlayerBags()
 	self:BuildUnsafeItemList()
-    self:HookTooltip()
+	self:HookTooltip()
 end
 
 function Altoholic:PLAYER_LEVEL_UP(newLevel)
@@ -2009,12 +2009,12 @@ function Altoholic:BAG_UPDATE(bag)
 	if V.isMailBoxOpen then
 		self:UpdatePlayerMail()
 	end
-    self:UpdatePlayerBags()
-    self:UpdatePlayerInventory()
+	self:UpdatePlayerBags()
+	self:UpdatePlayerInventory()
 end
 
 function Altoholic:BANKFRAME_OPENED()
-    self:UpdatePlayerBank()
+	self:UpdatePlayerBank()
 	V.isBankOpen = true
 	self:RegisterEvent("PLAYERBANKSLOTS_CHANGED")
 end

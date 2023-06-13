@@ -14,7 +14,7 @@ Altoholic.Suggestions = {
 		{ 75, "初级骑术(40级): |cFFFFFFFF90g\n|cFFFFD700主城附近的的普通坐骑：|cFFFFFFFF10g" },
 		{ 150, "中级骑术(60级): |cFFFFFFFF600g\n|cFFFFD700主城附近的史诗级坐骑：|cFFFFFFFF100g" }
 	},
-	
+
 	-- 来源 : http://forums.worldofwarcraft.com/thread.html?topicId=102789457&sid=1（英文）
 	-- ** 主专业技能 **
 	[BI["Tailoring"]] = {
@@ -114,7 +114,7 @@ Altoholic.Suggestions = {
 		{ 291, "291: 符文奥金棒\n(1×奥金棒|1×金珍珠|10×幻影之尘|4×强效不灭精华|1×符文真银棒|2×大块魔光碎片)×1" },
 		{ 300, "292~300: 附魔披风 - 超强防御\n(8×幻影之尘)×9" }
 	},
-	[BI["Blacksmithing"]] = {	
+	[BI["Blacksmithing"]] = {
 		{ 25, "1~25: 劣质磨刀石\n(1×劣质的石头)×25" },
 		{ 45, "26~45: 劣质砂轮\n(2×劣质的石头)×20" },
 		{ 75, "46~75: 铜质链甲腰带\n(6×铜锭)×30" },
@@ -136,7 +136,7 @@ Altoholic.Suggestions = {
 		{ 295, "271~295: 君王板甲护腕\n(12×瑟银锭)×25\n配方任务取得" },
 		{ 300, "296~300: 君王板甲战靴\n(18×瑟银锭)×5\n配方任务取得" }
 	},
-	[BI["Alchemy"]] = {	
+	[BI["Alchemy"]] = {
 		{ 60, "1~60: 初级治疗药水\n(1×宁神花|1×银叶草|1×空瓶)×60" },
 		{ 110, "61~110: 次级治疗药水\n(1×初级治疗药水|1×石南草)×50" },
 		{ 140, "111~140: 治疗药水\n(1×跌打草|1×石南草|1×铅瓶)×30" },
@@ -185,7 +185,7 @@ Altoholic.Suggestions = {
 		{ 275, "251~275: 熔渣之池(灼热峡谷)" },
 		{ 300, "276~300: 落帆海湾(塔纳利斯)\n风暴海湾(艾萨拉)" }
 	},
-	
+
 	-- ** 辅助技能 **
 	[BI["First Aid"]] = {
 		{ 40, "1~40: 亚麻绷带" },
@@ -213,7 +213,7 @@ Altoholic.Suggestions = {
 		{ 275, "226~275: 超级煎蛋卷\n(1×巨蛋|2×舒心草)×80\n配方购于：\n琦亚:冬泉谷,永望镇<61,37>\n西米克:冬泉谷,永望镇<61,39>\n拜尔:费伍德森林,血毒岗哨<34,53>\n玛里甘:费伍德森林,刺枝林地<62,25>\n嫩狼肉排\n(1×嫩狼肉|1×舒心草)×80\n配方购于：\n迪尔格·奎克里弗:塔纳利斯,加基森<52,28>\n特鲁克·蛮鬃:辛特兰,鹰巢山<14,42>" },
 		{ 285, "276~285: 洛恩塔姆薯块\n(1×洛恩塔姆地薯|1×舒心草)×10\n掉落：普希林 厄运之槌" },
 		{ 300, "286~300: 沙漠肉丸子\n(1×沙虫的肉|1×舒心草)×20\n希利苏斯任务(旅店老板)" }
-	},	
+	},
 	-- 来源: http://www.wowguideonline.com/fishing.html
 	[BI["Fishing"]] = {
 		{ 50, "1~50: 任何起始地点" },
@@ -224,30 +224,30 @@ Altoholic.Suggestions = {
 		{ 260, "251~260: 费伍德森林" },
 		{ 300, "261~300: 艾萨拉" }
 	},
-	
+
 	-- 建议升级地区，来源众多，不一一列举了
 	["Leveling"] = {
 		{ 10, "1~10级: 所有起始地区" },
-		{ 20, "11~20级: "  .. BZ["Loch Modan"] .. "\n" .. BZ["Westfall"] .. "\n" .. BZ["Darkshore"] 
+		{ 20, "11~20级: "  .. BZ["Loch Modan"] .. "\n" .. BZ["Westfall"] .. "\n" .. BZ["Darkshore"]
 						.. "\n" .. BZ["Silverpine Forest"] .. "\n" .. BZ["The Barrens"]},
-		{ 25, "21~25级: " .. BZ["Wetlands"] .. "\n" .. BZ["Redridge Mountains"] .. "\n" .. BZ["Ashenvale"] 
+		{ 25, "21~25级: " .. BZ["Wetlands"] .. "\n" .. BZ["Redridge Mountains"] .. "\n" .. BZ["Ashenvale"]
 						.. "\n" .. BZ["The Barrens"] .. "\n" .. BZ["Stonetalon Mountains"] .. "\n" .. BZ["Hillsbrad Foothills"] },
-		{ 28, "26~28级: " .. BZ["Duskwood"] .. "\n" .. BZ["Wetlands"] .. "\n" .. BZ["Ashenvale"] 
+		{ 28, "26~28级: " .. BZ["Duskwood"] .. "\n" .. BZ["Wetlands"] .. "\n" .. BZ["Ashenvale"]
 						.. "\n" .. BZ["Stonetalon Mountains"] .. "\n" .. BZ["Thousand Needles"] },
 		{ 31, "29~31级: " .. BZ["Duskwood"] .. "\n" .. BZ["Thousand Needles"] .. "\n" .. BZ["Ashenvale"] },
-		{ 35, "32~35级: " .. BZ["Thousand Needles"] .. "\n" .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Alterac Mountains"] 
+		{ 35, "32~35级: " .. BZ["Thousand Needles"] .. "\n" .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Alterac Mountains"]
 						.. "\n" .. BZ["Arathi Highlands"] .. "\n" .. BZ["Desolace"] },
 		{ 40, "36~40级: " .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Desolace"] .. "\n" .. BZ["Badlands"]
 						.. "\n" .. BZ["Dustwallow Marsh"] .. "\n" .. BZ["Swamp of Sorrows"] },
-		{ 43, "41~43级: " .. BZ["Tanaris"] .. "\n" .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Badlands"] 
+		{ 43, "41~43级: " .. BZ["Tanaris"] .. "\n" .. BZ["Stranglethorn Vale"] .. "\n" .. BZ["Badlands"]
 						.. "\n" .. BZ["Dustwallow Marsh"] .. "\n" .. BZ["Swamp of Sorrows"] },
 		{ 45, "44~45级: " .. BZ["Tanaris"] .. "\n" .. BZ["Feralas"] .. "\n" .. BZ["The Hinterlands"] },
 		{ 48, "46~48级: " .. BZ["Tanaris"] .. "\n" .. BZ["Feralas"] .. "\n" .. BZ["The Hinterlands"] .. "\n" .. BZ["Searing Gorge"] },
-		{ 51, "49~51级: " .. BZ["Tanaris"] .. "\n" .. BZ["Azshara"] .. "\n" .. BZ["Blasted Lands"] 
+		{ 51, "49~51级: " .. BZ["Tanaris"] .. "\n" .. BZ["Azshara"] .. "\n" .. BZ["Blasted Lands"]
 						.. "\n" .. BZ["Searing Gorge"] .. "\n" .. BZ["Un'Goro Crater"] .. "\n" .. BZ["Felwood"] },
 		{ 55, "54~55级: " .. BZ["Un'Goro Crater"] .. "\n" .. BZ["Felwood"] .. "\n" .. BZ["Burning Steppes"]
 						.. "\n" .. BZ["Blasted Lands"] .. "\n" .. BZ["Western Plaguelands"] },
-		{ 58, "56~58级: " .. BZ["Winterspring"] .. "\n" .. BZ["Burning Steppes"] .. "\n" .. BZ["Western Plaguelands"] 
+		{ 58, "56~58级: " .. BZ["Winterspring"] .. "\n" .. BZ["Burning Steppes"] .. "\n" .. BZ["Western Plaguelands"]
 						.. "\n" .. BZ["Eastern Plaguelands"] .. "\n" .. BZ["Silithus"] },
 		{ 60, "59~60级: " .. BZ["Winterspring"] .. "\n" .. BZ["Eastern Plaguelands"] .. "\n" .. BZ["Silithus"] }
 	}

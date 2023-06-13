@@ -28,7 +28,7 @@ function Altoholic:Search_Update()
 			else
 				itemName, _, itemRarity, _, _, _, _, _, itemIcon = GetItemInfo(itemID)
 				_, _, _, hex = GetItemQualityColor(itemRarity)
-    			getglobal(entry..i.."ItemIconTexture"):SetTexture(itemIcon);
+				getglobal(entry..i.."ItemIconTexture"):SetTexture(itemIcon);
 			end
 			if V.SearchLoots ~= nil then
 				getglobal(entry..i.."Realm"):SetText(WHITE .. L["Item Level"] .. ": " .. YELLOW .. s.iLvl)
@@ -39,7 +39,7 @@ function Altoholic:Search_Update()
 				getglobal(entry..i.."Name"):SetText(hex .. s.craftName)
 				getglobal(entry..i.."SourceNormalText"):SetText(s.craftLink)
 				getglobal(entry..i.."Source"):SetID(line)
-			else 
+			else
 				getglobal(entry..i.."Name"):SetText(hex .. itemName)
 				getglobal(entry..i.."Source"):SetText(TEAL .. s.location)
 				getglobal(entry..i.."Source"):SetID(0)
@@ -79,7 +79,7 @@ function Altoholic:SearchReset()
 		getglobal("AltoSearchEntry" .. i):Hide()
 	end
 	getglobal("AltoholicFrame_Status"):Hide()
-    self.SearchResults = {}
+	self.SearchResults = {}
 end
 
 function Altoholic:SearchItem(searchType, searchSubType)
@@ -97,7 +97,7 @@ function Altoholic:SearchItem(searchType, searchSubType)
 	if V.MaxLevel == 0 then
 		V.MaxLevel = LEVEL_CAP
 	end
-    self.SearchResults = {}
+	self.SearchResults = {}
 	if AltoholicFrame_RadioButton1:GetChecked() then
 		V.SearchFaction = V.faction
 		V.SearchRealm = V.realm
@@ -126,13 +126,13 @@ function Altoholic:SearchItem(searchType, searchSubType)
 		local O = self.db.account.options
 		O.TotalLoots = V.TotalLoots
 		O.UnknownLoots = V.TotalUnknown
-		getglobal("AltoOptionsLootInfo"):SetText(GREEN .. O.TotalLoots .. "|r " .. L["Loots"] .. " / " .. GREEN .. O.UnknownLoots .. "|r " .. L["Unknown"])								
+		getglobal("AltoOptionsLootInfo"):SetText(GREEN .. O.TotalLoots .. "|r " .. L["Loots"] .. " / " .. GREEN .. O.UnknownLoots .. "|r " .. L["Unknown"])
 		V.TotalLoots = nil
 		V.TotalUnknown = nil
 		V.MaxAutoQuery = nil
 	end
 	if table.getn(self.SearchResults) == 0 then
-		if V.SearchValue == "" then 
+		if V.SearchValue == "" then
 			getglobal("AltoholicFrame_Status"):SetText(L["No match found!"])
 		else
 			getglobal("AltoholicFrame_Status"):SetText(value .. L[" not found!"])
@@ -173,7 +173,7 @@ function Altoholic:SearchRealm()
 					V.SearchLocation = L["Bags"]
 				else
 					V.SearchLocation = L["Bank"]
-				end			
+				end
 			end
 			for slotID=1, b.size do
 				if b.ids[slotID] ~= nil then
@@ -215,7 +215,7 @@ function Altoholic:VerifyRecipe(link, profession, itemID, CraftNumber, charName)
 	local itemName = self:GetCraftFromRecipe(link)
 	if not itemName then return end
 	if string.find(strlower(itemName), V.SearchValue, 1, true) == nil then
-		return 
+		return
 	end
 	table.insert(self.SearchResults, {
 		id = itemID,
@@ -241,7 +241,7 @@ function Altoholic:VerifyItem(itemID, itemCount)
 	end
 	if (V.SearchSubType ~= nil) and (V.SearchSubType ~= itemSubType) then
 		return
-	end	
+	end
 	if (itemRarity < V.SearchRarity) then
 		return
 	end
@@ -274,10 +274,10 @@ end
 function Altoholic:VerifyLoot(Instance, Boss, itemID)
 	V.TotalLoots = V.TotalLoots + 1
 	local itemName, itemLink, itemRarity, itemMinLevel, itemType, itemSubType, _, itemEquipLoc, itemIcon = GetItemInfo(itemID)
-    if itemMinLevel == 0 or itemMinLevel == nil then
-        itemMinLevel = 57
-    end    
-    local itemLevel = itemMinLevel + 5
+	if itemMinLevel == 0 or itemMinLevel == nil then
+		itemMinLevel = 57
+	end
+	local itemLevel = itemMinLevel + 5
 	if (itemName == nil) and (itemRarity == nil) then
 		V.TotalUnknown = V.TotalUnknown + 1
 		if V.AutoQueriesDone < V.MaxAutoQuery then
@@ -298,7 +298,7 @@ function Altoholic:VerifyLoot(Instance, Boss, itemID)
 	end
 	if (V.SearchSubType ~= nil) and (V.SearchSubType ~= itemSubType) then
 		return		-- if there's a subtype and it's invalid .. Exit
-	end	
+	end
 	if (itemRarity < V.SearchRarity) then
 		return		-- if rarity is too low .. exit
 	end
@@ -351,24 +351,24 @@ function Altoholic:BuildUnsafeItemList()
 			table.insert(V.TmpUnsafe, v)
 		end
 	end
-    self.db.account.data[V.faction][V.realm].unsafeItems = {}
+	self.db.account.data[V.faction][V.realm].unsafeItems = {}
 	for k, v in pairs(V.TmpUnsafe) do
 		table.insert(self.db.account.data[V.faction][V.realm].unsafeItems, v)	-- save the confirmed unsafe ids back in the db
 	end
-    V.TmpUnsafe = {}
+	V.TmpUnsafe = {}
 	V.TmpUnsafe = nil
 end
 
 function Altoholic:VerifyUpgrade()
 	local itemName, _, itemRarity, itemMinLevel, itemType, itemSubType, _, itemEquipLoc = GetItemInfo(V.SearchLootItemID)
-    if itemMinLevel == 0 or itemMinLevel == nil then
-        itemMinLevel = 57
-    end
-    local itemLevel = itemMinLevel + 5
+	if itemMinLevel == 0 or itemMinLevel == nil then
+		itemMinLevel = 57
+	end
+	local itemLevel = itemMinLevel + 5
 	if (itemName == nil) and (itemRarity == nil) then
 		return			-- with these 2 being nil, the item isn't in the item cache, so its link would be invalid: don't list it
 	end
-	if (itemLevel <= V.Search_iLvl) or (V.SearchType ~= itemType) or 
+	if (itemLevel <= V.Search_iLvl) or (V.SearchType ~= itemType) or
 		(V.SearchSubType ~= itemSubType) then
 		return		-- not within the right level boundaries ? invalid type or subtype ? .. exit
 	end
@@ -385,24 +385,24 @@ end
 
 function Altoholic:VerifyUpgradeByStats()
 	local itemName, itemLink, itemRarity, itemMinLevel, itemType, itemSubType, _, itemEquipLoc = GetItemInfo(V.SearchLootItemID)
-    if itemMinLevel == 0 or itemMinLevel == nil then
-        itemMinLevel = 57
-    end
-    local itemLevel = itemMinLevel + 5
+	if itemMinLevel == 0 or itemMinLevel == nil then
+		itemMinLevel = 57
+	end
+	local itemLevel = itemMinLevel + 5
 	if (itemName == nil) and (itemRarity == nil) then
 		return			-- with these 2 being nil, the item isn't in the item cache, so its link would be invalid: don't list it
 	end
-	if (itemLevel <= V.Search_iLvl) or (V.SearchType ~= itemType) or 
+	if (itemLevel <= V.Search_iLvl) or (V.SearchType ~= itemType) or
 		(V.SearchSubType ~= itemSubType) then
 		return		-- not within the right level boundaries ? invalid type or subtype ? .. exit
 	end
 	if Altoholic.InvSlots[itemEquipLoc] ~= V.SearchEquipLoc then
 		return		-- not the right slot ? .. exit
 	end
-	AltoTooltip:ClearLines();	
+	AltoTooltip:ClearLines();
 	AltoTooltip:SetOwner(this, "ANCHOR_LEFT");
 	AltoTooltip:SetHyperlink(itemLink)	-- Set the link to be able to parse item stats (set owner is done earlier, before the loop)
-    V.TooltipLines = {}
+	V.TooltipLines = {}
 	for i = 4, AltoTooltip:NumLines() do	-- parse all tooltip lines, one by one, start at 5 since 1= item name, 2 = binds on.., 3 = type/slot/unique, 4 = Armor value ..etc
 		local tooltipLine = getglobal("AltoTooltipTextLeft" .. i):GetText()
 		if tooltipLine then
@@ -419,26 +419,26 @@ function Altoholic:VerifyUpgradeByStats()
 	local statFound
 	for _, BaseStat in pairs(Altoholic.BaseStats[V.CharacterClass]) do
 		statFound = nil
-        local stat
+		local stat
 		for i, tooltipText in pairs(V.TooltipLines) do
 			if string.find(tooltipText, BaseStat) ~= nil then
-                if string.find(tooltipText, ".+(Set:).+") then
-                    stat = nil
-                else
-                    stat = tonumber(string.sub(tooltipText, string.find(tooltipText, "%d+")))
-                end
-                if stat then
-                    if stat > V.SearchItemStats[BaseStat] then
-                        statLine = string.gsub(statLine, "-s", GREEN .. stat, 1)
-                    elseif stat < V.SearchItemStats[BaseStat] then
-                        statLine = string.gsub(statLine, "-s", RED .. stat, 1)
-                    else
-                        statLine = string.gsub(statLine, "-s", WHITE .. stat, 1)
-                    end
-                    table.remove(V.TooltipLines, i)	-- remove the current entry, so it won't be parsed in the next loop cycle
-                    statFound = true
-                    break
-                end
+				if string.find(tooltipText, ".+(Set:).+") then
+					stat = nil
+				else
+					stat = tonumber(string.sub(tooltipText, string.find(tooltipText, "%d+")))
+				end
+				if stat then
+					if stat > V.SearchItemStats[BaseStat] then
+						statLine = string.gsub(statLine, "-s", GREEN .. stat, 1)
+					elseif stat < V.SearchItemStats[BaseStat] then
+						statLine = string.gsub(statLine, "-s", RED .. stat, 1)
+					else
+						statLine = string.gsub(statLine, "-s", WHITE .. stat, 1)
+					end
+					table.remove(V.TooltipLines, i)	-- remove the current entry, so it won't be parsed in the next loop cycle
+					statFound = true
+					break
+				end
 			end
 		end
 		if not statFound then
@@ -458,19 +458,19 @@ function Altoholic:VerifyUpgradeByStats()
 end
 
 function Altoholic:Search_OnClick(button, id)
-    local s = Altoholic.SearchResults[this:GetID()]
-    if s.id ~= nil then
-        local _, link = GetItemInfo(s.id)
-        if ( button == "LeftButton" ) and ( IsControlKeyDown() ) then
-            DressUpItemLink(link);
-        elseif ( button == "LeftButton" ) and ( IsShiftKeyDown() ) then
-            if ( ChatFrameEditBox:IsShown() ) then
-                ChatFrameEditBox:Insert(Altoholic_GetItemLink(link));
-            elseif (WIM_EditBoxInFocus) then
-                WIM_EditBoxInFocus:Insert(Altoholic_GetItemLink(link));
-            else
-                AltoholicFrame_SearchEditBox:SetText(GetItemInfo(link))
-            end
-        end
-    end
+	local s = Altoholic.SearchResults[this:GetID()]
+	if s.id ~= nil then
+		local _, link = GetItemInfo(s.id)
+		if ( button == "LeftButton" ) and ( IsControlKeyDown() ) then
+			DressUpItemLink(link);
+		elseif ( button == "LeftButton" ) and ( IsShiftKeyDown() ) then
+			if ( ChatFrameEditBox:IsShown() ) then
+				ChatFrameEditBox:Insert(Altoholic_GetItemLink(link));
+			elseif (WIM_EditBoxInFocus) then
+				WIM_EditBoxInFocus:Insert(Altoholic_GetItemLink(link));
+			else
+				AltoholicFrame_SearchEditBox:SetText(GetItemInfo(link))
+			end
+		end
+	end
 end

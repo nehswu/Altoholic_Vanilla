@@ -13,19 +13,19 @@ function Altoholic:BagUsage_Update()
 	local VisibleLines = 14
 	local frame = "AltoBags"
 	local entry = frame.."Entry"
-	
+
 	if table.getn(self.CharacterInfo) == 0 then
 		self:ClearScrollFrame(getglobal(frame.."ScrollFrame"), entry, VisibleLines, 18)
 		return
 	end
-	
+
 	local offset = FauxScrollFrame_GetOffset(getglobal(frame.."ScrollFrame"));
 	local DisplayedCount = 0
 	local VisibleCount = 0
 	local DrawRealm
 	local CurrentFaction, CurrentRealm
 	local i=1
-	
+
 	for line, s in pairs(self.CharacterInfo) do
 		if (offset > 0) or (DisplayedCount >= VisibleLines) then		-- if the line will not be visible
 			if s.linetype == INFO_REALM_LINE then								-- then keep track of counters
@@ -47,7 +47,7 @@ function Altoholic:BagUsage_Update()
 				CurrentFaction = s.faction
 				CurrentRealm = s.realm
 				if s.isCollapsed == false then
-					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up"); 
+					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up");
 					DrawRealm = true
 				else
 					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up");
@@ -70,7 +70,7 @@ function Altoholic:BagUsage_Update()
 				if (s.linetype == INFO_CHARACTER_LINE) then
 					local c = self.db.account.data[CurrentFaction][CurrentRealm].char[s.name]
 					local color = self:GetClassColor(c.class)
-				
+
 					getglobal(entry..i.."Collapse"):Hide()
 					getglobal(entry..i.."Name"):SetText(color .. s.name)
 					getglobal(entry..i.."Name"):SetJustifyH("RIGHT")
@@ -99,7 +99,7 @@ function Altoholic:BagUsage_Update()
 			end
 		end
 	end
-	
+
 	while i <= VisibleLines do
 		getglobal(entry..i):SetID(0)
 		getglobal(entry..i):Hide()
@@ -107,19 +107,19 @@ function Altoholic:BagUsage_Update()
 	end
 
 	FauxScrollFrame_Update(getglobal(frame.."ScrollFrame"), VisibleCount, VisibleLines, 18);
-end	
+end
 
 function Altoholic_BagUsage_OnEnter(self)
 	local line = self:GetParent():GetID()
 	local s = Altoholic.CharacterInfo[line]
-	
-	if s.linetype ~= INFO_CHARACTER_LINE then		
+
+	if s.linetype ~= INFO_CHARACTER_LINE then
 		return
 	end
-	
+
 	local Faction, Realm = Altoholic:GetCharacterInfo(line)
 	local c = Altoholic.db.account.data[Faction][Realm].char[s.name]
-	
+
 	AltoTooltip:ClearLines();
 	AltoTooltip:SetOwner(self, "ANCHOR_RIGHT");
 	AltoTooltip:AddLine(Altoholic:GetClassColor(c.class) .. s.name,1,1,1);
@@ -129,11 +129,11 @@ function Altoholic_BagUsage_OnEnter(self)
 	local id = self:GetID()
 	local numSlots
 	local numFree = 0
-	
+
 	if id == 1 then		-- 1 for player bags, 2 for bank bags
-		AltoTooltip:AddLine(GOLD .. "16 |r" .. L["slots"] .. " (" .. GREEN 
+		AltoTooltip:AddLine(GOLD .. "16 |r" .. L["slots"] .. " (" .. GREEN
 			.. c.bag["Bag0"].freeslots .. "|r " .. L["free"] .. ") [" .. BACKPACK_TOOLTIP .. "]",1,1,1);
-				
+
 		numSlots = 16
 		numFree = c.bag["Bag0"].freeslots
 		for i = 1, 4 do
@@ -151,13 +151,13 @@ function Altoholic_BagUsage_OnEnter(self)
 				numSlots = numSlots + b.size
 				numFree = numFree + b.freeslots
 			end
-		end	
+		end
 	elseif (c.bankslots == nil) or (c.bankslots == "") then
 		AltoTooltip:AddLine(L["Bank not visited yet"],1,1,1);
-		AltoTooltip:Show();	
+		AltoTooltip:Show();
 		return
 	else
-		AltoTooltip:AddLine(GOLD .. "28 |r" .. L["slots"] .. " (" .. GREEN 
+		AltoTooltip:AddLine(GOLD .. "28 |r" .. L["slots"] .. " (" .. GREEN
 						.. c.bag["Bag100"].freeslots ..  "|r " .. L["free"] .. ") [" .. L["Bank"] .. "]",1,1,1);
 		numSlots = 28
 		numFree = c.bag["Bag100"].freeslots
@@ -170,7 +170,7 @@ function Altoholic_BagUsage_OnEnter(self)
 				else
 					bag = YELLOW .. "(" .. Altoholic:GetBagTypeString(b.bagtype) .. ")"
 				end
-			
+
 				AltoTooltip:AddLine(GOLD .. b.size .. " |r" .. L["slots"] .. " ("  .. GREEN
 						.. b.freeslots ..  "|r " ..L["free"] .. ") " .. b.link .. " " .. bag ,1,1,1);
 				numSlots = numSlots + b.size
@@ -178,10 +178,10 @@ function Altoholic_BagUsage_OnEnter(self)
 			end
 		end
 	end
-	
+
 	AltoTooltip:AddLine(" ",1,1,1);
 	AltoTooltip:AddLine(CYAN .. numSlots .. " |r" .. L["slots"] .. " ("  .. GREEN .. numFree .. "|r " ..L["free"] .. ") ",1,1,1);
-	AltoTooltip:Show();	
+	AltoTooltip:Show();
 end
 
 function Altoholic:GetBagTypeString(bagType)

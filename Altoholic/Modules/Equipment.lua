@@ -25,7 +25,7 @@ function Altoholic:Equipment_Update()
 		itemButton:SetScript("OnLeave", function(self) AltoTooltip:Hide() end)
 		itemButton:SetScript("OnClick", Altoholic_Equipment_OnClick)
 		local tc = self.ClassInfo[ self.Classes[c.class] ].texcoord
-		local itemTexture = getglobal(itemName .. "IconTexture")		
+		local itemTexture = getglobal(itemName .. "IconTexture")
 		itemTexture:SetTexture(self.classicon);
 		itemTexture:SetTexCoord(tc[1], tc[2], tc[3], tc[4]);
 		itemTexture:SetWidth(36);
@@ -57,7 +57,7 @@ function Altoholic:Equipment_Update()
 			local itemID = c.inventory[line]
 			if itemID ~= nil then
 				itemButton.CharName = CharacterName
-                local _, _, _, _, _, _, _, _, itexture = GetItemInfo(itemID)
+				local _, _, _, _, _, _, _, _, itexture = GetItemInfo(itemID)
 				itemTexture:SetTexture(itexture);
 			else
 				itemButton.CharName = nil
@@ -80,19 +80,19 @@ function Altoholic:Equipment_Update()
 end
 
 function Altoholic_Equipment_OnEnter()
-    if not this then return end
+	if not this then return end
 	local r = Altoholic.db.account.data[V.CurrentFaction][V.CurrentRealm]		-- this realm
 	local itemID = this:GetParent():GetID()
 	if itemID == 0 then		-- class icon
 		Altoholic:DrawCharacterTooltip(this.CharName)
 		return
 	end
-    if not this.CharName then return end
+	if not this.CharName then return end
 	local item = r.char[this.CharName].inventory[itemID]	--  equipment slot
 	--if not item then return end
 	GameTooltip:SetOwner(this, "ANCHOR_LEFT");
 	if type(item) == "number" then
-        local _, link = GetItemInfo(item)
+		local _, link = GetItemInfo(item)
 		GameTooltip:SetHyperlink(link);
 	else
 		GameTooltip:SetHyperlink(item);
@@ -103,7 +103,7 @@ function Altoholic_Equipment_OnEnter()
 end
 
 function Altoholic_Equipment_OnClick()
-    if not this then return end
+	if not this then return end
 	local r = Altoholic.db.account.data[V.CurrentFaction][V.CurrentRealm]		-- this realm
 	local itemID = this:GetParent():GetID()
 
@@ -111,7 +111,7 @@ function Altoholic_Equipment_OnClick()
 	if not this.CharName then return end
 	local item = r.char[this.CharName].inventory[itemID]	--  equipment slot
 	if not item then return end
-	
+
 	local link
 	if type(item) == "number" then
 		_, link = GetItemInfo(item)
@@ -125,14 +125,14 @@ function Altoholic_Equipment_OnClick()
 		ToggleDropDownMenu(1, nil, AltoEquipmentRightClickMenu, this:GetName(), 0, -5);
 		return
 	end
-	
+
 	if ( button == "LeftButton" ) and ( IsControlKeyDown() ) then
 		DressUpItemLink(link);
 	elseif ( button == "LeftButton" ) and ( IsShiftKeyDown() ) then
 		if ( ChatFrameEditBox:IsShown() ) then
 			ChatFrameEditBox:Insert(Altoholic_GetItemLink(link));
-        elseif (WIM_EditBoxInFocus) then
-            WIM_EditBoxInFocus:Insert(Altoholic_GetItemLink(link));
+		elseif (WIM_EditBoxInFocus) then
+			WIM_EditBoxInFocus:Insert(Altoholic_GetItemLink(link));
 		else
 			AltoholicFrame_SearchEditBox:SetText(GetItemInfo(link))
 		end
@@ -140,68 +140,68 @@ function Altoholic_Equipment_OnClick()
 end
 
 function Equipment_RightClickMenu_OnLoad()
-	local info = Altoholic_UIDropDownMenu_CreateInfo(); 
+	local info = Altoholic_UIDropDownMenu_CreateInfo();
 
 	info.text		= L["Find Upgrade"] .. " " .. GREEN .. L["(based on iLvl)"]
 	info.value		= -1
 	info.func		= Altoholic_FindEquipmentUpgrade;
-	UIDropDownMenu_AddButton(info, 1); 
+	UIDropDownMenu_AddButton(info, 1);
 
 	-- Tank upgrade
 	if (V.CharacterClass == CLASS_WARRIOR) or
 		(V.CharacterClass == CLASS_DRUID) or
 		(V.CharacterClass == CLASS_PALADIN) then
-		
+
 		info.text		= L["Find Upgrade"] .. " " .. GREEN .. "(".. L["Tank"] .. ")"
 		info.value		= V.CharacterClass .. "Tank"
 		info.func		= Altoholic_FindEquipmentUpgrade;
-		UIDropDownMenu_AddButton(info, 1); 	
+		UIDropDownMenu_AddButton(info, 1);
 	end
-	
+
 	-- DPS upgrade
 	if V.CharacterClass then
 		info.text		= L["Find Upgrade"] .. " " .. GREEN .. "(".. L["DPS"] .. ")"
 		info.value		= V.CharacterClass .. "DPS"
 		info.func		= Altoholic_FindEquipmentUpgrade;
-		UIDropDownMenu_AddButton(info, 1); 
+		UIDropDownMenu_AddButton(info, 1);
 	end
-		
+
 	if V.CharacterClass == CLASS_DRUID then
 		info.text		= L["Find Upgrade"] .. " " .. GREEN .. "(".. L["Balance"] .. ")"
 		info.value		= V.CharacterClass .. "Balance"
 		info.func		= Altoholic_FindEquipmentUpgrade;
-		UIDropDownMenu_AddButton(info, 1); 
+		UIDropDownMenu_AddButton(info, 1);
 	elseif V.CharacterClass == CLASS_SHAMAN then
 		info.text		= L["Find Upgrade"] .. " " .. GREEN .. "(".. L["Elemental Shaman"] .. ")"
 		info.value		= V.CharacterClass .. "Elemental"
 		info.func		= Altoholic_FindEquipmentUpgrade;
-		UIDropDownMenu_AddButton(info, 1); 
+		UIDropDownMenu_AddButton(info, 1);
 	end
-		
+
 	-- Heal upgrade
 	if (V.CharacterClass == CLASS_PRIEST) or
 		(V.CharacterClass == CLASS_SHAMAN) or
 		(V.CharacterClass == CLASS_DRUID) or
 		(V.CharacterClass == CLASS_PALADIN) then
-		
+
 		info.text		= L["Find Upgrade"] .. " " .. GREEN .. "(".. L["Heal"] .. ")"
 		info.value		= V.CharacterClass .. "Heal"
 		info.func		= Altoholic_FindEquipmentUpgrade;
-		UIDropDownMenu_AddButton(info, 1); 
+		UIDropDownMenu_AddButton(info, 1);
 	end
 end
 
 function Altoholic_FindEquipmentUpgrade(self)
 	local _, itemLink, _, itemMinLevel, itemType, itemSubType, _, itemEquipLoc = GetItemInfo(V.UpgradeItemID)
-    if itemMinLevel == 0 or itemMinLevel == nil then
-        itemMinLevel = 57
-    end
-    local itemLevel = itemMinLevel + 5
+	if itemMinLevel == 0 or itemMinLevel == nil then
+		itemMinLevel = 57
+	end
+	local itemLevel = itemMinLevel + 5
 	V.Search_iLvl = itemLevel
 	V.SearchType = itemType
 	V.SearchSubType = itemSubType
 	V.SearchEquipLoc = Altoholic.InvSlots[itemEquipLoc]
-    Altoholic.SearchResults = {}
+	Altoholic.SearchResults = {}
 	V.SearchLoots = true
 	local VerifyFunc
 	if this.value ~= -1 then
@@ -230,7 +230,7 @@ function Altoholic_FindEquipmentUpgrade(self)
 			end
 		end
 		AltoTooltip:ClearLines();
-		
+
 		-- Save currently equipped item to the results table
 		table.insert(Altoholic.SearchResults, {
 			id = V.UpgradeItemID,
@@ -243,7 +243,7 @@ function Altoholic_FindEquipmentUpgrade(self)
 	end
 
 	V.UpgradeItemID = nil
-	
+
 	for Instance, BossList in pairs(Altoholic.LootTable) do		-- parse the loot table to find an upgrade
 		for Boss, LootList in pairs(BossList) do
 			for itemID, _ in pairs(LootList) do
@@ -263,9 +263,9 @@ function Altoholic_FindEquipmentUpgrade(self)
 	V.SearchInstance = nil
 	V.SearchBoss = nil
 	V.SearchLootItemID = nil
-    V.SearchItemStats = {}
-    V.SearchItemStats = nil
-    V.TooltipLines = {}
+	V.SearchItemStats = {}
+	V.SearchItemStats = nil
+	V.TooltipLines = {}
 	V.TooltipLines = nil
 	if AltoOptions_SortDescending:GetChecked() then
 		table.sort(Altoholic.SearchResults, function(a,b)

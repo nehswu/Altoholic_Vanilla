@@ -11,7 +11,7 @@
 					<AbsDimension x="5" y="0"/>
 				</Offset>
 			</Anchor>
-		</Anchors>		
+		</Anchors>
 		<Scripts>
 			<OnLoad>
 				this:RegisterForClicks("LeftButtonDown", "RightButtonDown");
@@ -31,13 +31,13 @@
 			<OnDragStop>
 				this.isMoving = false;
 			</OnDragStop>
-			<OnEnter> 
+			<OnEnter>
 				AltoTooltip:SetOwner(this, "ANCHOR_LEFT");
 				AltoTooltip:ClearLines();
-				AltoTooltip:SetText("Altoholic"); 
+				AltoTooltip:SetText("Altoholic");
 				AltoTooltip:AddLine(LEFT_HINT,1,1,1);
 				AltoTooltip:AddLine(RIGHT_HINT,1,1,1);
-				AltoTooltip:Show(); 
+				AltoTooltip:Show();
 			</OnEnter>
 			<OnLeave>
 				AltoTooltip:Hide();
@@ -472,7 +472,7 @@
 					</OnShow>
 				</Scripts>
 			</ScrollFrame>
-			
+
 			<EditBox name="$parent_SearchEditBox" inherits="InputBoxTemplate">
 				<Size x="140" y="16" />
 				<Anchors>
@@ -566,13 +566,13 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOP" relativeTo="$parent_MinLevel" relativePoint="BOTTOM" >
 						<Offset>
 							<AbsDimension  x="0" y="-5"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_MAIN_WINDOW_1);
@@ -641,13 +641,13 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset>
 							<AbsDimension  x="680" y="-40"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_MAIN_WINDOW_5);
@@ -659,13 +659,13 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset>
 							<AbsDimension  x="680" y="-60"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_MAIN_WINDOW_6);
@@ -676,13 +676,13 @@
 				<Size>
 					<AbsDimension x="20" y="20"/>
 				</Size>
-				<Anchors> 
+				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset>
 							<AbsDimension  x="680" y="-80"/>
 						</Offset>
 					</Anchor>
-				</Anchors>      
+				</Anchors>
 				<Scripts>
 					<OnLoad>
 						getglobal(this:GetName().."Text"):SetText(XML_TEXT_MAIN_WINDOW_7);

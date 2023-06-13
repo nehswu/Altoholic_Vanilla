@@ -99,15 +99,15 @@
 					<OnEnter>
 						local id = this:GetID()
 						if id == 0 then return end
-						
+
 						local s = Altoholic.SearchResults[id]
 						if s.craftLink == nil then	return end
-						
+
 						local c = Altoholic.db.account.data[s.searchFaction][s.searchRealm].char[s.altName]
 						local r = c.recipes[s.location].list
 						if not r then return	end
 						local link = r[s.craftNum].link
-						
+
 						if link then
 							GameTooltip:ClearLines();
 							GameTooltip:SetOwner(this, "ANCHOR_RIGHT");
@@ -124,15 +124,15 @@
 							if ( ChatFrameEditBox:IsShown() ) then
 								local id = this:GetID()
 								if id == 0 then return end
-								
+
 								local s = Altoholic.SearchResults[id]
 								if s.craftLink == nil then	return end
-								
+
 								local c = Altoholic.db.account.data[s.searchFaction][s.searchRealm].char[s.altName]
 								local r = c.recipes[s.location].list
 								if not r then return end
 								local link = r[s.craftNum].link
-								
+
 								if not link then return end
 								ChatFrameEditBox:Insert(link);
 							end
@@ -206,7 +206,7 @@
 				</Layers>
 				<Scripts>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(41, function(this) 
+						FauxScrollFrame_OnVerticalScroll(41, function(this)
 							Altoholic:Search_Update();
 						end)
 					</OnVerticalScroll>

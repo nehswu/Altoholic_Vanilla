@@ -41,7 +41,7 @@ function Altoholic:Quests_Update()
 		else
 			if s.isHeader then
 				if s.isCollapsed == false then
-					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up"); 
+					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up");
 					DrawGroup = true
 				else
 					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up");
@@ -60,12 +60,12 @@ function Altoholic:Quests_Update()
 				VisibleCount = VisibleCount + 1
 				DisplayedCount = DisplayedCount + 1
 			elseif DrawGroup then
-				getglobal(entry..i.."Collapse"):Hide()	
+				getglobal(entry..i.."Collapse"):Hide()
 				local _, id, level = self:GetQuestDetails(s.link)
 				getglobal(entry..i.."QuestLinkNormalText"):SetText(WHITE .. "[" .. s.level .. "] " .. s.link)
 				getglobal(entry..i.."QuestLink"):SetID(line)
 				getglobal(entry..i.."QuestLink"):SetPoint("TOPLEFT", 15, 0)
-				if s.tag then 
+				if s.tag then
 					getglobal(entry..i.."Tag"):SetText(self:GetQuestTypeString(s.tag, self:SuggestGroupSize(s.tag, s.level)))
 					getglobal(entry..i.."Tag"):Show()
 				else
@@ -94,14 +94,14 @@ function Altoholic:Quests_Update()
 				DisplayedCount = DisplayedCount + 1
 			end
 		end
-	end 
+	end
 	while i <= VisibleLines do
 		getglobal(entry..i):SetID(0)
 		getglobal(entry..i):Hide()
 		i = i + 1
 	end
 	FauxScrollFrame_Update(getglobal(frame.."ScrollFrame"), VisibleCount, VisibleLines, 18);
-end	
+end
 
 function Altoholic:GetQuestDetails(questString)
 	if not questString then return nil end
@@ -112,38 +112,38 @@ function Altoholic:GetQuestDetails(questString)
 end
 
 function Altoholic:QuestLink_OnClick(button, id)
-    if id == 0 then return end
-    if ( button == "LeftButton" ) and ( IsShiftKeyDown() ) then
-        if ( ChatFrameEditBox:IsShown() ) then
-            local v = Altoholic.vars
-            local link = self.db.account.data[v.CurrentFaction][v.CurrentRealm].char[v.CurrentAlt].questlog[id].link
-            if not link then return end
-            ChatFrameEditBox:Insert(link);
-        elseif (WIM_EditBoxInFocus) then
-            local v = Altoholic.vars
-            local link = self.db.account.data[v.CurrentFaction][v.CurrentRealm].char[v.CurrentAlt].questlog[id].link
-            if not link then return end
-            WIM_EditBoxInFocus:Insert(link);
-        end
-    end
+	if id == 0 then return end
+	if ( button == "LeftButton" ) and ( IsShiftKeyDown() ) then
+		if ( ChatFrameEditBox:IsShown() ) then
+			local v = Altoholic.vars
+			local link = self.db.account.data[v.CurrentFaction][v.CurrentRealm].char[v.CurrentAlt].questlog[id].link
+			if not link then return end
+			ChatFrameEditBox:Insert(link);
+		elseif (WIM_EditBoxInFocus) then
+			local v = Altoholic.vars
+			local link = self.db.account.data[v.CurrentFaction][v.CurrentRealm].char[v.CurrentAlt].questlog[id].link
+			if not link then return end
+			WIM_EditBoxInFocus:Insert(link);
+		end
+	end
 end
 
 function Altoholic:QuestLink_OnEnter(self)
 	local id = self:GetID()
 	if id == 0 then return end
 	local r = Altoholic.db.account.data[V.CurrentFaction][V.CurrentRealm]
-    local title = r.char[V.CurrentAlt].questlog[id].title
-    local o = r.char[V.CurrentAlt].questlog[id]
+	local title = r.char[V.CurrentAlt].questlog[id].title
+	local o = r.char[V.CurrentAlt].questlog[id]
 	if not title then return end
 	GameTooltip:ClearLines();
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-    GameTooltip:AddLine("|cffffffff"..o.questObjectives.."|r",1,1,1,true);
-    local questTitle = title
+	GameTooltip:AddLine("|cffffffff"..o.questObjectives.."|r",1,1,1,true);
+	local questTitle = title
 	local bOtherCharsOnQuest
 	for CharacterName, c in pairs(r.char) do
 		if CharacterName ~= V.CurrentAlt then
 			for index, q in pairs(c.questlog) do
-	            local altQuestTitle = q.title
+				local altQuestTitle = q.title
 				if altQuestTitle == questTitle then
 					if not bOtherCharsOnQuest then
 						GameTooltip:AddLine(" ",1,1,1);
@@ -160,10 +160,10 @@ end
 
 function Altoholic:UpdateQuestLog()
 	local q = self.db.account.data[V.faction][V.realm].char[UnitName("player")].questlog
-    if q[0] then
-        q[0] = {}
-        q[0] = nil
-    end
+	if q[0] then
+		q[0] = {}
+		q[0] = nil
+	end
 	for i = GetNumQuestLogEntries(), 1, -1 do
 		local _, _, _, isHeader, isCollapsed = GetQuestLogTitle(i);
 		if isHeader and isCollapsed then
@@ -172,38 +172,38 @@ function Altoholic:UpdateQuestLog()
 	end
 	for i = 1, GetNumQuestLogEntries() do
 		local title, level, questTag, isHeader, _, isComplete = GetQuestLogTitle(i);
-        local questDescription, questObjectives = GetQuestLogQuestText();
+		local questDescription, questObjectives = GetQuestLogQuestText();
 		if not isHeader then
 			q[i].title = title
 			q[i].tag = questTag
 			q[i].isComplete = isComplete
-            q[i].link = "|cffffff00|Hquest:0:0:0:0|h["..title.."]|h|r"
-            q[i].tag = questTag
-            q[i].level = level
-            q[i].questDescription = questDescription
-            q[i].questObjectives = questObjectives
+			q[i].link = "|cffffff00|Hquest:0:0:0:0|h["..title.."]|h|r"
+			q[i].tag = questTag
+			q[i].level = level
+			q[i].questDescription = questDescription
+			q[i].questObjectives = questObjectives
 			SelectQuestLogEntry(i);
 			q[i].money= GetQuestLogRewardMoney();
 		else
 			q[i].name = title
 			q[i].isHeader = true
-            q[i].isCollapsed = false
+			q[i].isCollapsed = false
 		end
 	end
 end
 
 function Altoholic:SuggestGroupSize(tag, level)
-    if tag == nil then return end
+	if tag == nil then return end
 
-    if tag == "Elite" then
-        return "2+"
-    elseif tag == "Dungeon" then
-        return "5"
-    elseif tag == "PVP" then
-        return "5+"
-    elseif tag == "Raid" then
-        return "10+"
-    end
+	if tag == "Elite" then
+		return "2+"
+	elseif tag == "Dungeon" then
+		return "5"
+	elseif tag == "PVP" then
+		return "5+"
+	elseif tag == "Raid" then
+		return "10+"
+	end
 end
 
 -- *** EVENT HANDLERS ***
@@ -213,5 +213,5 @@ end
 
 function Altoholic:QUEST_LOG_UPDATE()
 	self:UnregisterEvent("QUEST_LOG_UPDATE")		-- .. and unregister it right away, since we only want it to be processed once (and it's triggered way too often otherwise)
-	self:UpdateQuestLog()	
+	self:UpdateQuestLog()
 end

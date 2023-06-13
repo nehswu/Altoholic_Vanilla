@@ -46,7 +46,7 @@ function Altoholic:Skills_Update()
 				CurrentFaction = s.faction
 				CurrentRealm = s.realm
 				if s.isCollapsed == false then
-					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up"); 
+					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up");
 					DrawRealm = true
 				else
 					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up");
@@ -121,12 +121,12 @@ function Altoholic:Skills_Update()
 		i = i + 1
 	end
 	FauxScrollFrame_Update(getglobal(frame.."ScrollFrame"), VisibleCount, VisibleLines, 18);
-end	
+end
 
 function Altoholic_Skill_OnEnter(self)
 	local line = self:GetParent():GetID()
 	local s = Altoholic.CharacterInfo[line]
-	if s.linetype ~= INFO_CHARACTER_LINE then		
+	if s.linetype ~= INFO_CHARACTER_LINE then
 		return
 	end
 	local id = self:GetID()
@@ -163,7 +163,7 @@ function Altoholic_Skill_OnEnter(self)
 		skill = L["Rogue Proficiencies"]
 		local curLock, maxLock = Altoholic:GetSkillInfo( c.skill["Class Skills"][L["Lockpicking"]] )
 		local curPois, maxPois = Altoholic:GetSkillInfo( c.skill["Class Skills"][L["Poisons"]] )
-		rank = TEAL .. L["Lockpicking"] .. " " .. curLock .. "/" .. maxLock .. "\n" 
+		rank = TEAL .. L["Lockpicking"] .. " " .. curLock .. "/" .. maxLock .. "\n"
 						.. L["Poisons"] .. " " .. curPois .. "/" .. maxPois
 		suggestion = Altoholic:GetSuggestion(L["Lockpicking"], curLock)
 	end
@@ -189,7 +189,7 @@ function Altoholic_Skill_OnEnter(self)
 			reset = tonumber(reset)
 			lastcheck = tonumber(lastcheck)
 			local expiresIn = reset - (time() - lastcheck)
-			
+
 			if expiresIn > 0 then
 				AltoTooltip:AddDoubleLine(select(2, GetItemInfo(itemID) ), Altoholic:GetTimeString(expiresIn));
 			end
@@ -209,14 +209,14 @@ end
 function Altoholic:UpdateTradeSkill(tradeskillName)
 	local c = self.db.account.data[V.faction][V.realm].char[V.player]
 	local r = c.recipes[tradeskillName].list
-    if c.recipes[0] then
-        c.recipes[0] = {}
-        c.recipes[0] = nil
-    end
-    if c.recipes[tradeskillName].list[0] then
-        c.recipes[tradeskillName].list[0] = {}
-        c.recipes[tradeskillName].list[0] = nil
-    end
+	if c.recipes[0] then
+		c.recipes[0] = {}
+		c.recipes[0] = nil
+	end
+	if c.recipes[tradeskillName].list[0] then
+		c.recipes[tradeskillName].list[0] = {}
+		c.recipes[tradeskillName].list[0] = nil
+	end
 	for i = GetNumTradeSkills(), 1, -1 do
 		local _, skillType, _, isExpanded  = GetTradeSkillInfo(i)
 		if (skillType == "header") and (isExpanded ~= true)  then
@@ -232,7 +232,7 @@ function Altoholic:UpdateTradeSkill(tradeskillName)
 	local bScanFailed = false
 	for i = 1, GetNumTradeSkills() do
 		local skillName, skillType = GetTradeSkillInfo(i)
-        r[i].name = skillName
+		r[i].name = skillName
 		if skillType == "header" then
 			r[i].isHeader = true
 		else
@@ -273,14 +273,14 @@ function Altoholic:UpdateCraft(tradeskillName)
 	if Altoholic:GetProfessionID(tradeskillName) == 0 then return end -- unsupported/custom skill
 	local c = self.db.account.data[V.faction][V.realm].char[V.player]
 	local r = c.recipes[tradeskillName].list
-    if c.recipes[0] then
-        c.recipes[0] = {}
-        c.recipes[0] = nil
-    end
-    if c.recipes[tradeskillName].list[0] then
-        c.recipes[tradeskillName].list[0] = {}
-        c.recipes[tradeskillName].list[0] = nil
-    end
+	if c.recipes[0] then
+		c.recipes[0] = {}
+		c.recipes[0] = nil
+	end
+	if c.recipes[tradeskillName].list[0] then
+		c.recipes[tradeskillName].list[0] = {}
+		c.recipes[tradeskillName].list[0] = nil
+	end
 	for i = GetNumCrafts(), 1, -1 do
 		local _, _, craftType, _, isExpanded = GetCraftInfo(i)
 		if (craftType == "header") and (isExpanded ~= true)  then
@@ -296,7 +296,7 @@ function Altoholic:UpdateCraft(tradeskillName)
 	local bScanFailed = false
 	for i = 1, GetNumCrafts() do
 		local craftName, _, craftType = GetCraftInfo(i)
-        r[i].name = craftName
+		r[i].name = craftName
 		if craftType == "header" then
 			r[i].isHeader = true
 		else

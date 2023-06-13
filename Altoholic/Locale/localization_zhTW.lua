@@ -14,7 +14,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Shaman"] = "薩滿",
 	["Paladin"] = "聖騎士",
 	["Priest"] = "牧師",
-	
+
 	-- Stats
 	-- Translate STA/INT/etc .. but make sure to leave -s unchanged
 	["Sta:-s |rInt:-s |rSpi:-s\n|rCrit:-s |rHit:-s |rDmg:-s"] = "耐:-s |r智:-s |r精:-s\n|r致命:-s |r命中:-s |r傷害:-s",
@@ -29,7 +29,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Sta:-s |rStr:-s |rInt:-s\n|rCrit:-s |rHit:-s |rAP:-s"] = "耐:-s |r力:-s |r智:-s\n|r致命:-s |r命中:-s |r強度:-s",
 	["Sta:-s |rAgi:-s |rInt:-s\n|rCrit:-s |rHit:-s |rAP:-s"] = "耐:-s |r敏:-s |r智:-s\n|r致命:-s |r命中:-s |r強度:-s",
 	["Sta:-s |rAgi:-s\n|rCrit:-s |rHit:-s |rAP:-s"] = "耐:-s |r敏:-s\n|r致命:-s |r命中:-s |r強度:-s",
-	
+
 	-- note: these string are the ones found in item tooltips, make sure to respect the case when translating, and to distinguish them (like crit vs spell crit)
 	["Increases healing done by up to %d+"] = "使所有法術和魔法效果所做成的治療效果提高%d+點",
 	["Increases damage and healing done by magical spells and effects by up to %d+"] = "使所有法術和魔法效果所做成的傷害效果提高%d+點",
@@ -44,10 +44,10 @@ L:RegisterTranslations("zhTW", function() return {
 	["Classes: Warlock"] = "職業: 術士",
 	["Classes: Priest"] = "職業: 牧師",
 	["Resistance"] = "Resistance",
-	
+
 	-- equipment slots
 	["Ranged"] = "遠程",
-	
+
 	--skills
 	["Professions"] = "專業技能",
 	["Secondary Skills"] = "第二專長",
@@ -59,7 +59,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Lockpicking"] = "開鎖",
 	["Poisons"] = "毒藥",
 	["Beast Training"] = "野獸訓練",
-	
+
 	--factions not in LibFactions or LibZone
 	["Exodar"] = "艾克索達",
 	["Gnomeregan Exiles"] = "諾姆瑞根流亡者",
@@ -72,7 +72,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Ravenholdt"] = "拉文霍德",
 	["Shen'dralar"] = "辛德拉",
 	["Syndicate"] = "辛迪加",
-	
+
 	-- menu
 	["Account Summary"] = "帳號摘要",
 	["Characters"] = "角色",
@@ -159,7 +159,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Recipes"] = "配方",
 	["Equipment"] = "裝備",
 	["Options"] = "選項",
-	
+
 	--Altoholic.lua
 	["Loots"] = "戰利品",
 	["Unknown"] = "未知",
@@ -170,31 +170,31 @@ L:RegisterTranslations("zhTW", function() return {
 	["(has mail)"] = "(有郵件)",
 	["(has auctions)"] = "(has auctions)",
 	["(has bids)"] = "(has bids)",
-	
+
 	["No rest XP"] = "沒有充份休息經驗值",
 	["% rested"] = "% 充份休息",
 	["Transmute"] = "轉化",
-	
+
 	["Bags"] = "背包",
 	["Bank"] = "銀行",
 	["Equipped"] = "已裝備",
 	["Mail"] = "郵件",
 	[", "] = "，",
 	["(Guild bank: "] = "公會金庫",
-	
+
 	["Level"] = "等級",
 	["Zone"] = "地區",
 	["Rest XP"] = "充份休息經驗值",
-	
+
 	["Source"] = "來源",
 	["Total owned"] = "總共擁有",
 	["Already known by "] = "已經學會",
 	["Will be learnable by "] = "這將以被誰學會:",
 	["Could be learned by "] = "這可以被誰學會:",
-	
+
 	["At least one recipe could not be read"] = "最少有一個配方未被讀取",
 	["Please open this window again"] = "請重啟這視窗",
-	
+
 	--Core.lua
 	-- ['search'] = '搜索',
 	-- ["Search in bags"] = '在背包中搜索',
@@ -204,11 +204,11 @@ L:RegisterTranslations("zhTW", function() return {
 	-- ["Hides the UI"] = '隐藏图形界面',
 	-- ['toggle'] = '切换',
 	-- ["Toggles the UI"] = '切换图形界面的显示/隐藏',
-	
+
 	--AltoholicFu.lua
 	["Left-click to"] = "左擊",
 	["open/close"] = "開啟/關閉",
-	
+
 	--AccountSummary.lua
 	["View bags"] = "查看背包",
 	["View mailbox"] = "查看郵件",
@@ -222,7 +222,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Suggested leveling zone: "] = "建議升級的地區",
 	["Arena points: "] = "兢技場分數",
 	["Honor points: "] = "榮譽分數",
-	
+
 	-- AuctionHouse.lua
 	[" has no auctions"] = " has no auctions",
 	[" has no bids"] = " has no bids",
@@ -231,18 +231,18 @@ L:RegisterTranslations("zhTW", function() return {
 	["Clear your faction's entries"] = "Clear your faction's entries",
 	["Clear goblin AH entries"] = "Clear goblin AH entries",
 	["Clear all entries"] = "Clear all entries",
-	
+
 	--BagUsage.lua
 	["Totals"] = "總數",
 	["slots"] = "空格",
 	["free"] = "可用",
-	
+
 	--Containers.lua
 	["32 Keys Max"] = "32鎖匙最大數",
 	["28 Slot"] = "28格",
 	["Bank bag"] = "銀行包",
 	["Unknown link, please relog this character"] = "不知名的連結, 請重登這角色",
-	
+
 	--Equipment.lua
 	["Find Upgrade"] = "找尋裝備升級",
 	["(based on iLvl)"] = " (跟據物品等級iLvl)",
@@ -252,11 +252,11 @@ L:RegisterTranslations("zhTW", function() return {
 	["Balance"] = "平衡",
 	["Elemental Shaman"] = "元素",		-- shaman spec !
 	["Heal"] = "治療",
-	
+
 	--GuildBank.lua
 	["Last visited "] = "最後訪問過 ",
 	[" days ago by "] = " 日前, ",
-	
+
 	--Mails.lua
 	[" has not visited his/her mailbox yet"] = "沒有訪問他/她的郵箱",
 	[" has no mail, last check "] = "沒有郵件, 最後檢查 ",
@@ -264,28 +264,28 @@ L:RegisterTranslations("zhTW", function() return {
 	["Mailbox"] = "郵箱",
 	["Mail was last checked "] = "郵件最後一次檢查是 ",
 	[" days"] = " 日.",
-	
+
 	--Quests.lua
 	["No quest found for "] = "沒有找到任務: ",
 	["QuestID"] = "任務ID",
 	["Are also on this quest:"] = "也有這個任務:",
-	
+
 	--Recipes.lua
 	["No data: "] = "無資料: ",
 	[" scan failed for "] = "掃描失敗: ",
-	
+
 	--Reputations.lua
 	["Shift-Click to link this info"] = "Shift-左擊來連結這資訊",
 	[" is "] = " 是 ",
 	[" with "] = " 和 ",
-	
+
 	--Search.lua
 	["Item Level"] = "物品等級",
 	[" results found (Showing "] = " 結果被找出 (顯示)",
 	["No match found!"] = "未找到相應!",
 	[" not found!"] = "*沒找到",
 	["Socket"] = "插糟",
-	
+
 	--skills.lua
 	["Rogue Proficiencies"] = "盜賊熟練度",
 	["up to"] = "最高至",
@@ -294,7 +294,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Suggestion"] = "建議",
 	["Prof. 1"] = "專業1",
 	["Prof. 2"] = "專業2",
-	
+
 	--loots.lua
 	--Instinct drop
 	["Trash Mobs"] = "一般怪物",
@@ -357,7 +357,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Opera (Shared Drops)"] = "歌劇院 (隨機掉落)",
 	["Timed Chest"] = "限時任務獎勵箱子",
 	["Patterns"] = "卷軸",
-	
+
 	--Rep
 	["Token Hand-Ins"] = "可兌換的獎勵",
 	["Items"] = "物品",
@@ -370,7 +370,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Blessings Deck"] = "祝福套卡",
 	["Lunacy Deck"] = "失心套卡",
 	["Quest rewards"] = "任務獎勵",
-	
+
 	--World drop
 	["Outdoor Bosses"] = "野外首領",
 	["Highlord Kruul"] = "卡魯歐領主",
@@ -452,7 +452,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Gordok Brewery"] = "戈多克綠酒釀造廠",
 	["Drohn's Distillery"] = "德羅恩的釀酒廠",
 	["T'chali's Voodoo Brewery"] = "提洽里的巫毒釀酒廠",
-	
+
 	--craft
 	["Crafted Weapons"] = "精製裝備武器",
 	["Master Swordsmith"] = "鑄劍大師",
@@ -526,7 +526,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Expert"] = "高級",
 	["Artisan"] = "專家級",
 	["Master"] = "大師級",
-	
+
 	--Set & PVP
 	["Superior Rewards"] = "精良獎勵",
 	["Epic Rewards"] = "史詩獎勵",
@@ -582,7 +582,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Level 50-60"] = "50-60級",
 	["Level 70"] = "70級",
 
-	-- Altoholic.Gathering : Mining 
+	-- Altoholic.Gathering : Mining
 	["Copper Vein"] = "銅礦",
 	["Tin Vein"] = "錫礦",
 	["Iron Deposit"] = "鐵礦石",
@@ -610,7 +610,7 @@ L:RegisterTranslations("zhTW", function() return {
 	["Large Obsidian Chunk"] = "大型黑曜石礦",
 	["Small Obsidian Chunk"] = "小型黑曜石礦",
 	["Nethercite Deposit"] = "虛空傳喚礦床",
-	
+
 	-- Altoholic.Gathering : Herbalism
 	["Peacebloom"] = "寧神花",
 	["Silverleaf"] = "銀葉草",
@@ -656,8 +656,8 @@ L:RegisterTranslations("zhTW", function() return {
 	["Fel Lotus"] = "魔獄蓮花",
 	["Netherdust Bush"] = "虛空之塵灌木叢",
 	-- ["Glowcap"] = true,
-	-- ["Sanguine Hibiscus"] = true,	
-	
+	-- ["Sanguine Hibiscus"] = true,
+
 } end)
 
 if GetLocale() == "zhTW" then

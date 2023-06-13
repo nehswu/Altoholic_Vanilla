@@ -5,8 +5,8 @@
 		<Size>
 			<AbsDimension x="37" y="20"/>
 		</Size>
-		<Layers> 
-			<Layer level="BACKGROUND"> 
+		<Layers>
+			<Layer level="BACKGROUND">
 				<Texture name="$parent_Background" setAllPoints="true">
 					<Size>
 						<AbsDimension x="33" y="16"/>
@@ -18,10 +18,10 @@
 							</Offset>
 						</Anchor>
 					</Anchors>
-					<Color r="0.2" g="0.2" b="0.2" a="1" /> 
-				</Texture> 
+					<Color r="0.2" g="0.2" b="0.2" a="1" />
+				</Texture>
 			</Layer>
-			<Layer level="OVERLAY"> 
+			<Layer level="OVERLAY">
 				<FontString name="$parentName" inherits="GameFontNormalSmall" justifyH="LEFT" >
 					<Size>
 						<AbsDimension x="26" y="18"/>
@@ -33,7 +33,7 @@
 							</Offset>
 						</Anchor>
 					</Anchors>
-					<Color r="1" g="1" b="1" /> 
+					<Color r="1" g="1" b="1" />
 				</FontString>
 			</Layer>
 		</Layers>
@@ -64,7 +64,7 @@
 			<Color r="1" g="1" b="1" a=".25"/>
 		</Backdrop>
 	</Button>
-		
+
 	<Button name="ReputationEntryTemplate" virtual="true">
 		<Size>
 			<AbsDimension x="615" y="22"/>
@@ -128,7 +128,7 @@
 			<Button name="$parentItem10" inherits="RepItemTemplate" />
 		</Frames>
 	</Button>
-	
+
 	<Frame name="AltoReputations" parent="AltoholicFrame" hidden="true">
 		<Size>
 			<AbsDimension x="615" y="306"/>
@@ -178,7 +178,7 @@
 				</Layers>
 				<Scripts>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(41, function(this) 
+						FauxScrollFrame_OnVerticalScroll(41, function(this)
 							Altoholic:Reputations_Update();
 						end)
 					</OnVerticalScroll>

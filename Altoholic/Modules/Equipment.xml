@@ -94,7 +94,7 @@
 				</Layers>
 				<Scripts>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(41, function(this) 
+						FauxScrollFrame_OnVerticalScroll(41, function(this)
 							Altoholic:Equipment_Update();
 						end)
 					</OnVerticalScroll>
@@ -111,5 +111,5 @@
 		</Scripts>
 	</Frame>
 
-	
+
 </Ui>

@@ -13,7 +13,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Shaman"] = true,
 	["Paladin"] = true,
 	["Priest"] = true,
-	
+
 	-- Stats
 	["Sta:-s |rInt:-s |rSpi:-s\n|rCrit:-s |rHit:-s |rDmg:-s"] = true,
 	["Sta:-s |rInt:-s |rSpi:-s\n|rCrit:-s |rMP5:-s |rHeal:-s"] = true,
@@ -42,10 +42,10 @@ L:RegisterTranslations("enUS", function() return {
 	["Classes: Warlock"] = true,
 	["Classes: Priest"] = true,
 	["Resistance"] = true,
-	
+
 	-- equipment slots
 	["Ranged"] = true,
-	
+
 	--skills
 	["Professions"] = true,
 	["Secondary Skills"] = true,
@@ -57,7 +57,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Lockpicking"] = true,
 	["Poisons"] = true,
 	["Beast Training"] = true,
-	
+
 	--factions not in LibFactions or LibZone
 	["Exodar"] = true,
 	["Gnomeregan Exiles"] = true,
@@ -70,7 +70,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Ravenholdt"] = true,
 	["Shen'dralar"] = true,
 	["Syndicate"] = true,
-	
+
 	-- menu
 	["Account Summary"] = true,
 	["Characters"] = true,
@@ -157,7 +157,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Recipes"] = true,
 	["Equipment"] = true,
 	["Options"] = true,
-	
+
 	--Altoholic.lua
 	["Loots"] = true,
 	["Unknown"] = true,
@@ -168,31 +168,31 @@ L:RegisterTranslations("enUS", function() return {
 	["(has mail)"] = true,
 	["(has auctions)"] = true,
 	["(has bids)"] = true,
-	
+
 	["No rest XP"] = true,
 	["% rested"] = true,
 	["Transmute"] = true,
-	
+
 	["Bags"] = true,
 	["Bank"] = true,
 	["Equipped"] = true,
 	["Mail"] = true,
 	[", "] = true,						-- required for znCH
 	["(Guild bank: "] = true,
-	
+
 	["Level"] = true,
 	["Zone"] = true,
 	["Rest XP"] = true,
-	
+
 	["Source"] = true,
 	["Total owned"] = true,
 	["Already known by "] = true,
 	["Will be learnable by "] = true,
 	["Could be learned by "] = true,
-	
+
 	["At least one recipe could not be read"] = true,
 	["Please open this window again"] = true,
-	
+
 	--Core.lua
 	['search'] = true,
 	["Search in bags"] = true,
@@ -202,11 +202,11 @@ L:RegisterTranslations("enUS", function() return {
 	["Hides the UI"] = true,
 	['toggle'] = true,
 	["Toggles the UI"] = true,
-	
+
 	--AltoholicFu.lua
 	["Left-click to"] = true,
 	["open/close"] = true,
-	
+
 	--AccountSummary.lua
 	["View bags"] = true,
 	["View mailbox"] = true,
@@ -220,7 +220,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Suggested leveling zone: "] = true,
 	["Arena points: "] = true,
 	["Honor points: "] = true,
-	
+
 	-- AuctionHouse.lua
 	[" has no auctions"] = true,
 	[" has no bids"] = true,
@@ -229,18 +229,18 @@ L:RegisterTranslations("enUS", function() return {
 	["Clear your faction's entries"] = true,
 	["Clear goblin AH entries"] = true,
 	["Clear all entries"] = true,
-	
+
 	--BagUsage.lua
 	["Totals"] = true,
 	["slots"] = true,
 	["free"] = true,
-	
+
 	--Containers.lua
 	["32 Keys Max"] = true,
 	["28 Slot"] = true,
 	["Bank bag"] = true,
 	["Unknown link, please relog this character"] = true,
-	
+
 	--Equipment.lua
 	["Find Upgrade"] = true,
 	["(based on iLvl)"] = true,
@@ -250,11 +250,11 @@ L:RegisterTranslations("enUS", function() return {
 	["Balance"] = true,
 	["Elemental Shaman"] = true,		-- shaman spec !
 	["Heal"] = true,
-	
+
 	--GuildBank.lua
 	["Last visited "] = true,
 	[" days ago by "] = true,
-	
+
 	--Mails.lua
 	[" has not visited his/her mailbox yet"] = true,
 	[" has no mail, last check "] = true,
@@ -262,28 +262,28 @@ L:RegisterTranslations("enUS", function() return {
 	["Mailbox"] = true,
 	["Mail was last checked "] = true,
 	[" days"] = true,
-	
+
 	--Quests.lua
 	["No quest found for "] = true,
 	["QuestID"] = true,
 	["Are also on this quest:"] = true,
-	
+
 	--Recipes.lua
 	["No data: "] = true,
 	[" scan failed for "] = true,
-	
+
 	--Reputations.lua
 	["Shift-Click to link this info"] = true,
 	[" is "] = true,
 	[" with "] = true,
-	
+
 	--Search.lua
 	["Item Level"] = true,
 	[" results found (Showing "] = true,
 	["No match found!"] = true,
 	[" not found!"] = true,
 	["Socket"] = true,
-	
+
 	--skills.lua
 	["Rogue Proficiencies"] = true,
 	["up to"] = true,
@@ -292,7 +292,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Suggestion"] = true,
 	["Prof. 1"] = true,
 	["Prof. 2"] = true,
-	
+
 	--loots.lua
 	--Instinct drop
 	["Trash Mobs"] = true,
@@ -355,7 +355,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Opera (Shared Drops)"] = true,
 	["Timed Chest"] = true,
 	["Patterns"] = true,
-	
+
 	--Rep
 	["Token Hand-Ins"] = true,
 	["Items"] = true,
@@ -369,7 +369,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Lunacy Deck"] = true,
 	["Quest rewards"] = true,
 	["Shattrath"] = true,
-	
+
 	--World drop
 	["Outdoor Bosses"] = true,
 	["Highlord Kruul"] = true,
@@ -452,7 +452,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Gordok Brewery"] = true,
 	["Drohn's Distillery"] = true,
 	["T'chali's Voodoo Brewery"] = true,
-	
+
 	--craft
 	["Crafted Weapons"] = true,
 	["Master Swordsmith"] = true,
@@ -526,7 +526,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Expert"] = true,
 	["Artisan"] = true,
 	["Master"] = true,
-	
+
 	--Set & PVP
 	["Superior Rewards"] = true,
 	["Epic Rewards"] = true,
@@ -583,7 +583,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Level 50-60"] = true,
 	["Level 70"] = true,
 
-	-- Altoholic.Gathering : Mining 
+	-- Altoholic.Gathering : Mining
 	["Copper Vein"] = true,
 	["Tin Vein"] = true,
 	["Iron Deposit"] = true,
@@ -611,7 +611,7 @@ L:RegisterTranslations("enUS", function() return {
 	["Large Obsidian Chunk"] = true,
 	["Small Obsidian Chunk"] = true,
 	["Nethercite Deposit"] = true,
-	
+
 	-- Altoholic.Gathering : Herbalism
 	["Peacebloom"] = true,
 	["Silverleaf"] = true,
@@ -659,7 +659,7 @@ L:RegisterTranslations("enUS", function() return {
 
 	["Glowcap"] = true,
 	["Sanguine Hibiscus"] = true,
-	
+
 } end)
 
 if GetLocale() == "enUS" then

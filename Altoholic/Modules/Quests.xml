@@ -114,12 +114,12 @@
 					<OnClick>
 						Altoholic:QuestLink_OnClick(arg1, this:GetID())
 					</OnClick>
-				</Scripts>		
+				</Scripts>
 				<NormalFont inherits="GameFontNormalSmall" justifyH="LEFT"/>
 			</Button>
 		</Frames>
 	</Button>
-	
+
 	<Frame name="AltoQuests" parent="AltoholicFrame" hidden="true">
 		<Size>
 			<AbsDimension x="615" y="306"/>
@@ -169,7 +169,7 @@
 				</Layers>
 				<Scripts>
 					<OnVerticalScroll>
-						FauxScrollFrame_OnVerticalScroll(18, function(this) 
+						FauxScrollFrame_OnVerticalScroll(18, function(this)
 							Altoholic:Quests_Update();
 						end)
 					</OnVerticalScroll>

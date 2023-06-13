@@ -138,7 +138,7 @@ function Altoholic:Reputations_Update()
 end
 
 function Altoholic_Reputations_OnEnter()
-    if not this then return end
+	if not this then return end
 	local repID = this:GetParent():GetID()
 	if repID == 0 then		-- class icon
 		V.CurrentFaction = V.faction
@@ -169,7 +169,7 @@ end
 
 function Altoholic_Reputations_OnClick()
 	if not this then return end
-    local button = arg1
+	local button = arg1
 	local repID = this:GetParent():GetID()
 	if repID == 0 then
 		Altoholic:DrawCharacterTooltip(this.CharName)
@@ -178,12 +178,12 @@ function Altoholic_Reputations_OnClick()
 	local r = Altoholic.db.account.data[V.faction][V.realm]
 	local bottom, top, earned = Altoholic:GetReputationInfo( r.reputation[V.Factions[repID]][this.CharName] )
 	local repLevel = Altoholic:GetRepLevelString(bottom)
-    if button == "LeftButton" and IsShiftKeyDown() then
-        if ( ChatFrameEditBox:IsShown() ) then
-            ChatFrameEditBox:Insert(this.CharName .. L[" is "] .. repLevel .. L[" with "] .. V.Factions[repID] .. " (" .. (earned - bottom) .. "/" .. (top - bottom) .. ")");
-        elseif (WIM_EditBoxInFocus) then
-            WIM_EditBoxInFocus:Insert(this.CharName .. L[" is "] .. repLevel .. L[" with "] .. V.Factions[repID] .. " (" .. (earned - bottom) .. "/" .. (top - bottom) .. ")");
-        end
+	if button == "LeftButton" and IsShiftKeyDown() then
+		if ( ChatFrameEditBox:IsShown() ) then
+			ChatFrameEditBox:Insert(this.CharName .. L[" is "] .. repLevel .. L[" with "] .. V.Factions[repID] .. " (" .. (earned - bottom) .. "/" .. (top - bottom) .. ")");
+		elseif (WIM_EditBoxInFocus) then
+			WIM_EditBoxInFocus:Insert(this.CharName .. L[" is "] .. repLevel .. L[" with "] .. V.Factions[repID] .. " (" .. (earned - bottom) .. "/" .. (top - bottom) .. ")");
+		end
 	end
 end
 

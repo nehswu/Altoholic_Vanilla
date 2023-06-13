@@ -44,7 +44,7 @@ function Altoholic:AccountSummary_Update()
 				CurrentFaction = s.faction
 				CurrentRealm = s.realm
 				if s.isCollapsed == false then
-					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up"); 
+					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up");
 					DrawRealm = true
 				else
 					getglobal(entry..i.."Collapse"):SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up");
@@ -119,7 +119,7 @@ end
 function Altoholic_AccountSummaryLevel_OnEnter(self)
 	local line = self:GetParent():GetID()
 	local s = Altoholic.CharacterInfo[line]
-	if s.linetype ~= INFO_CHARACTER_LINE then		
+	if s.linetype ~= INFO_CHARACTER_LINE then
 		return
 	end
 	local Faction, Realm = Altoholic:GetCharacterInfo(line)
@@ -129,7 +129,7 @@ function Altoholic_AccountSummaryLevel_OnEnter(self)
 	AltoTooltip:SetOwner(self, "ANCHOR_RIGHT");
 	AltoTooltip:AddLine(Altoholic:GetClassColor(c.class) .. s.name,1,1,1);
 	AltoTooltip:AddLine(L["Level"] .. " " .. GREEN .. c.level .. " |r".. c.race .. " " .. c.class,1,1,1);
-	AltoTooltip:AddLine(L["Zone"] .. ": " .. GOLD .. c.zone .. " |r(" .. GOLD .. c.subzone .."|r)",1,1,1);	
+	AltoTooltip:AddLine(L["Zone"] .. ": " .. GOLD .. c.zone .. " |r(" .. GOLD .. c.subzone .."|r)",1,1,1);
 	if c.restxp then
 		AltoTooltip:AddLine(L["Rest XP"] .. ": " .. GREEN .. c.restxp,1,1,1);
 	end
@@ -151,7 +151,7 @@ function Altoholic_AccountSummaryLevel_OnEnter(self)
 			lastcheck = tonumber(lastcheck)
 			local expiresIn = reset - (time() - lastcheck)
 			if expiresIn > 0 then
-				AltoTooltip:AddDoubleLine(GOLD .. InstanceName .. 
+				AltoTooltip:AddDoubleLine(GOLD .. InstanceName ..
 					" (".. WHITE.."ID: " .. GREEN .. id .. "|r)", Altoholic:GetTimeString(expiresIn))
 			end
 		end
@@ -164,11 +164,11 @@ function Altoholic_AccountSummaryLevel_OnEnter(self)
 end
 
 function Altoholic_AccountSummaryLevel_OnClick(button, id)
-    if not this then return end
+	if not this then return end
 	local line = this:GetParent():GetID()
 	if line == 0 then return end
 	local s = Altoholic.CharacterInfo[line]
-	if s.linetype ~= INFO_CHARACTER_LINE then		
+	if s.linetype ~= INFO_CHARACTER_LINE then
 		return
 	end
 	if button == "RightButton" then
@@ -185,30 +185,30 @@ function Altoholic_AccountSummaryLevel_OnClick(button, id)
 end
 
 function Summary_RightClickMenu_OnLoad()
-	local info = Altoholic_UIDropDownMenu_CreateInfo(); 
+	local info = Altoholic_UIDropDownMenu_CreateInfo();
 	info.text		= L["View bags"]
 	info.value		= 1
 	info.func		= Altoholic_ViewAltInfo;
-	UIDropDownMenu_AddButton(info, 1); 
+	UIDropDownMenu_AddButton(info, 1);
 	info.text		= L["View mailbox"]
 	info.value		= 2
 	info.func		= Altoholic_ViewAltInfo;
-	UIDropDownMenu_AddButton(info, 1); 
+	UIDropDownMenu_AddButton(info, 1);
 	info.text		= L["View quest log"]
 	info.value		= 3
 	info.func		= Altoholic_ViewAltInfo;
-	UIDropDownMenu_AddButton(info, 1); 
+	UIDropDownMenu_AddButton(info, 1);
 	info.text		= L["View auctions"]
 	info.value		= 4
 	info.func		= Altoholic_ViewAltInfo;
-	UIDropDownMenu_AddButton(info, 1); 
+	UIDropDownMenu_AddButton(info, 1);
 	info.text		= L["View bids"]
 	info.value		= 5
 	info.func		= Altoholic_ViewAltInfo;
-	UIDropDownMenu_AddButton(info, 1); 	
+	UIDropDownMenu_AddButton(info, 1);
 	info.text		= L["Delete this Alt"]
 	info.func		= Altoholic_DeleteAlt;
-	UIDropDownMenu_AddButton(info, 1); 
+	UIDropDownMenu_AddButton(info, 1);
 end
 
 function Altoholic_ViewAltInfo()
@@ -237,7 +237,7 @@ end
 
 function Altoholic_DeleteAlt()
 	local line = V.CharInfoLine
-    V.CharInfoLine = {}
+	V.CharInfoLine = {}
 	V.CharInfoLine = nil
 	local s = Altoholic.CharacterInfo[line] -- no validity check, this comes from the dropdownmenu, it's been secured earlier
 	local AltName = s.name
@@ -249,28 +249,28 @@ function Altoholic_DeleteAlt()
 	end
 	-- delete factions
 	for RepName, RepTable in pairs(r.reputation) do
-        RepTable[s.name] = {}
+		RepTable[s.name] = {}
 		RepTable[s.name] = nil
 	end
 	-- delete the character
-    r.char[s.name] = {}
-    r.char[s.name] = nil
+	r.char[s.name] = {}
+	r.char[s.name] = nil
 	local charCount = 0
 	for _, _ in pairs(r.char) do
 		charCount = charCount + 1
 	end
 	if charCount == 0 then
-        Altoholic.db.account.data[Faction][Realm] = {}
-        Altoholic.db.account.data[Faction][Realm] = nil
+		Altoholic.db.account.data[Faction][Realm] = {}
+		Altoholic.db.account.data[Faction][Realm] = nil
 	end
-	local realmCount = 0			
+	local realmCount = 0
 	for _, _ in pairs(Altoholic.db.account.data[Faction]) do
 		realmCount = realmCount + 1
 	end
 	if realmCount == 0 then
-        Altoholic.db.account.data[Faction] = {}
+		Altoholic.db.account.data[Faction] = {}
 		Altoholic.db.account.data[Faction] = nil
-	end	
+	end
 	Altoholic:BuildCharacterInfoTable()
 	Altoholic:BuildContainersSubMenu()
 	Altoholic:BuildMailSubMenu()
