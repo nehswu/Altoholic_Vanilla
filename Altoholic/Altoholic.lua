@@ -1434,96 +1434,91 @@ function Altoholic:GetItemCount(searchedID)
 		V.ItemCount = {}
 	end
 	local count = 0
-	for faction,_ in pairs(self.db.account.data) do
-		for realm in pairs(self.db.account.data[faction]) do
-			if V.realm == realm then
-				for CharacterName, c in pairs(self.db.account.data[faction][realm].char) do
-					local bagCount = 0
-					local bankCount = 0
-					for BagName, b in pairs(c.bag) do
-						for slotID=1, b.size do
-							local id = b.ids[slotID]
-							if (id) and (id == searchedID) then
-								local itemCount
-								if (b.counts[slotID] == nil) or (b.counts[slotID] == 0) then
-									itemCount = 1
-								else
-									itemCount = b.counts[slotID]
-								end
-								if (BagName == "Bag100") then
-									bankCount = bankCount + itemCount
-								elseif (BagName == "Bag-2") then
-									bagCount = bagCount + itemCount
-								else
-									local bagNum = tonumber(string.sub(BagName, 4))
-									if (bagNum >= 0) and (bagNum <= 4) then
-										bagCount = bagCount + itemCount
-									else
-										bankCount = bankCount + itemCount
-									end
-								end
-							end
-						end
+	for charName, charData in Altoholic:GetCrossFactionCharactersDataByName() do
+		local bagCount = 0
+		local bankCount = 0
+		for BagName, b in pairs(charData.bag) do
+			for slotID=1, b.size do
+				local id = b.ids[slotID]
+				if (id) and (id == searchedID) then
+					local itemCount
+					if (b.counts[slotID] == nil) or (b.counts[slotID] == 0) then
+						itemCount = 1
+					else
+						itemCount = b.counts[slotID]
 					end
-					local equipCount = 0
-					for slotID=1, 19 do
-						local s = c.inventory[slotID]
-						if (s ~= nil) then
-							if type(s) == "number" then
-								if (s == searchedID) then
-									equipCount = equipCount + 1
-								end
-							elseif self:GetIDFromLink(s) == searchedID then
-								equipCount = equipCount + 1
-							end
+					if (BagName == "Bag100") then
+						bankCount = bankCount + itemCount
+					elseif (BagName == "Bag-2") then
+						bagCount = bagCount + itemCount
+					else
+						local bagNum = tonumber(string.sub(BagName, 4))
+						if (bagNum >= 0) and (bagNum <= 4) then
+							bagCount = bagCount + itemCount
+						else
+							bankCount = bankCount + itemCount
 						end
-					end
-					local mailCount = 0
-					for slotID=1, table.getn(c.mail) do
-						local s = c.mail[slotID]
-						if (s.link ~= nil) and (self:GetIDFromLink(s.link) == searchedID) then
-							if (s.count == nil) or (s.count == 0) then
-								mailCount = mailCount + 1
-							else
-								mailCount = mailCount + s.count
-							end
-						end
-					end
-					local charCount = bagCount + bankCount + equipCount + mailCount
-					count = count + charCount
-					if charCount > 0 then
-						local charInfo = ORANGE .. charCount .. WHITE .. " ("
-						if bagCount > 0 then
-							charInfo = charInfo .. WHITE .. L["Bags"] .. ": "  .. TEAL .. bagCount
-							charCount = charCount - bagCount
-							if charCount > 0 then
-								charInfo = charInfo .. WHITE .. L[", "]
-							end
-						end
-						if bankCount > 0 then
-							charInfo = charInfo .. WHITE .. L["Bank"] .. ": " .. TEAL .. bankCount
-							charCount = charCount - bankCount
-							if charCount > 0 then
-								charInfo = charInfo .. WHITE .. L[", "]
-							end
-						end
-						if equipCount > 0 then
-							charInfo = charInfo .. WHITE .. L["Equipped"] .. ": "  .. TEAL .. equipCount
-							charCount = charCount - equipCount
-							if charCount > 0 then
-								charInfo = charInfo .. WHITE .. L[", "]
-							end
-						end
-						if mailCount > 0 then
-							charInfo = charInfo .. WHITE .. L["Mail"] .. ": "  .. TEAL .. mailCount
-						end
-						charInfo = charInfo .. WHITE .. ")"
-						V.ItemCount[Altoholic:GetClassColor(c.class) .. CharacterName] = charInfo
 					end
 				end
 			end
 		end
+		local equipCount = 0
+		for slotID=1, 19 do
+			local s = charData.inventory[slotID]
+			if (s ~= nil) then
+				if type(s) == "number" then
+					if (s == searchedID) then
+						equipCount = equipCount + 1
+					end
+				elseif self:GetIDFromLink(s) == searchedID then
+					equipCount = equipCount + 1
+				end
+			end
+		end
+		local mailCount = 0
+		for slotID=1, table.getn(charData.mail) do
+			local s = charData.mail[slotID]
+			if (s.link ~= nil) and (self:GetIDFromLink(s.link) == searchedID) then
+				if (s.count == nil) or (s.count == 0) then
+					mailCount = mailCount + 1
+				else
+					mailCount = mailCount + s.count
+				end
+			end
+		end
+		local charCount = bagCount + bankCount + equipCount + mailCount
+		count = count + charCount
+		if charCount > 0 then
+			local charInfo = ORANGE .. charCount .. WHITE .. " ("
+			if bagCount > 0 then
+				charInfo = charInfo .. WHITE .. L["Bags"] .. ": "  .. TEAL .. bagCount
+				charCount = charCount - bagCount
+				if charCount > 0 then
+					charInfo = charInfo .. WHITE .. L[", "]
+				end
+			end
+			if bankCount > 0 then
+				charInfo = charInfo .. WHITE .. L["Bank"] .. ": " .. TEAL .. bankCount
+				charCount = charCount - bankCount
+				if charCount > 0 then
+					charInfo = charInfo .. WHITE .. L[", "]
+				end
+			end
+			if equipCount > 0 then
+				charInfo = charInfo .. WHITE .. L["Equipped"] .. ": "  .. TEAL .. equipCount
+				charCount = charCount - equipCount
+				if charCount > 0 then
+					charInfo = charInfo .. WHITE .. L[", "]
+				end
+			end
+			if mailCount > 0 then
+				charInfo = charInfo .. WHITE .. L["Mail"] .. ": "  .. TEAL .. mailCount
+			end
+			charInfo = charInfo .. WHITE .. ")"
+			V.ItemCount[Altoholic:GetClassColor(charData.class) .. charName] = charInfo
+		end
 	end
+
 	return count
 end
 
@@ -1731,101 +1726,106 @@ function Altoholic:WhoKnowsRecipe(tooltip, ttype)
 	if ttname == nil then return end
 	if Altoholic:RecipeOrBook(ttname) == "isBook" then
 		local ttuse = getglobal(ttype..'TooltipTextLeft4'):GetText()
-		local spellName, reqClass, reqLevel
 		if string.find(ttuse, "%sTeaches") and not string.find(getglobal(ttype..'TooltipTextLeft4'):GetText(), USED) then
-			_, _, spellName = string.find(ttuse, ".*Teaches%s(.+%s%(.+%))")
-			_, _, reqClass = string.find(getglobal(ttype..'TooltipTextLeft2'):GetText(), string.gsub(ITEM_CLASSES_ALLOWED,"%%s","(.+)"))
-			_, _, reqLevel = string.find(getglobal(ttype..'TooltipTextLeft3'):GetText(), string.gsub(ITEM_MIN_LEVEL,"%%d","(.+)"))
+			local _, _, spellName = string.find(ttuse, ".*Teaches%s(.+%s%(.+%))")
+			local _, _, reqClass = string.find(getglobal(ttype..'TooltipTextLeft2'):GetText(), string.gsub(ITEM_CLASSES_ALLOWED,"%%s","(.+)"))
+			local _, _, reqLevel = string.find(getglobal(ttype..'TooltipTextLeft3'):GetText(), string.gsub(ITEM_MIN_LEVEL,"%%d","(.+)"))
 			local book
-			for CharacterName, c in pairs(Altoholic.db.account.data[V.faction][V.realm].char) do
+
+			for charName, charData in Altoholic:GetCrossFactionCharactersDataByName() do
 				local isNotKnownByChar = false
-				for _, SpellName in pairs(c.spells) do
+				for _, SpellName in pairs(charData.spells) do
 					if SpellName ~= spellName then
 						isNotKnownByChar = true
 						break
 					end
 				end
+
 				local ttlines
-				if isNotKnownByChar and reqClass == c.class then
+				if isNotKnownByChar and reqClass == charData.class then
 					if AltoOptions_TooltipLearnableBy:GetChecked() then
-						if c.level < tonumber(reqLevel) then
-							ttlines = RED .. L["Will be learnable by "] .. WHITE .. CharacterName .. YELLOW .. " ("..c.level..")" .. "\n"
+						if charData.level < tonumber(reqLevel) then
+							ttlines = RED .. L["Will be learnable by "] .. WHITE .. charName .. YELLOW .. " ("..charData.level..")" .. "\n"
 						else
-							ttlines = YELLOW .. L["Could be learned by "] .. WHITE .. CharacterName .. "\n"
+							ttlines = YELLOW .. L["Could be learned by "] .. WHITE .. charName .. "\n"
 						end
 					else
 						ttlines = ""
 					end
-				elseif reqClass == c.class then
+				elseif reqClass == charData.class then
 					if AltoOptions_TooltipAlreadyKnown:GetChecked() then
-						ttlines = TEAL .. L["Already known by "] .. WHITE .. CharacterName .. "\n"
+						ttlines = TEAL .. L["Already known by "] .. WHITE .. charName .. "\n"
 					else
 						ttlines = ""
 					end
 				end
+
 				if book == nil then
 					book = ttlines
 				elseif ttlines then
 					book = book .. ttlines
 				end
 			end
+
 			if book then
 				self:AddLine(" ",1,1,1)
 				self:AddLine(book,1,1,1)
 			end
 		end
 	elseif Altoholic:RecipeOrBook(ttname) == "isRecipe" then
-		local recipeName, ttProfession, profName, profLevel, recipeTT, msg
-		_, _, recipeName = string.find(ttname, ".*:%s(.+)")
-		ttProfession = getglobal(ttype..'TooltipTextLeft2'):GetText()
-		_, _, profName, profLevel = string.find(ttProfession, ".*%s(.+)%s%((.+)%)")
-		profLevel = tonumber(profLevel)
-		for CharacterName, c in pairs(Altoholic.db.account.data[V.faction][V.realm].char) do
-			if Altoholic:AltHasTradeSkill(CharacterName, profName) and c.recipes[profName].ScanFailed then
+		local recipeTT
+		local _, _, recipeItemName = string.find(ttname, ".*:%s(.+)")
+
+		local ttProfession = getglobal(ttype..'TooltipTextLeft2'):GetText()
+		local _, _, recipeProfName, recipeProfLevel = string.find(ttProfession, ".*%s(.+)%s%((.+)%)")
+		recipeProfLevel = tonumber(recipeProfLevel)
+
+		for charName, charData in Altoholic:GetCrossFactionCharactersDataByName() do
+			if Altoholic:AltHasTradeSkill(charName, recipeProfName) and charData.recipes[recipeProfName].ScanFailed then
 				self:AddLine(" ",1,1,1)
 				self:AddLine("------------------------------------------------",1,1,1)
-				self:AddLine("Recipe database is empty for " .. CharacterName .. ".",1,0,0)
-				self:AddLine("Please open your " .. profName .. " tradeskill.",1,0,0)
+				self:AddLine("Recipe database is empty for " .. charName .. ".",1,0,0)
+				self:AddLine("Please open your " .. recipeProfName .. " tradeskill.",1,0,0)
 				self:AddLine("------------------------------------------------",1,1,1)
 			end
-			for ProfessionName, p in pairs(c.recipes) do
-				if ProfessionName == profName then
+
+			for charProfName, charProfData in pairs(charData.recipes) do
+				if charProfName == recipeProfName then
 					local isKnownByChar = false
-					for _, TradeSkillInfo in pairs (p.list) do
-						if TradeSkillInfo.name ~= nil then
-							local skillName = TradeSkillInfo.name
-							if skillName == recipeName then
-								isKnownByChar = true
-								break
-							end
+					for _, tradeSkill in pairs(charProfData.list) do
+						if tradeSkill.name == recipeItemName then
+							isKnownByChar = true
+							break
 						end
 					end
+
 					local ttlines = ""
 					if isKnownByChar then
 						if AltoOptions_TooltipAlreadyKnown:GetChecked() then
-							ttlines = TEAL .. L["Already known by "] .. WHITE .. CharacterName .. "\n"
+							ttlines = TEAL .. L["Already known by "] .. WHITE .. charName .. "\n"
 						else
 							ttlines = ""
 						end
 					else
 						if AltoOptions_TooltipLearnableBy:GetChecked() then
-							local curRank
-							if (ProfessionName == BI["Cooking"]) or
-								(ProfessionName == BI["First Aid"]) or
-								(ProfessionName == BI["Fishing"]) then
-								curRank = Altoholic:GetSkillInfo( c.skill[L["Secondary Skills"]][ProfessionName] )
+							local charProfType
+							if charProfName == BI["Cooking"] or charProfName == BI["First Aid"] or charProfName == BI["Fishing"] then
+								charProfType = "Secondary Skills"
 							else
-								curRank = Altoholic:GetSkillInfo( c.skill[L["Professions"]][ProfessionName] )
+								charProfType = "Professions"
 							end
-							if curRank < profLevel and curRank > 0 then
-								ttlines = RED .. L["Will be learnable by "] .. WHITE .. CharacterName .. YELLOW .. " ("..curRank..")" .. "\n"
-							elseif curRank > profLevel then
-								ttlines = YELLOW .. L["Could be learned by "] .. WHITE .. CharacterName .. "\n"
+
+							local charProfLevel = Altoholic:GetSkillInfo(charData.skill[L[charProfType]][charProfName])
+							if charProfLevel > 0 and charProfLevel < recipeProfLevel then
+								ttlines = RED .. L["Will be learnable by "] .. WHITE .. charName .. YELLOW .. " ("..charProfLevel..")" .. "\n"
+							elseif charProfLevel >= recipeProfLevel then
+								ttlines = YELLOW .. L["Could be learned by "] .. WHITE .. charName .. "\n"
 							end
 						else
 							ttlines = ""
 						end
 					end
+
 					if recipeTT == nil then
 						recipeTT = ttlines
 					else
@@ -1834,11 +1834,26 @@ function Altoholic:WhoKnowsRecipe(tooltip, ttype)
 				end
 			end
 		end
+
 		if recipeTT ~= nil and recipeTT ~= "" then
 			self:AddLine(" ",1,1,1)
 			self:AddLine(recipeTT,1,1,1)
 		end
 	end
+end
+
+function Altoholic:GetCrossFactionCharactersDataByName()
+	local result = {}
+	for faction, _ in pairs(self.db.account.data) do
+		for realm, _  in pairs(self.db.account.data[faction]) do
+			if realm == V.realm then
+				for charName, charData in pairs(self.db.account.data[faction][realm].char) do
+					result[charName] = charData
+				end
+			end
+		end
+	end
+	return result
 end
 
 function Altoholic:GetCraftFromRecipe(link)
